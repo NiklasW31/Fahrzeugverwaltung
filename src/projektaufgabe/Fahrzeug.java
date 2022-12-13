@@ -1,19 +1,25 @@
 package projektaufgabe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Fahrzeug {
+public abstract class Fahrzeug implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String beschreibung;
 	private String modell;
 	private int groese;
-	private ArrayList<String> ausruestung;
+	private List<String> ausruestung;
 	private int leistung;
-	private ArrayList<String> grundaustattung;
+	private List<String> grundaustattung;
 	
 	
-	public Fahrzeug(String beschreibung, String modell, int groese, ArrayList<String> ausruestung, int leistung,
-			ArrayList<String> grundaustattung) {
+	public Fahrzeug(String beschreibung, String modell, int groese, List<String> ausruestung, int leistung,
+			List<String> grundaustattung) {
 		super();
 		this.beschreibung = beschreibung;
 		this.modell = modell;
@@ -44,7 +50,7 @@ public abstract class Fahrzeug {
 	}
 
 
-	public ArrayList<String> getAusruestung() {
+	public List<String> getAusruestung() {
 		return ausruestung;
 	}
 
@@ -64,7 +70,7 @@ public abstract class Fahrzeug {
 	}
 
 
-	public ArrayList<String> getGrundaustattung() {
+	public List<String> getGrundaustattung() {
 		return grundaustattung;
 	}
 
