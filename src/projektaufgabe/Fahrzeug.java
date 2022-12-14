@@ -6,10 +6,10 @@ import java.util.List;
 
 public abstract class Fahrzeug implements Serializable 
 {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; //Seriennummer?
 	private String beschreibung;
 	private String modell;
-	private int groese;
+	private int groesse;
 	private List<String> ausruestung;
 	private int leistung;
 	private List<String> grundaustattung;
@@ -20,7 +20,7 @@ public abstract class Fahrzeug implements Serializable
 		super();
 		this.beschreibung = beschreibung;
 		this.modell = modell;
-		this.groese = groese;
+		this.groesse = groese;
 		this.ausruestung = ausruestung;
 		this.leistung = leistung;
 		this.grundaustattung = grundaustattung;
@@ -28,7 +28,7 @@ public abstract class Fahrzeug implements Serializable
 
 	@Override
 	public String toString() {
-		return "Fahrzeug [beschreibung=" + beschreibung + ", modell=" + modell + ", groese=" + groese + ", ausruestung="
+		return "Fahrzeug [beschreibung=" + beschreibung + ", modell=" + modell + ", groese=" + groesse + ", ausruestung="
 				+ ausruestung + ", leistung=" + leistung + ", grundaustattung=" + grundaustattung + "]";
 	}
 
@@ -70,10 +70,10 @@ public abstract class Fahrzeug implements Serializable
 	}
 
 	public int getGroese() {
-		return groese;
+		return groesse;
 	}
 	public void setGroese(int groese) {
-		this.groese = groese;
+		this.groesse = groese;
 	}
 	
 }

@@ -7,12 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Verwaltung {
-
+public class Verwaltung //Textdatei einlesen & änderungen & ausgeben
+{
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		
-		
-		
 		ausgeben();
 	}
 	
@@ -38,8 +35,5 @@ public class Verwaltung {
 		System.out.println("Grundaustattung: " + myObjectFromFile.getGrundaustattung());
 	}
 	
-
-
-
 	
 }

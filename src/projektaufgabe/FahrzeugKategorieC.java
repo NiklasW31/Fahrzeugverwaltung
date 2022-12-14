@@ -1,13 +1,14 @@
 package projektaufgabe;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class FahrzeugKategorieC extends Fahrzeug {
+public class FahrzeugKategorieC extends Fahrzeug 
+{
+	private static final long serialVersionUID = 1L;
 
-	public FahrzeugKategorieC(String beschreibung, String modell, int groese, ArrayList<String> ausruestung, int leistung,
-			ArrayList<String> grundaustattung) {
+	public FahrzeugKategorieC (String beschreibung, String modell, int groese, 
+			List<String> ausruestung, int leistung, List<String> grundaustattung) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung);
-		// TODO Auto-generated constructor stub
 	}
 
 }
