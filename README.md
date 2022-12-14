@@ -30,6 +30,7 @@ Welche Funktionen muss / soll das Programm haben?
 Wie sieht die grobe Architektur aus?
 >Package: 
   - projektaufgabe
+  
 >Grundklassen:
   - Fahrzeug(abstract)
   - FahrzeugKategorieA (abstract)
