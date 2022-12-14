@@ -1,4 +1,4 @@
-package projektaufgabe;
+package enums;
 
 public enum ErlaubtesPersonalBesatzung {
 	

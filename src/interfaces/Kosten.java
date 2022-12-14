@@ -1,4 +1,4 @@
-package projektaufgabe;
+package interfaces;
 
 public interface Kosten {
 	void AnzahlKosten();
