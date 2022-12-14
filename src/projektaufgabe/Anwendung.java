@@ -7,7 +7,7 @@ public class Anwendung //Main-Terminal
 	public static void main(String[] args) 
 	{	
 		//Auswahl der Aktion
-		System.out.println("Was willst du tun? :");
+		System.out.println("Was moechten Sie tun? :");
 		System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
 		System.out.println("2. Gebe Informationen über ein Fahrzeug aus.");
 		System.out.println("3. Erstelle ein Fahrzeug");
