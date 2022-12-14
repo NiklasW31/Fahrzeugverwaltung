@@ -161,7 +161,7 @@ public class Anwendung //Main-Terminal
 			Files.delete(datei);
 			System.out.println("Löschen war erfolgreich.");
 		} catch (IOException e1) {
-			System.out.println("Löschen fehlgeschkagen.");
+			System.out.println("Löschen fehlgeschlagen.");
 			e1.printStackTrace();
 		}
 		
