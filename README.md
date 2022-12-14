@@ -45,11 +45,13 @@ Wie sieht die grobe Architektur aus?
   - abstract Ausrüstung; //vielleicht abstract variable List
   - abstract Leistung
   - abstract Grundausstattung
+
 >Enums:
   - Unter Kategorien (Enum);
   - Einsatzgebiet (Enum);
   - Erlaubtes Personal/Besatzung (Enum);
   - Erlaubte Fahrer? (Enum);
+
 >Interfaces:
   - (interface)Benzin;
   - (interface)Kosten;
