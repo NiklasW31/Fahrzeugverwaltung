@@ -74,5 +74,4 @@ public abstract class Fahrzeug implements Serializable
 		this.groese = groese;
 	}
 	
-	
 }
