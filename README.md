@@ -54,7 +54,7 @@ Interfaces:
   - (interface)Reinigung;
   
 Wie sieht Ihre grobe Zeitplanung aus?
-    7.12.22 – 14.12.22: Aufgabenbeschreibung.
-    14.12.22 – 21.12.22: Programmierstart – Grundgerüst (Grundklassen, Methoden …)
-    21.12.22 – 11.01.22: Verknüpfungen untereinander, Interaktions-Terminal (Main Class)
-    11.01.22 – 16.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen, nice to have liste abarbeiten (falls noch Zeit ist.) 
+  - 7.12.22 – 14.12.22: Aufgabenbeschreibung.
+  - 14.12.22 – 21.12.22: Programmierstart – Grundgerüst (Grundklassen, Methoden …)
+  - 21.12.22 – 11.01.22: Verknüpfungen untereinander, Interaktions-Terminal (Main Class)
+  - 11.01.22 – 16.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen, nice to have liste abarbeiten (falls noch Zeit ist.) 
