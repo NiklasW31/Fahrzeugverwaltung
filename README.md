@@ -39,6 +39,7 @@ Wie sieht die grobe Architektur aus?
   - FahrzeugKategorieC (abstract)
   - Ausgaben
 
+>Methoden zu Fahrzeug
   - abstract Beschreibung; //Eigenschaften & Details zum Wagen
   - abstract Modelle
   - abstract Größe
