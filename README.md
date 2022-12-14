@@ -28,9 +28,9 @@ Welche Funktionen muss / soll das Programm haben?
 
 
 Wie sieht die grobe Architektur aus?
-Package: 
+>Package: 
   - projektaufgabe
-Grundklassen:
+>Grundklassen:
   - Fahrzeug(abstract)
   - FahrzeugKategorieA (abstract)
   - FahrzeugKategorieB (abstract)
@@ -43,12 +43,12 @@ Grundklassen:
   - abstract Ausrüstung; //vielleicht abstract variable List
   - abstract Leistung
   - abstract Grundausstattung
-Enums:
+>Enums:
   - Unter Kategorien (Enum);
   - Einsatzgebiet (Enum);
   - Erlaubtes Personal/Besatzung (Enum);
   - Erlaubte Fahrer? (Enum);
-Interfaces:
+>Interfaces:
   - (interface)Benzin;
   - (interface)Kosten;
   - (interface)Reinigung;
