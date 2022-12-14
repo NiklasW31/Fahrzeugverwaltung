@@ -14,7 +14,6 @@ public abstract class Fahrzeug implements Serializable
 	private int leistung;
 	private List<String> grundaustattung;
 	
-	
 	public Fahrzeug(String beschreibung, String modell, int groese, List<String> ausruestung, int leistung,
 			List<String> grundaustattung) {
 		super();
