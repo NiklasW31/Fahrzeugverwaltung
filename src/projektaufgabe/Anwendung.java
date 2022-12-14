@@ -9,14 +9,13 @@ public class Anwendung {
 		
 		int auswahl;
 		
+		//Auswahl der Aktion
 		System.out.println("Was willst du tun? :");
 		System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
 		System.out.println("2. Gebe Informationen über ein Fahrzeug aus.");
 		System.out.println("3. Erstelle ein Fahrzeug");
 		System.out.println("4. Lösche ein Fahrzeug");
 		System.out.println("5. Vergleiche Fahrzeuge");
-		
-		
 		
 	}
 
