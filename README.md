@@ -37,23 +37,24 @@ Grundklassen:
   - FahrzeugKategorieC (abstract)
   - Ausgaben
 
-•	abstract Beschreibung; //Eigenschaften & Details zum Wagen
-•	abstract Modelle
-•	abstract Größe
-•	abstract Ausrüstung; //vielleicht abstract variable List
-•	abstract Leistung
-•	abstract Grundausstattung
+  - abstract Beschreibung; //Eigenschaften & Details zum Wagen
+  - abstract Modelle
+  - abstract Größe
+  - abstract Ausrüstung; //vielleicht abstract variable List
+  - abstract Leistung
+  - abstract Grundausstattung
 Enums:
-•	Unter Kategorien (Enum);
-•	Einsatzgebiet (Enum);
-•	Erlaubtes Personal/Besatzung (Enum);
-•	Erlaubte Fahrer? (Enum);
+  - Unter Kategorien (Enum);
+  - Einsatzgebiet (Enum);
+  - Erlaubtes Personal/Besatzung (Enum);
+  - Erlaubte Fahrer? (Enum);
 Interfaces:
-•	(interface)Benzin;
-•	(interface)Kosten;
-•	(interface)Reinigung;
+  - (interface)Benzin;
+  - (interface)Kosten;
+  - (interface)Reinigung;
+  
 Wie sieht Ihre grobe Zeitplanung aus?
-7.12.22 – 14.12.22: Aufgabenbeschreibung.
-14.12.22 – 21.12.22: Programmierstart – Grundgerüst (Grundklassen, Methoden …)
-21.12.22 – 11.01.22: Verknüpfungen untereinander, Interaktions-Terminal (Main Class)
-11.01.22 – 16.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen, nice to have liste abarbeiten (falls noch Zeit ist.) 
+    7.12.22 – 14.12.22: Aufgabenbeschreibung.
+    14.12.22 – 21.12.22: Programmierstart – Grundgerüst (Grundklassen, Methoden …)
+    21.12.22 – 11.01.22: Verknüpfungen untereinander, Interaktions-Terminal (Main Class)
+    11.01.22 – 16.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen, nice to have liste abarbeiten (falls noch Zeit ist.) 
