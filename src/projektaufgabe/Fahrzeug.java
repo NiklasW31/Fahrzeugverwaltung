@@ -35,18 +35,13 @@ public abstract class Fahrzeug implements Serializable
 	public String getBeschreibung() {
 		return beschreibung;
 	}
-
-
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
 
-
 	public String getModell() {
 		return modell;
 	}
-
-
 	public void setModell(String modell) {
 		this.modell = modell;
 	}
@@ -55,18 +50,13 @@ public abstract class Fahrzeug implements Serializable
 	public List<String> getAusruestung() {
 		return ausruestung;
 	}
-
-
 	public void setAusruestung(ArrayList<String> ausruestung) {
 		this.ausruestung = ausruestung;
 	}
-
-
+	
 	public int getLeistung() {
 		return leistung;
 	}
-
-
 	public void setLeistung(int leistung) {
 		this.leistung = leistung;
 	}
@@ -75,8 +65,6 @@ public abstract class Fahrzeug implements Serializable
 	public List<String> getGrundaustattung() {
 		return grundaustattung;
 	}
-
-
 	public void setGrundaustattung(ArrayList<String> grundaustattung) {
 		this.grundaustattung = grundaustattung;
 	}
@@ -85,8 +73,6 @@ public abstract class Fahrzeug implements Serializable
 	public int getGroese() {
 		return groese;
 	}
-
-
 	public void setGroese(int groese) {
 		this.groese = groese;
 	}
