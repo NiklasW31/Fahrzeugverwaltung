@@ -2,13 +2,10 @@ package projektaufgabe;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Verwaltung {
 
@@ -35,7 +32,7 @@ public class Verwaltung {
 		
 		System.out.println("Beschreibung: " + myObjectFromFile.getBeschreibung());
 		System.out.println("Modell: " + myObjectFromFile.getModell());
-		System.out.println("Größe: " + myObjectFromFile.getGroese());
+		System.out.println("GrÃ¶ÃŸe: " + myObjectFromFile.getGroese());
 		System.out.println("Ausruestung: " + myObjectFromFile.getAusruestung());
 		System.out.println("Leisung: " + myObjectFromFile.getLeistung());
 		System.out.println("Grundaustattung: " + myObjectFromFile.getGrundaustattung());
