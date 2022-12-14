@@ -46,7 +46,6 @@ public abstract class Fahrzeug implements Serializable
 		this.modell = modell;
 	}
 
-
 	public List<String> getAusruestung() {
 		return ausruestung;
 	}
@@ -61,14 +60,12 @@ public abstract class Fahrzeug implements Serializable
 		this.leistung = leistung;
 	}
 
-
 	public List<String> getGrundaustattung() {
 		return grundaustattung;
 	}
 	public void setGrundaustattung(ArrayList<String> grundaustattung) {
 		this.grundaustattung = grundaustattung;
 	}
-
 
 	public int getGroese() {
 		return groese;
