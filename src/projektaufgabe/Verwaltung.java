@@ -13,13 +13,13 @@ public class Verwaltung //Textdatei einlesen & änderungen & ausgeben
 		ausgeben();
 	}
 	
-	public static void erstellen(Fahrzeug fahrzeug) throws IOException, ClassNotFoundException{
+	public static void erstellen(Fahrzeug fahrzeug) throws IOException, ClassNotFoundException {
 		FileOutputStream fileOutputStream = new FileOutputStream("FahrzeugListe.Liste");
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 		objectOutputStream.writeObject(fahrzeug);
 	}
 	
-	public static void loeschen(Fahrzeug fahrzeug) throws IOException, ClassNotFoundException{
+	public static void loeschen(Fahrzeug fahrzeug) throws IOException, ClassNotFoundException {
 	}
 	
 	public static void ausgeben() throws IOException, ClassNotFoundException {

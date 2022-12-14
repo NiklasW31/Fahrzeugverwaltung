@@ -6,9 +6,6 @@ public class Anwendung //Main-Terminal
 {
 	public static void main(String[] args) 
 	{	
-		Scanner scanner = new Scanner(System.in);
-		int auswahl;
-		
 		//Auswahl der Aktion
 		System.out.println("Was willst du tun? :");
 		System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
@@ -17,6 +14,7 @@ public class Anwendung //Main-Terminal
 		System.out.println("4. Lösche ein Fahrzeug");
 		System.out.println("5. Vergleiche Fahrzeuge");
 		
+		Scanner scanner = new Scanner(System.in);
 		int eingabe = scanner.nextInt();	
 		
 		switch(eingabe) 
