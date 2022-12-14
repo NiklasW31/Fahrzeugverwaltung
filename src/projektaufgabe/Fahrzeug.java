@@ -32,6 +32,9 @@ public abstract class Fahrzeug implements Serializable
 				+ ausruestung + ", leistung=" + leistung + ", grundaustattung=" + grundaustattung + "]";
 	}
 
+	
+	/**---------- Setter und Getter ----------*/
+	
 	public String getBeschreibung() {
 		return beschreibung;
 	}
