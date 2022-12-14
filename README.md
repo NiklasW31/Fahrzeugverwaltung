@@ -28,9 +28,9 @@ Welche Funktionen muss / soll das Programm haben?
 
 
 Wie sieht die grobe Architektur aus?
-Package: 
+>Package: 
   - projektaufgabe
-Grundklassen:
+>Grundklassen:
   - Fahrzeug(abstract)
   - FahrzeugKategorieA (abstract)
   - FahrzeugKategorieB (abstract)
