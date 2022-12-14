@@ -14,8 +14,9 @@ public abstract class Fahrzeug implements Serializable
 	private int leistung;
 	private List<String> grundaustattung;
 	
-	public Fahrzeug(String beschreibung, String modell, int groese, List<String> ausruestung, int leistung,
-			List<String> grundaustattung) {
+	public Fahrzeug(String beschreibung, String modell, int groese, 
+		List<String> ausruestung, int leistung, List<String> grundaustattung) 
+	{
 		super();
 		this.beschreibung = beschreibung;
 		this.modell = modell;
@@ -25,6 +26,11 @@ public abstract class Fahrzeug implements Serializable
 		this.grundaustattung = grundaustattung;
 	}
 
+	@Override
+	public String toString() {
+		return "Fahrzeug [beschreibung=" + beschreibung + ", modell=" + modell + ", groese=" + groese + ", ausruestung="
+				+ ausruestung + ", leistung=" + leistung + ", grundaustattung=" + grundaustattung + "]";
+	}
 
 	public String getBeschreibung() {
 		return beschreibung;
@@ -83,13 +89,6 @@ public abstract class Fahrzeug implements Serializable
 
 	public void setGroese(int groese) {
 		this.groese = groese;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Fahrzeug [beschreibung=" + beschreibung + ", modell=" + modell + ", groese=" + groese + ", ausruestung="
-				+ ausruestung + ", leistung=" + leistung + ", grundaustattung=" + grundaustattung + "]";
 	}
 	
 	
