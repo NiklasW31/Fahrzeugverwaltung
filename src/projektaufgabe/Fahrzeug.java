@@ -6,7 +6,7 @@ import java.util.List;
 
 public abstract class Fahrzeug implements Serializable 
 {
-	private static final long serialVersionUID = 1L; //Seriennummer?
+	private static final long serialVersionUID = 1L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
 	private String beschreibung;
 	private String modell;
 	private int groesse;
