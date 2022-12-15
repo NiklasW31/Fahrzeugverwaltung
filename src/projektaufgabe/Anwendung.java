@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import enums.ErlaubteFahrer;
+
 public class Anwendung //Main-Terminal
 {
 	private static Scanner scanner = new Scanner(System.in);
@@ -140,8 +142,23 @@ public class Anwendung //Main-Terminal
 				grundaustattung.add(grundaustattungTemp);
 			}
 		}
+		System.out.println("Bitte geben Sie die benötigte Führerscheinklasse für das Fahrzeug ein: (B, C1, C)");
+		boolean gueltig = true;
+		String klasse = "";
+		while(gueltig) {
+			klasse = scanner.next();
+			switch(klasse) {
+				case "C", "C1", "B":
+					gueltig = false;
+					break;
+				default:
+					System.out.println("ungültige eingabe. Bitte geben Sie eine gültige Klasse ein. (B, C1, C)");
+					break;
+			}
+		}
+		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
 
-		fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung));
+		fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
 			for (Object obj : fahrzeuge) {
 			oos.writeObject(obj);
@@ -168,7 +185,7 @@ public class Anwendung //Main-Terminal
 		//loescht die alte "Text" Datei
 		try {
 			Files.delete(datei);
-			System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
+			//System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
 		} catch (IOException e1) {
 			System.out.println("Loeschen fehlgeschlagen."); //Die Loeschung ist fehlgeschlagen!
 			e1.printStackTrace();

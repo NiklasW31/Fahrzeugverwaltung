@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface Kosten {
-	void AnzahlKosten();
+	void anzahlKosten();
 	double berechenAlleKosten();
 }
