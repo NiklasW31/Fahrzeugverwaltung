@@ -27,9 +27,9 @@ public class Anwendung //Main-Terminal
 		//Auswahl der Aktion
 		System.out.println("Was moechten Sie tun? :");
 		System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
-		System.out.println("2. Gebe Informationen über ein Fahrzeug aus.");
+		System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
 		System.out.println("3. Erstelle ein Fahrzeug");
-		System.out.println("4. Lösche ein Fahrzeug");
+		System.out.println("4. Loesche ein Fahrzeug");
 		System.out.println("5. Vergleiche Fahrzeuge");
 		System.out.println("6. Beende das Programm");
 		
@@ -46,14 +46,14 @@ public class Anwendung //Main-Terminal
 				fahrzeugeAnzeigen();
 				break;
 			case 2:
-				//Gebe Informationen über ein Fahrzeug aus
+				//Gebe Informationen ueber ein Fahrzeug aus
 				break;
 			case 3:
 				//Erstelle ein Fahrzeug
 				fahrzeugErstellen();
 				break;
 			case 4:
-				//Lösche ein Fahrzeug
+				//Loesche ein Fahrzeug
 				fahrzeugLoeschen();
 				break;
 			case 5:
@@ -67,13 +67,13 @@ public class Anwendung //Main-Terminal
 				
 			default:
 				//Exeption oder simple nachricht
-				System.out.println("Eingabe ungültig, bitte versuche es erneut.");
+				System.out.println("Eingabe ungueltig, bitte versuchen Sie es erneut.");
 				break;
-				}
+			}
 		}
 		
 		System.out.println("Programm wurde Beendet");
-		}
+	}
 
 	public static void fahrzeugeLaden() 
 	{
@@ -97,36 +97,44 @@ public class Anwendung //Main-Terminal
 			System.out.println(counter + ": " + fa.toString());
 			counter++;
 		}
-		
+		//schoeneren output mit 01,02,10,usw.?
 	}
 	
 	public static void fahrzeugErstellen() 
 	{
-		System.out.println("Gebe eine Beschreibung ein: ");
+		System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
 		String beschreibung = scanner.next();
-		System.out.println("Gebe das Modell ein: ");
+		//muss man es eingeben, koennte auch bei Fahrezeug eine feste machen?
+		
+		System.out.println("Bitte geben Sie das Modell ein: ");
 		String modell = scanner.next();
-		System.out.println("Gebe die Fahrzeug Größe ein: ");
+		
+		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		int groesse = scanner.nextInt();
-		System.out.println("Gebe die Ausrüstung des Fahrzeuges an: ");
+		
+		System.out.println("Bitte geben Sie die Ausruestung des Fahrzeuges an: ");
 		List<String> ausruestung = new ArrayList<>();
+		
 		while(true) {
-			System.out.println("Gebe ein Gegegenstand ein: (zum beenden 'x' eingeben)");
+			System.out.println("Bitte geben Sie einen Gegegenstand ein: (zum beenden 'x' eingeben)");
 			String ausruestungTemp = scanner.next();
-			if(ausruestungTemp.equals("x")) {
+			if(ausruestungTemp.equals("x") || ausruestungTemp.equals("X")) {
 				break;
 			}else {
 				ausruestung.add(ausruestungTemp);
 			}
 		}
-		System.out.println("Gebe die Leistung des Fahrzeuges an: ");
+		
+		System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: ");
 		int leistung = scanner.nextInt();
-		System.out.println("Gebe die Grundaustattung an: ");
+		
+		System.out.println("Bitte geben Sie die Grundaustattung an: ");
 		List<String> grundaustattung = new ArrayList<>();
+		
 		while(true) {
-			System.out.println("Gebe ein Objekt ein: (zum beenden 'x' eingeben)");
+			System.out.println("Bitte geben Sie ein Objekt ein: (zum beenden 'x' eingeben)");
 			String grundaustattungTemp = scanner.next();
-			if(grundaustattungTemp.equals("x")) {
+			if(grundaustattungTemp.equals("x")|| grundaustattungTemp.equals("X")) {
 				break;
 			}else {
 				grundaustattung.add(grundaustattungTemp);
@@ -143,31 +151,32 @@ public class Anwendung //Main-Terminal
 			}
 	}
 	
-	private static void fahrzeugLoeschen(){
+	private static void fahrzeugLoeschen()
+	{
 		fahrzeugeAnzeigen();
 		Path datei = Paths.get("FahrzeugListe.Liste");
 		
-		//löscht das Fahrzeug aus der Schleife
+		//loescht das Fahrzeug aus der Schleife
 		try {
-		System.out.println("Bitte gebe die Nummer des Fahrzeuges an welches du Löschen willst: ");
+		System.out.println("Bitte geben Sie die Nummer des Fahrzeuges an, welches sie loeschen moechten: ");
 		int fahrzeugNummer = scanner.nextInt();
 		fahrzeuge.remove(fahrzeugNummer);
 		
 		} catch (Exception e) {
-				System.out.println("Fehler: ungültige Fahrzeug Nummer");
+				System.out.println("Fehler: ungueltige Fahrzeug Nummer");
 		}
-		//löscht die alte "Text" Datei
+		//loescht die alte "Text" Datei
 		try {
 			Files.delete(datei);
-			System.out.println("Löschen war erfolgreich.");
+			System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
 		} catch (IOException e1) {
-			System.out.println("Löschen fehlgeschlagen.");
+			System.out.println("Loeschen fehlgeschlagen."); //Die Loeschung ist fehlgeschlagen!
 			e1.printStackTrace();
 		}
 		
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
 			for (Fahrzeug fa : fahrzeuge) {
-			//Die übrig gebliebenen Fahrzeuge werden wieder eingefügt
+			//Die uebrig gebliebenen Fahrzeuge werden wieder eingefuegt
 			oos.writeObject(fa);
 			}
 			} catch (IOException ex) {
@@ -176,7 +185,7 @@ public class Anwendung //Main-Terminal
 		}
 	
 	private static void fahrzeugeVergleichen() {
-		System.out.println("Fehlt noch :/");
+		System.out.println("Fehlt noch :/"); //???
 	}
 
 }
