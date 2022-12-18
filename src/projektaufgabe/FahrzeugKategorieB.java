@@ -12,5 +12,8 @@ public class FahrzeugKategorieB extends Fahrzeug
 			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 	}
-
+	/** 
+	 * für beschreibung einsetzen:
+	 * 		Notfallkrankenwagen = Für den Transport, die Erstversorgung und Überwachung von Patienten.
+	 */
 }

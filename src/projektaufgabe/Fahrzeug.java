@@ -9,7 +9,13 @@ import enums.ErlaubteFahrer;
 public abstract class Fahrzeug implements Serializable 
 {
 	private static final long serialVersionUID = 1L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
-	private String beschreibung;
+	private String beschreibung; 
+	/**
+	 * sollte abstract sein. -> abstract geht grad aber nicht
+	 * Geplannt war, das jede Kategorie eine Beschreibung hat wofür genau sie benutzt 
+	 * werden und nicht individuel eigegeben.
+	 */
+	
 	private String modell;
 	private int groesse;
 	private List<String> ausruestung;
@@ -32,7 +38,8 @@ public abstract class Fahrzeug implements Serializable
 
 	@Override
 	public String toString() {
-		return "{beschreibung-" + beschreibung + ", modell-" + modell + ", groese-" + groesse 
+		return "Beschreibung: " + beschreibung + ".\n"
+				+ "{modell-" + modell + ", groese-" + groesse 
 				+ ", ausruestung-" + ausruestung + ", leistung-" + leistung 
 				+ ", grundaustattung-" + grundaustattung + ", fuehrerscheinklasse-" + erlaubteFahrer +"}";
 	}

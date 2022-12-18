@@ -12,5 +12,8 @@ public class FahrzeugKategorieA extends Fahrzeug
 			List<String> ausruestung,int leistung,List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 	}
-
+/** 
+ * für beschreibung einsetzen:
+ * 		Krankenwagen = Für den Transport eines oder mehrerer Patienten mit Krankentrage und/oder Tragestuhl.  
+ */
 }
