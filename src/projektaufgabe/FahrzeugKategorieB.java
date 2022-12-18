@@ -2,9 +2,10 @@ package projektaufgabe;
 
 import java.util.List;
 import enums.ErlaubteFahrer;
+import interfaces.Fahrzeugzusatz;
 
 
-public class FahrzeugKategorieB extends Fahrzeug 
+public class FahrzeugKategorieB extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 1L;
 
@@ -16,4 +17,23 @@ public class FahrzeugKategorieB extends Fahrzeug
 	 * für beschreibung einsetzen:
 	 * 		Notfallkrankenwagen = Für den Transport, die Erstversorgung und Überwachung von Patienten.
 	 */
+
+	@Override
+	public void benutzeBenzin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void anzahlKosten() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double berechenAlleKosten() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

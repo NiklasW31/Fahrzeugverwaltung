@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Fahrzeugzusatz extends Benzin, Kosten, Reinigung{
+public interface Fahrzeugzusatz extends Benzin, Kosten{
 	
 }
