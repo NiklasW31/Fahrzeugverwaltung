@@ -46,30 +46,37 @@ public class Anwendung //Main-Terminal
 			case 1:
 				//Gebe eine Liste aller Fahrzeuge aus
 				fahrzeugeAnzeigen();
+				System.out.println();
 				break;
 			case 2:
 				//Gebe Informationen ueber ein Fahrzeug aus
+				System.out.println("NOCH NICHT VORHANDEN\n");
 				break;
 			case 3:
 				//Erstelle ein Fahrzeug
 				fahrzeugErstellen();
+				System.out.println();
 				break;
 			case 4:
 				//Loesche ein Fahrzeug
 				fahrzeugLoeschen();
+				System.out.println();
 				break;
 			case 5:
 				//Vergleiche Fahrzeuge
 				fahrzeugeVergleichen();
+				System.out.println();
 				break;
 			case 6:
 				//Programm beenden
 				schleife = false;
+				System.out.println();
 				break;
 				
 			default:
 				//Exeption oder simple nachricht
 				System.out.println("Eingabe ungueltig, bitte versuchen Sie es erneut.");
+				System.out.println();
 				break;
 			}
 		}
@@ -94,7 +101,7 @@ public class Anwendung //Main-Terminal
 	}
 	
 	public static void fahrzeugeAnzeigen() {
-		int counter = 0;
+		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) {
 			System.out.println(counter + ": " + fa.toString());
 			counter++;
@@ -104,12 +111,25 @@ public class Anwendung //Main-Terminal
 	
 	public static void fahrzeugErstellen() 
 	{
+		/**
+		 * Wir brauchen für den ganzen Vorgang eine Exeption. 
+		 * Wenn mal testest alle Fahrzeuge anzeigen, siehst du ein 4 Objekt.
+		 * Allerdings fehlt da eine beschreibung, weil ich beim ersten versuch eins 
+		 * anzulegen einen Fehler bei Modell hatte. Als ich es erneut versucht habe 
+		 * wurde die Beschreibung einfach übersprungen.
+		 * -> Müssen es so machen, dass das neue Objekt gelöscht/fallen gelassen wird.
+		 * 
+		 * -> Müssen eine benutzeroberfläche machen, bei der man zwischen den 
+		 *    FahrzeugKategorien unterscheiden kann. Sonst weiß man nicht welches 
+		 *    Auto was ist.
+		 **/
+		
 		System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
-		String beschreibung = scanner.next();
+		String beschreibung = scanner.nextLine();
 		//muss man es eingeben, koennte auch bei Fahrezeug eine feste machen?
 		
 		System.out.println("Bitte geben Sie das Modell ein: ");
-		String modell = scanner.next();
+		String modell = scanner.nextLine();
 		
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		int groesse = scanner.nextInt();
@@ -118,7 +138,7 @@ public class Anwendung //Main-Terminal
 		List<String> ausruestung = new ArrayList<>();
 		
 		while(true) {
-			System.out.println("Bitte geben Sie einen Gegegenstand ein: (zum beenden 'x' eingeben)");
+			System.out.println("Geben Sie ein min. 1 Gegenstand ein: (zum beenden 'x' eingeben)");
 			String ausruestungTemp = scanner.next();
 			if(ausruestungTemp.equals("x") || ausruestungTemp.equals("X")) {
 				break;
@@ -134,7 +154,7 @@ public class Anwendung //Main-Terminal
 		List<String> grundaustattung = new ArrayList<>();
 		
 		while(true) {
-			System.out.println("Bitte geben Sie ein Objekt ein: (zum beenden 'x' eingeben)");
+			System.out.println("Geben Sie ein min. 1 Objekt ein: (zum beenden 'x' eingeben)");
 			String grundaustattungTemp = scanner.next();
 			if(grundaustattungTemp.equals("x")|| grundaustattungTemp.equals("X")) {
 				break;
@@ -142,7 +162,7 @@ public class Anwendung //Main-Terminal
 				grundaustattung.add(grundaustattungTemp);
 			}
 		}
-		System.out.println("Bitte geben Sie die benötigte Führerscheinklasse für das Fahrzeug ein: (B, C1, C)");
+		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, C1, C)");
 		boolean gueltig = true;
 		String klasse = "";
 		while(gueltig) {
@@ -152,7 +172,7 @@ public class Anwendung //Main-Terminal
 					gueltig = false;
 					break;
 				default:
-					System.out.println("ungültige eingabe. Bitte geben Sie eine gültige Klasse ein. (B, C1, C)");
+					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, C1, C)");
 					break;
 			}
 		}

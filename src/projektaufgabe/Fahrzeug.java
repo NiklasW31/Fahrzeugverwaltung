@@ -32,8 +32,9 @@ public abstract class Fahrzeug implements Serializable
 
 	@Override
 	public String toString() {
-		return "Fahrzeug [beschreibung=" + beschreibung + ", modell=" + modell + ", groese=" + groesse + ", ausruestung="
-				+ ausruestung + ", leistung=" + leistung + ", grundaustattung=" + grundaustattung + ", Führerscheinklasse: "+ erlaubteFahrer +"]";
+		return "{beschreibung-" + beschreibung + ", modell-" + modell + ", groese-" + groesse 
+				+ ", ausruestung-" + ausruestung + ", leistung-" + leistung 
+				+ ", grundaustattung-" + grundaustattung + ", fuehrerscheinklasse-" + erlaubteFahrer +"}";
 	}
 
 	/**---------- Setter und Getter ----------*/
