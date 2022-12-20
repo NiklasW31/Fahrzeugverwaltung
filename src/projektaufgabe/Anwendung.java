@@ -117,7 +117,7 @@ public class Anwendung //Main-Terminal
 		//schoeneren output mit 01,02,10,usw.?
 	}
 	
-	public static void fahrzeugInfo() {
+	public static void fahrzeugInfo(){
 		try {
 		fahrzeugeAnzeigen();
 		
@@ -233,8 +233,8 @@ public class Anwendung //Main-Terminal
 		
 		//fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
-			for (Object obj : fahrzeuge) {
-			oos.writeObject(obj);
+			for (Fahrzeug fahrzeug : fahrzeuge) {
+			oos.writeObject(fahrzeug);
 			}
 			} catch (IOException e) {
 			e.printStackTrace();
@@ -259,9 +259,9 @@ public class Anwendung //Main-Terminal
 		try {
 			Files.delete(datei);
 			//System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
-		} catch (IOException e1) {
+		} catch (IOException e) {
 			System.out.println("Loeschen fehlgeschlagen."); //Die Loeschung ist fehlgeschlagen!
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
@@ -269,8 +269,8 @@ public class Anwendung //Main-Terminal
 			//Die uebrig gebliebenen Fahrzeuge werden wieder eingefuegt
 			oos.writeObject(fa);
 			}
-			} catch (IOException ex) {
-			ex.printStackTrace();
+			} catch (IOException e) {
+			e.printStackTrace();
 			}
 		}
 	
