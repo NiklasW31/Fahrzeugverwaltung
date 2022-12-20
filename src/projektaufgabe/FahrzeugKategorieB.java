@@ -35,5 +35,9 @@ public class FahrzeugKategorieB extends Fahrzeug implements Fahrzeugzusatz
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public String toString() {
+		return "[Kategorie B] :" + super.toString();
+	}
 
 }

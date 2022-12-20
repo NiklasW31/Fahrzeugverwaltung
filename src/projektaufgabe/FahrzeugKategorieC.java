@@ -35,5 +35,11 @@ public class FahrzeugKategorieC extends Fahrzeug implements Fahrzeugzusatz
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public String toString() {
+		return "[KategorieC]: " + super.toString();
+	}
+	
+	
 	
 }

@@ -50,7 +50,8 @@ public class Anwendung //Main-Terminal
 				break;
 			case 2:
 				//Gebe Informationen ueber ein Fahrzeug aus
-				System.out.println("NOCH NICHT VORHANDEN\n");
+				//System.out.println("NOCH NICHT VORHANDEN\n");
+				fahrzeugInfo();
 				break;
 			case 3:
 				//Erstelle ein Fahrzeug
@@ -103,10 +104,30 @@ public class Anwendung //Main-Terminal
 	public static void fahrzeugeAnzeigen() {
 		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) {
-			System.out.println(counter + ": " + fa.toString());
+			if (fa instanceof FahrzeugKategorieA) {
+				System.out.println(counter + ": Kategorie A, " + fa.getModell());
+			}else if (fa instanceof FahrzeugKategorieB) {
+				System.out.println(counter + ": Kategorie B, " + fa.getModell());
+			} else if (fa instanceof FahrzeugKategorieC) {
+				System.out.println(counter + ": Kategorie C, " + fa.getModell());
+			}
+			//System.out.println(counter + ": " + fa.getKategorie() + " " + fa.getModell());
 			counter++;
 		}
 		//schoeneren output mit 01,02,10,usw.?
+	}
+	
+	public static void fahrzeugInfo() {
+		try {
+		fahrzeugeAnzeigen();
+		
+		System.out.println("Ueber Welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size()+")");
+		int auswahl = scanner.nextInt();
+		System.out.println(fahrzeuge.get(auswahl-1));
+		}catch(Exception e) {
+			System.out.println("Ung�ltige eingabe :" + e);
+		}
+		
 	}
 	
 	public static void fahrzeugErstellen() 
@@ -119,17 +140,37 @@ public class Anwendung //Main-Terminal
 		 * wurde die Beschreibung einfach übersprungen.
 		 * -> Müssen es so machen, dass das neue Objekt gelöscht/fallen gelassen wird.
 		 * 
-		 * -> Müssen eine benutzeroberfläche machen, bei der man zwischen den 
+		 * -> M�ssen eine benutzeroberfl�che machen, bei der man zwischen den 
 		 *    FahrzeugKategorien unterscheiden kann. Sonst weiß man nicht welches 
 		 *    Auto was ist.
 		 **/
+		String beschreibung;
+		while(true) {
+			System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
+			beschreibung = scanner.next();
+			if(beschreibung.isEmpty() == false) {
+				break;
+			}
+		}
 		
-		System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
-		String beschreibung = scanner.nextLine();
+		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (A, B oder C)");
+		boolean gueltigeKat = true;
+		String kategorie = "";
+		while(gueltigeKat) {
+			kategorie = scanner.next();
+			switch(kategorie) {
+				case "A", "B", "C":
+					gueltigeKat = false;
+					break;
+				default:
+					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (A, B oder C)");
+					break;
+			}
+		}
 		//muss man es eingeben, koennte auch bei Fahrezeug eine feste machen?
 		
 		System.out.println("Bitte geben Sie das Modell ein: ");
-		String modell = scanner.nextLine();
+		String modell = scanner.next();
 		
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		int groesse = scanner.nextInt();
@@ -177,8 +218,20 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
-
-		fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+		
+		switch(kategorie) {
+			case "A":
+				fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				break;
+			case "B":
+				fahrzeuge.add(new FahrzeugKategorieB(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				break;
+			case "C":
+				fahrzeuge.add(new FahrzeugKategorieC(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				
+		}
+		
+		//fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
 			for (Object obj : fahrzeuge) {
 			oos.writeObject(obj);
@@ -197,7 +250,7 @@ public class Anwendung //Main-Terminal
 		try {
 		System.out.println("Bitte geben Sie die Nummer des Fahrzeuges an, welches sie loeschen moechten: ");
 		int fahrzeugNummer = scanner.nextInt();
-		fahrzeuge.remove(fahrzeugNummer);
+		fahrzeuge.remove(fahrzeugNummer-1);
 		
 		} catch (Exception e) {
 				System.out.println("Fehler: ungueltige Fahrzeug Nummer");
@@ -222,7 +275,15 @@ public class Anwendung //Main-Terminal
 		}
 	
 	private static void fahrzeugeVergleichen() {
-		System.out.println("Fehlt noch :/"); //???
+		fahrzeugeAnzeigen();
+		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
+		System.out.println("Fahrzeug 1:");
+		int fahrzeugEins = scanner.nextInt();
+		System.out.println("Fahrzeug 2:");
+		int FahrzeugZwei = scanner.nextInt();
+		
+		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
+		//??
 	}
 
 }
