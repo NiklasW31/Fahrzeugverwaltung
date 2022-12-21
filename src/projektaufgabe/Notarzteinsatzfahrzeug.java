@@ -8,13 +8,16 @@ import interfaces.Fahrzeugzusatz;
 
 
 public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
-{
+{	
+	public Notarzteinsatzfahrzeug(String beschreibung, String modell, String kennzeichen, String funkrufname,
+			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
+			ErlaubteFahrer erlaubteFahrer) {
+		super(beschreibung, modell, kennzeichen, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+		// TODO Auto-generated constructor stub
+	}
+	
 	private static final long serialVersionUID = 1L;
 
-	public Notarzteinsatzfahrzeug (String beschreibung, String modell,Map<String, Double> groese, 
-			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
-	}
 	/** 
 	 * für beschreibung einsetzen:
 	 * 		Notfallkrankenwagen = Für den Transport, die Erstversorgung und Überwachung von Patienten.
@@ -39,7 +42,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 	}
 	@Override
 	public String toString() {
-		return "[Kategorie B] :" + super.toString();
+		return "[Notartzeinsatzfahrzeug] :" + super.toString();
 	}
 
 }

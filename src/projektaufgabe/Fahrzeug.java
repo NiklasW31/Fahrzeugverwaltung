@@ -19,19 +19,23 @@ public abstract class Fahrzeug implements Serializable
 	 */
 	
 	private String modell;
-	//private int groesse;
+	private String kennzeichen;
+	private String funkrufname;
 	private Map<String, Double> groesse;
 	private List<String> ausruestung;
 	private int leistung;
 	private List<String> grundaustattung;
 	private ErlaubteFahrer erlaubteFahrer;
+
 	
-	public Fahrzeug(String beschreibung, String modell, Map<String, Double> groese, 
+	public Fahrzeug(String beschreibung, String modell, String kennzeichen, String funkrufname, Map<String, Double> groese, 
 		List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
 		this.beschreibung = beschreibung;
 		this.modell = modell;
+		this.kennzeichen = "S-RK "+kennzeichen;
+		this.funkrufname = "Rotkreuz Stuttgart "+funkrufname;
 		this.groesse = groese;
 		this.ausruestung = ausruestung;
 		this.leistung = leistung;
@@ -39,19 +43,30 @@ public abstract class Fahrzeug implements Serializable
 		this.setErlaubteFahrer(erlaubteFahrer);
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Beschreibung: " + beschreibung + ".\n"
+//				+ "{modell-" + modell + ", groese-" + groesse 
+//				+ ", ausruestung-" + ausruestung + ", leistung-" + leistung 
+//				+ ", grundaustattung-" + grundaustattung + ", fuehrerscheinklasse-" + erlaubteFahrer +"}";
+//	}
+
 	@Override
 	public String toString() {
-		return "Beschreibung: " + beschreibung + ".\n"
-				+ "{modell-" + modell + ", groese-" + groesse 
-				+ ", ausruestung-" + ausruestung + ", leistung-" + leistung 
-				+ ", grundaustattung-" + grundaustattung + ", fuehrerscheinklasse-" + erlaubteFahrer +"}";
+		return " Beschreibung: " + beschreibung + ".\n"
+				+ " {modell=" + modell + ", kennzeichen=" + kennzeichen
+				+ " funkrufname=" + funkrufname + ", groesse=" + groesse
+				+ " leistung=" + leistung + ", erlaubteFahrer=" + erlaubteFahrer + ".\n"
+				+ " ausruestung=" + ausruestung + ".\n"
+				+ " grundaustattung=" + grundaustattung + "]"; 
 	}
-
+	
 	/**---------- Setter und Getter ----------*/
 	
 	public String getBeschreibung() {
 		return beschreibung;
 	}
+
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
@@ -97,6 +112,22 @@ public abstract class Fahrzeug implements Serializable
 
 	public void setErlaubteFahrer(ErlaubteFahrer erlaubteFahrer) {
 		this.erlaubteFahrer = erlaubteFahrer;
+	}
+
+	public String getKennzeichen() {
+		return kennzeichen;
+	}
+
+	public void setKennzeichen(String kennzeichen) {
+		this.kennzeichen = kennzeichen;
+	}
+
+	public String getFunkrufname() {
+		return funkrufname;
+	}
+
+	public void setFunkrufname(String funkrufname) {
+		this.funkrufname = funkrufname;
 	}
 	
 }

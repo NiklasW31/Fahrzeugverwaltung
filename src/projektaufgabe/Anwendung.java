@@ -116,7 +116,6 @@ public class Anwendung //Main-Terminal
 			} else if (fa instanceof Einsatzfuehrungsdienst) {
 				System.out.println(counter + ": Einsatzfuehrungsdienst, " + fa.getModell());
 			}
-			//System.out.println(counter + ": " + fa.getKategorie() + " " + fa.getModell());
 			counter++;
 		}
 		//schoeneren output mit 01,02,10,usw.?
@@ -157,6 +156,7 @@ public class Anwendung //Main-Terminal
 				break;
 			}
 		}
+		//TODO - eine Feste beschreibung
 		
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (1 - 5)");
 		boolean gueltigeKat = true;
@@ -172,10 +172,17 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		}
-		//muss man es eingeben, koennte auch bei Fahrezeug eine feste machen?
 		
 		System.out.println("Bitte geben Sie das Modell ein: ");
 		String modell = scanner.next();
+		
+		System.out.println("Bitte gebe das Kennzeichen ein: ");
+		System.out.print("S-RK ");
+		String kennzeichen = scanner.next();
+		
+		System.out.println("Bitte gebe den Funkrufnamen ein: ");
+		System.out.print("Rotkreuz Stuttgart ");
+		String funkrufname = scanner.next();
 		
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		HashMap<String, Double> groesse = new HashMap<>();
@@ -236,17 +243,17 @@ public class Anwendung //Main-Terminal
 		
 		switch(kategorie) {
 			case 1:
-				fahrzeuge.add(new Rettungswagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Rettungswagen(beschreibung, modell, kennzeichen, funkrufname, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 2:
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(beschreibung, modell, kennzeichen, funkrufname, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 3:
-				fahrzeuge.add(new Krankentransportwagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Krankentransportwagen(beschreibung, modell, kennzeichen, funkrufname, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 			case 4:
-				fahrzeuge.add(new Infektionsrettungswagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Infektionsrettungswagen(beschreibung, modell, kennzeichen, funkrufname, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 			case 5:
-				fahrzeuge.add(new Einsatzfuehrungsdienst(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Einsatzfuehrungsdienst(beschreibung, modell, kennzeichen, funkrufname, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				
 		}
 		

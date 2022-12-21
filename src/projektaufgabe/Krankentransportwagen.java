@@ -9,12 +9,15 @@ import interfaces.Fahrzeugzusatz;
 
 public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 {
+	public Krankentransportwagen(String beschreibung, String modell, String kennzeichen, String funkrufname,
+			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
+			ErlaubteFahrer erlaubteFahrer) {
+		super(beschreibung, modell, kennzeichen, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+		// TODO Auto-generated constructor stub
+	}
 	private static final long serialVersionUID = 1L;
 
-	public Krankentransportwagen (String beschreibung, String modell, Map<String, Double> groese, 
-			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
-	}
+
 	/** 
 	 * für beschreibung einsetzen:
 	 * 		Rettungswagen = Für den Transport, die erweiterte Versorgung, Behandlung und Überwachung von Patienten. 
@@ -39,7 +42,7 @@ public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 	}
 	@Override
 	public String toString() {
-		return "[KategorieC]: " + super.toString();
+		return "[Krankentransportwagen]: " + super.toString();
 	}
 	
 	

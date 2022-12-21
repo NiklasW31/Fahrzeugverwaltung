@@ -9,12 +9,14 @@ import interfaces.Fahrzeugzusatz;
 
 public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 {
-	private static final long serialVersionUID = 1L;
-
-	public Rettungswagen (String beschreibung, String modell,Map<String, Double> groese, 
-			List<String> ausruestung,int leistung,List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+	public Rettungswagen(String beschreibung, String modell, String kennzeichen, String funkrufname,
+			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
+			ErlaubteFahrer erlaubteFahrer) {
+		super(beschreibung, modell, kennzeichen, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+		// TODO Auto-generated constructor stub
 	}
+	
+	private static final long serialVersionUID = 3121374339826972330L;
 /** 
  * für beschreibung einsetzen:
  * 		Krankenwagen = Für den Transport eines oder mehrerer Patienten mit Krankentrage und/oder Tragestuhl.  
@@ -39,7 +41,7 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 	}
 	@Override
 	public String toString() {
-		return "[Kategorie A] " + super.toString();
+		return "[Rettungswagen] " + super.toString();
 	}
 	
 	
