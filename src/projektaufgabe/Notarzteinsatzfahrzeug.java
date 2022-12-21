@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import enums.Einsatzgebiet;
 import interfaces.Fahrzeugzusatz;
-
 
 public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 {	
 	public Notarzteinsatzfahrzeug(String beschreibung, String modell, String kennzeichen, String funkrufname,
-			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
+			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
 			ErlaubteFahrer erlaubteFahrer) {
-		super(beschreibung, modell, kennzeichen, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+		super(beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 		// TODO Auto-generated constructor stub
 	}
 	

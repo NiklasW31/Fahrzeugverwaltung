@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import enums.ErlaubteFahrer;
+import enums.Einsatzgebiet;
 
 public abstract class Fahrzeug implements Serializable 
 {
@@ -21,6 +23,7 @@ public abstract class Fahrzeug implements Serializable
 	private String modell;
 	private String kennzeichen;
 	private String funkrufname;
+	private Einsatzgebiet einsatzgebiet;
 	private Map<String, Double> groesse;
 	private List<String> ausruestung;
 	private int leistung;
@@ -28,14 +31,15 @@ public abstract class Fahrzeug implements Serializable
 	private ErlaubteFahrer erlaubteFahrer;
 
 	
-	public Fahrzeug(String beschreibung, String modell, String kennzeichen, String funkrufname, Map<String, Double> groese, 
+	public Fahrzeug(String beschreibung, String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
 		List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
 		this.beschreibung = beschreibung;
 		this.modell = modell;
-		this.kennzeichen = "S-RK "+kennzeichen;
-		this.funkrufname = "Rotkreuz Stuttgart "+funkrufname;
+		this.kennzeichen = "S-RK "+ kennzeichen;
+		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
+		this.einsatzgebiet = einsatzgebiet;
 		this.groesse = groese;
 		this.ausruestung = ausruestung;
 		this.leistung = leistung;
@@ -109,7 +113,6 @@ public abstract class Fahrzeug implements Serializable
 	public ErlaubteFahrer getErlaubteFahrer() {
 		return erlaubteFahrer;
 	}
-
 	public void setErlaubteFahrer(ErlaubteFahrer erlaubteFahrer) {
 		this.erlaubteFahrer = erlaubteFahrer;
 	}
@@ -117,7 +120,6 @@ public abstract class Fahrzeug implements Serializable
 	public String getKennzeichen() {
 		return kennzeichen;
 	}
-
 	public void setKennzeichen(String kennzeichen) {
 		this.kennzeichen = kennzeichen;
 	}
@@ -125,9 +127,15 @@ public abstract class Fahrzeug implements Serializable
 	public String getFunkrufname() {
 		return funkrufname;
 	}
-
 	public void setFunkrufname(String funkrufname) {
 		this.funkrufname = funkrufname;
+	}
+	
+	public Einsatzgebiet getEinsatzgebiet() {
+		return einsatzgebiet;
+	}
+	public void setEinsatzgebiet(Einsatzgebiet einsatzgebiet) {
+		this.einsatzgebiet = einsatzgebiet;
 	}
 	
 }
