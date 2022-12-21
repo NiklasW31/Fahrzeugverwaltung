@@ -12,13 +12,11 @@ public enum Einsatzgebiet
 	 * 		http://www.rettungsdienst-stuttgart.de/rettungsdienst_stuttgart/rettungswachen_rw1.htm
 	 * 
 	 * Rettungswache 2: zuständig für Nord/Mitte 
-	 * 
-	 * Rettungswache 3: zuständig für Nord/Mitte, 
-	 * 					sowie speziell Bad Canstatt und die oberen und unteren Neckarvororte.  
+	 *   
 	 * Rettungswache 4: zuständig für Süd
 	 */
 	
-	RETTUNGSWACHE1("Mitte"), RETTUNGSWACHE2("Nord_Mitte"), RETTUNGSWACHE3("Nord_Mitte"), RETTUNGSWACHE4("Sued");
+	RETTUNGSWACHE1("Mitte"), RETTUNGSWACHE2("Nord_Mitte"), RETTUNGSWACHE4("Sued");
 
 	String bereich;
 	private Einsatzgebiet(String bereich) {
