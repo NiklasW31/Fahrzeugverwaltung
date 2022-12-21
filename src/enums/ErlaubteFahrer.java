@@ -1,6 +1,7 @@
 package enums;
 
 public enum ErlaubteFahrer {
-	//auf Führerschein bezogen
+	//auf Einsatzführungsdienst zuschneiden!!!
 	B, C1, C;
 }
+//sortieren, eingbe exception machen
