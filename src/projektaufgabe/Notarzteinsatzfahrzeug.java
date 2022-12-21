@@ -5,18 +5,18 @@ import enums.ErlaubteFahrer;
 import interfaces.Fahrzeugzusatz;
 
 
-public class FahrzeugKategorieA extends Fahrzeug implements Fahrzeugzusatz
+public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 1L;
 
-	public FahrzeugKategorieA (String beschreibung, String modell,int groese, 
-			List<String> ausruestung,int leistung,List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
+	public Notarzteinsatzfahrzeug (String beschreibung, String modell,int groese, 
+			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 	}
-/** 
- * für beschreibung einsetzen:
- * 		Krankenwagen = Für den Transport eines oder mehrerer Patienten mit Krankentrage und/oder Tragestuhl.  
- */
+	/** 
+	 * für beschreibung einsetzen:
+	 * 		Notfallkrankenwagen = Für den Transport, die Erstversorgung und Überwachung von Patienten.
+	 */
 
 	@Override
 	public void benutzeBenzin() {
@@ -37,9 +37,7 @@ public class FahrzeugKategorieA extends Fahrzeug implements Fahrzeugzusatz
 	}
 	@Override
 	public String toString() {
-		return "[Kategorie A] " + super.toString();
+		return "[Kategorie B] :" + super.toString();
 	}
-	
-	
 
 }

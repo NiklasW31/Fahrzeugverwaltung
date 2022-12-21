@@ -8,8 +8,9 @@ import enums.ErlaubteFahrer;
 
 public abstract class Fahrzeug implements Serializable 
 {
-	private static final long serialVersionUID = 1L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
+	private static final long serialVersionUID = -1466146206607392728L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
 	private String beschreibung; 
+	
 	/**
 	 * sollte abstract sein. -> abstract geht grad aber nicht
 	 * Geplannt war, das jede Kategorie eine Beschreibung hat wofür genau sie benutzt 

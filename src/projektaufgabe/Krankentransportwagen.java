@@ -5,11 +5,11 @@ import enums.ErlaubteFahrer;
 import interfaces.Fahrzeugzusatz;
 
 
-public class FahrzeugKategorieC extends Fahrzeug implements Fahrzeugzusatz
+public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 1L;
 
-	public FahrzeugKategorieC (String beschreibung, String modell, int groese, 
+	public Krankentransportwagen (String beschreibung, String modell, int groese, 
 			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 	}

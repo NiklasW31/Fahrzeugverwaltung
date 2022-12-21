@@ -32,7 +32,7 @@ public class Anwendung //Main-Terminal
 		System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
 		System.out.println("3. Erstelle ein Fahrzeug");
 		System.out.println("4. Loesche ein Fahrzeug");
-		System.out.println("5. Vergleiche Fahrzeuge");
+		System.out.println("5. Vergleiche Fahrzeuge (Nice to have)");
 		System.out.println("6. Beende das Programm");
 		
 		int eingabe = scanner.nextInt();	
@@ -104,11 +104,11 @@ public class Anwendung //Main-Terminal
 	public static void fahrzeugeAnzeigen() {
 		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) {
-			if (fa instanceof FahrzeugKategorieA) {
+			if (fa instanceof Rettungswagen) {
 				System.out.println(counter + ": Kategorie A, " + fa.getModell());
-			}else if (fa instanceof FahrzeugKategorieB) {
+			}else if (fa instanceof Notarzteinsatzfahrzeug) {
 				System.out.println(counter + ": Kategorie B, " + fa.getModell());
-			} else if (fa instanceof FahrzeugKategorieC) {
+			} else if (fa instanceof Krankentransportwagen) {
 				System.out.println(counter + ": Kategorie C, " + fa.getModell());
 			}
 			//System.out.println(counter + ": " + fa.getKategorie() + " " + fa.getModell());
@@ -125,7 +125,7 @@ public class Anwendung //Main-Terminal
 		int auswahl = scanner.nextInt();
 		System.out.println(fahrzeuge.get(auswahl-1));
 		}catch(Exception e) {
-			System.out.println("Ungültige eingabe :" + e);
+			System.out.println("Ungï¿½ltige eingabe :" + e);
 		}
 		
 	}
@@ -140,7 +140,7 @@ public class Anwendung //Main-Terminal
 		 * wurde die Beschreibung einfach Ã¼bersprungen.
 		 * -> MÃ¼ssen es so machen, dass das neue Objekt gelÃ¶scht/fallen gelassen wird.
 		 * 
-		 * -> Müssen eine benutzeroberfläche machen, bei der man zwischen den 
+		 * -> Mï¿½ssen eine benutzeroberflï¿½che machen, bei der man zwischen den 
 		 *    FahrzeugKategorien unterscheiden kann. Sonst weiÃŸ man nicht welches 
 		 *    Auto was ist.
 		 **/
@@ -221,13 +221,13 @@ public class Anwendung //Main-Terminal
 		
 		switch(kategorie) {
 			case "A":
-				fahrzeuge.add(new FahrzeugKategorieA(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Rettungswagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case "B":
-				fahrzeuge.add(new FahrzeugKategorieB(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case "C":
-				fahrzeuge.add(new FahrzeugKategorieC(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Krankentransportwagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				
 		}
 		
