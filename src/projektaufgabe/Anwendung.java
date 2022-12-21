@@ -12,12 +12,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
-
 import enums.Einsatzgebiet;
 import enums.ErlaubteFahrer;
 
@@ -163,14 +159,14 @@ public class Anwendung //Main-Terminal
 		 *    FahrzeugKategorien unterscheiden kann. Sonst weiß man nicht welches 
 		 *    Auto was ist.
 		 **/
-		String beschreibung;
-		while(true) {
-			System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
-			beschreibung = scanner.next();
-			if(beschreibung.isEmpty() == false) {
-				break;
-			}
-		}
+//		String beschreibung;
+//		while(true) {
+//			System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
+//			beschreibung = scanner.next();
+//			if(beschreibung.isEmpty() == false) {
+//				break;
+//			}
+//		}
 		
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (1 - 5)");
 		boolean gueltigeKat = true;
@@ -198,13 +194,13 @@ public class Anwendung //Main-Terminal
 		System.out.print("Rotkreuz Stuttgart ");
 		String funkrufname = scanner.next();
 		
-		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (Rettungswache 1,2,4)");
+		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (Rettungswache1,2,4)");
 		boolean gueltig = true;
 		String wache = "";
 		while(gueltig) {
 			wache = scanner.next();
 			switch(wache) {
-				case "Rettungswache 1", "Rettungswache 2", "Rettungswache 4":
+				case "Rettungswache1", "Rettungswache2", "Rettungswache4":
 					gueltig = false;
 					break;
 				default:
@@ -212,18 +208,19 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		}
-		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache);
+		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
 		
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		HashMap<String, Double> groesse = new HashMap<>();
+
 		System.out.println("Geben Sie die Fahrzeug Laenge ein: ");
-		double laenge = scanner.nextInt();
+		double laenge = scanner.nextDouble();
 		groesse.put("Laenge", laenge);
 		System.out.println("Geben Sie die Fahrzeug Breite ein: ");
-		double breite = scanner.nextInt();
+		double breite = scanner.nextDouble();
 		groesse.put("Breite", breite);
 		System.out.println("Geben Sie die Fahrzeug Hoehe ein: ");
-		double hoehe = scanner.nextInt();
+		double hoehe = scanner.nextDouble();
 		groesse.put("Hoehe", hoehe);
 
 		
@@ -257,13 +254,13 @@ public class Anwendung //Main-Terminal
 		}
 		
 		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, C1, C)");
-		boolean gueltig2 = true;
+		gueltig = true;
 		String klasse = "";
-		while(gueltig2) {
+		while(gueltig) {
 			klasse = scanner.next();
 			switch(klasse) {
 				case "C", "C1", "B":
-					gueltig2 = false;
+					gueltig = false;
 					break;
 				default:
 					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, C1, C)");
@@ -274,19 +271,19 @@ public class Anwendung //Main-Terminal
 		
 		switch(kategorie) {
 			case 1:
-				fahrzeuge.add(new Rettungswagen(beschreibung, modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Rettungswagen(modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 2:
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(beschreibung, modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 3:
-				fahrzeuge.add(new Krankentransportwagen(beschreibung, modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Krankentransportwagen(modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 4:
-				fahrzeuge.add(new Infektionsrettungswagen(beschreibung, modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Infektionsrettungswagen(modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 			case 5:
-				fahrzeuge.add(new Einsatzfuehrungsdienst(beschreibung, modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, kennzeichen, funkrufname, einsatzgebiet, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
 		}
 		
@@ -312,14 +309,14 @@ public class Anwendung //Main-Terminal
 		fahrzeuge.remove(fahrzeugNummer-1);
 		
 		} catch (Exception e) {
-				System.out.println("Fehler: ungueltige Fahrzeug Nummer");
+			System.err.println("Fehler: ungueltige Fahrzeug Nummer");
 		}
 		//loescht die alte "Text" Datei
 		try {
 			Files.delete(datei);
 			//System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
 		} catch (IOException e) {
-			System.out.println("Loeschen fehlgeschlagen."); //Die Loeschung ist fehlgeschlagen!
+			System.err.println("Loeschen fehlgeschlagen. " + e); //Die Loeschung ist fehlgeschlagen!
 			e.printStackTrace();
 		}
 		
@@ -337,7 +334,7 @@ public class Anwendung //Main-Terminal
 		try {
 			System.out.println("Wonach moechten sie sortieren: ");
 			System.out.println("1. Kennzeichen");
-//			System.out.println("2. Groesse");
+			System.out.println("2. Groesse");
 			System.out.println("3. Leistung");
 			System.out.println("4. Einsatzgebiet");
 			
@@ -350,10 +347,11 @@ public class Anwendung //Main-Terminal
 					System.out.println("Die Liste wurde nach Kennzeichen sortiert.");
 					break;
 					
-//				case 2:
+				case 2:
 //					nachGroesseSortieren(fahrzeuge);
-//					System.out.println("Die Liste wurde nach Groesse sortiert.");
-//					break;
+					Collections.sort(fahrzeuge, Sortiermaschine.GroesseComparator);
+					System.out.println("Die Liste wurde nach Groesse sortiert.");
+					break;
 					
 				case 3:
 					Collections.sort(fahrzeuge, Sortiermaschine.LeistungComparator);
@@ -366,7 +364,7 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		} catch (Exception e) {
-			System.out.println("Fehler: ungueltige eingabe");
+			System.out.println("Fehler: ungueltige eingabe " + e);
 		}
 	}
 	
@@ -376,14 +374,14 @@ public class Anwendung //Main-Terminal
 //	}
 
 	private static void fahrzeugeVergleichen() {
-		fahrzeugeAnzeigen();
-		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
-		System.out.println("Fahrzeug 1:");
-		int fahrzeugEins = scanner.nextInt();
-		System.out.println("Fahrzeug 2:");
-		int FahrzeugZwei = scanner.nextInt();
-		
-		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
+//		fahrzeugeAnzeigen();
+//		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
+//		System.out.println("Fahrzeug 1:");
+//		int fahrzeugEins = scanner.nextInt();
+//		System.out.println("Fahrzeug 2:");
+//		int FahrzeugZwei = scanner.nextInt();
+//		
+//		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
 		//??
 	}
 

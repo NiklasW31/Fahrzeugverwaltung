@@ -9,11 +9,11 @@ import interfaces.Fahrzeugzusatz;
 
 public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 {	
-	public Notarzteinsatzfahrzeug(String beschreibung, String modell, String kennzeichen, String funkrufname,
+	public Notarzteinsatzfahrzeug(String modell, String kennzeichen, String funkrufname,
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung,
 			ErlaubteFahrer erlaubteFahrer) {
-		super(beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
-		// TODO Auto-generated constructor stub
+		super(modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
+		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
 	}
 	
 	private static final long serialVersionUID = 1L;

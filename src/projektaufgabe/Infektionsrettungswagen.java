@@ -11,11 +11,13 @@ public class Infektionsrettungswagen extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 6159612121016380185L;
 	
-	public Infektionsrettungswagen (String beschreibung, String modell, String kennzeichen, String funkrufname,
+	public Infektionsrettungswagen (String modell, String kennzeichen, String funkrufname,
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, 
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super (beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
+		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
 				grundaustattung, ErlaubteFahrer.C);
+		setBeschreibung("Der Infektions-Rettungswagen ist speziell für den Transport von Patienten mit hoch ansteckenden, "
+				+ "lebensbedrohlichen Erkrankungen ausgelegt.");
 	}
 	/** 
 	 * fÃ¼r beschreibung einsetzen:

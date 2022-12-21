@@ -31,11 +31,10 @@ public abstract class Fahrzeug implements Serializable
 	private ErlaubteFahrer erlaubteFahrer;
 
 	
-	public Fahrzeug(String beschreibung, String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
+	public Fahrzeug(String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
 		List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
-		this.beschreibung = beschreibung;
 		this.modell = modell;
 		this.kennzeichen = "S-RK "+ kennzeichen;
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
