@@ -3,6 +3,7 @@ package projektaufgabe;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import enums.ErlaubteFahrer;
 
@@ -18,13 +19,14 @@ public abstract class Fahrzeug implements Serializable
 	 */
 	
 	private String modell;
-	private int groesse;
+	//private int groesse;
+	private Map<String, Double> groesse;
 	private List<String> ausruestung;
 	private int leistung;
 	private List<String> grundaustattung;
 	private ErlaubteFahrer erlaubteFahrer;
 	
-	public Fahrzeug(String beschreibung, String modell, int groese, 
+	public Fahrzeug(String beschreibung, String modell, Map<String, Double> groese, 
 		List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
@@ -82,10 +84,10 @@ public abstract class Fahrzeug implements Serializable
 		this.grundaustattung = grundaustattung;
 	}
 
-	public int getGroese() {
+	public Map<String, Double> getGroese() {
 		return groesse;
 	}
-	public void setGroese(int groese) {
+	public void setGroese(Map<String, Double> groese) {
 		this.groesse = groese;
 	}
 

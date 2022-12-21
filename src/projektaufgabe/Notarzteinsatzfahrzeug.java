@@ -1,6 +1,8 @@
 package projektaufgabe;
 
 import java.util.List;
+import java.util.Map;
+
 import enums.ErlaubteFahrer;
 import interfaces.Fahrzeugzusatz;
 
@@ -9,7 +11,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 1L;
 
-	public Notarzteinsatzfahrzeug (String beschreibung, String modell,int groese, 
+	public Notarzteinsatzfahrzeug (String beschreibung, String modell,Map<String, Double> groese, 
 			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super(beschreibung, modell, groese, ausruestung, leistung, grundaustattung, erlaubteFahrer);
 	}

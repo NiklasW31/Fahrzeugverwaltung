@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -105,11 +106,15 @@ public class Anwendung //Main-Terminal
 		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) {
 			if (fa instanceof Rettungswagen) {
-				System.out.println(counter + ": Kategorie A, " + fa.getModell());
+				System.out.println(counter + ": Rettungswagen, " + fa.getModell());
 			}else if (fa instanceof Notarzteinsatzfahrzeug) {
-				System.out.println(counter + ": Kategorie B, " + fa.getModell());
+				System.out.println(counter + ": Notarzteinsatzfahrzeug, " + fa.getModell());
 			} else if (fa instanceof Krankentransportwagen) {
-				System.out.println(counter + ": Kategorie C, " + fa.getModell());
+				System.out.println(counter + ": Krankentransportwagen, " + fa.getModell());
+			}else if (fa instanceof Infektionsrettungswagen) {
+				System.out.println(counter + ": Krankentransportwagen, " + fa.getModell());
+			} else if (fa instanceof Einsatzfuehrungsdienst) {
+				System.out.println(counter + ": Einsatzfuehrungsdienst, " + fa.getModell());
 			}
 			//System.out.println(counter + ": " + fa.getKategorie() + " " + fa.getModell());
 			counter++;
@@ -121,11 +126,11 @@ public class Anwendung //Main-Terminal
 		try {
 		fahrzeugeAnzeigen();
 		
-		System.out.println("Ueber Welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size()+")");
+		System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size()+")");
 		int auswahl = scanner.nextInt();
 		System.out.println(fahrzeuge.get(auswahl-1));
 		}catch(Exception e) {
-			System.out.println("Ung�ltige eingabe :" + e);
+			System.out.println("Ungueltige eingabe :" + e);
 		}
 		
 	}
@@ -153,17 +158,17 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (A, B oder C)");
+		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (1 - 5)");
 		boolean gueltigeKat = true;
-		String kategorie = "";
+		int kategorie = 0;
 		while(gueltigeKat) {
-			kategorie = scanner.next();
+			kategorie = scanner.nextInt();
 			switch(kategorie) {
-				case "A", "B", "C":
+				case 1, 2, 3, 4, 5:
 					gueltigeKat = false;
 					break;
 				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (A, B oder C)");
+					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1 - 5)");
 					break;
 			}
 		}
@@ -173,7 +178,17 @@ public class Anwendung //Main-Terminal
 		String modell = scanner.next();
 		
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
-		int groesse = scanner.nextInt();
+		HashMap<String, Double> groesse = new HashMap<>();
+		System.out.println("Geben Sie die Fahrzeug Laenge ein: ");
+		double laenge = scanner.nextInt();
+		groesse.put("Laenge", laenge);
+		System.out.println("Geben Sie die Fahrzeug Breite ein: ");
+		double breite = scanner.nextInt();
+		groesse.put("Breite", breite);
+		System.out.println("Geben Sie die Fahrzeug Hoehe ein: ");
+		double hoehe = scanner.nextInt();
+		groesse.put("Hoehe", hoehe);
+
 		
 		System.out.println("Bitte geben Sie die Ausruestung des Fahrzeuges an: ");
 		List<String> ausruestung = new ArrayList<>();
@@ -220,14 +235,18 @@ public class Anwendung //Main-Terminal
 		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
 		
 		switch(kategorie) {
-			case "A":
+			case 1:
 				fahrzeuge.add(new Rettungswagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
-			case "B":
+			case 2:
 				fahrzeuge.add(new Notarzteinsatzfahrzeug(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				break;
-			case "C":
+			case 3:
 				fahrzeuge.add(new Krankentransportwagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+			case 4:
+				fahrzeuge.add(new Infektionsrettungswagen(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
+			case 5:
+				fahrzeuge.add(new Einsatzfuehrungsdienst(beschreibung, modell, groesse, ausruestung, leistung, grundaustattung, erlaubteFahrer));
 				
 		}
 		
