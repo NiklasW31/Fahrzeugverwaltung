@@ -1,4 +1,4 @@
-package projektaufgabe;
+package hauptklassen;
 
 import java.util.List;
 import java.util.Map;
@@ -7,26 +7,26 @@ import enums.ErlaubteFahrer;
 import enums.Einsatzgebiet;
 import interfaces.Fahrzeugzusatz;
 
-public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
+public class Infektionsrettungswagen extends Fahrzeug implements Fahrzeugzusatz
 {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6159612121016380185L;
 	
-	public Krankentransportwagen (String beschreibung, String modell, String kennzeichen, String funkrufname,
+	public Infektionsrettungswagen (String beschreibung, String modell, String kennzeichen, String funkrufname,
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, 
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
-				grundaustattung, ErlaubteFahrer.C1);	
+				grundaustattung, ErlaubteFahrer.C);
 	}
 	/** 
 	 * für beschreibung einsetzen:
-	 * 		Krankentransportwagen = Für den Transport, die erweiterte Versorgung, Behandlung und Überwachung von Patienten. 
+	 * 		Infektionsrettungswagen = ?
 	 */
 
 	@Override
 	public String toString() {
-		return "[Krankentransportwagen]: " + super.toString();
+		return "[Infektionsrettungswagen] " + super.toString();
 	}
-	
+
 	@Override
 	public void benutzeBenzin() {
 		// TODO Auto-generated method stub
@@ -44,4 +44,5 @@ public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 }

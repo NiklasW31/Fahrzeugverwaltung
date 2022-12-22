@@ -1,4 +1,4 @@
-package projektaufgabe;
+package hauptklassen;
 
 import java.io.EOFException;
 import java.io.FileInputStream;

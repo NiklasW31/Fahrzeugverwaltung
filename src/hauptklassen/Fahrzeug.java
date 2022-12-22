@@ -1,4 +1,4 @@
-package projektaufgabe;
+package hauptklassen;
 
 import java.io.Serializable;
 import java.util.ArrayList;
