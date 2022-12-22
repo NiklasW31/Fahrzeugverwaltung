@@ -79,8 +79,8 @@ public class Anwendung //Main-Terminal
 				
 			case 6:
 				//Vergleiche Fahrzeuge
-				fahrzeugeVergleichen();
-				System.out.println();
+				//fahrzeugeVergleichen();
+				System.out.println("NOCH NICHT VORHANDEN");
 				break;
 				
 			case 7:
@@ -139,7 +139,7 @@ public class Anwendung //Main-Terminal
 		try {
 		fahrzeugeAnzeigen();
 		
-		System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size()+")");
+		System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size() + ")");
 		int auswahl = scanner.nextInt();
 		System.out.println(fahrzeuge.get(auswahl-1));
 		}catch(Exception e) {
@@ -157,14 +157,6 @@ public class Anwendung //Main-Terminal
 		 * wurde die Beschreibung einfach übersprungen.
 		 * -> Müssen es so machen, dass das neue Objekt gelöscht/fallen gelassen wird.
 		 **/
-		String beschreibung;
-		while(true) {
-			System.out.println("Bitte geben Sie eine Beschreibung ein: "); 
-			beschreibung = scanner.next();
-			if(beschreibung.isEmpty() == false) {
-				break;
-			}
-		}
 		
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
 				+ "... 1 - Rettungswagen\n"
@@ -178,9 +170,31 @@ public class Anwendung //Main-Terminal
 		while(gueltigeKat) {
 			kategorie = scanner.nextInt();
 			switch(kategorie) {
-				case 1, 2, 3, 4, 5:
+				case 1:
+					//erstellen für Rettungswagen
 					gueltigeKat = false;
 					break;
+					
+				case 2:
+					//erstellen für Notarzteinsatzfahrzeug
+					gueltigeKat = false;
+					break;
+					
+				case 3:
+					//erstellen für Krankentransportwagen
+					gueltigeKat = false;
+					break;	
+				
+				case 4:
+					//erstellen für Infektionsrettungswagen
+					gueltigeKat = false;
+					break;
+					
+				case 5:
+					//erstellen für Einsatzfuehrungsdienst
+					gueltigeKat = false;
+					break;
+					
 				default:
 					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1 - 5)");
 					break;
@@ -256,13 +270,16 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, C1, C)");
+//		Maybe mit instanceof prüfen ob zu Einsatzfuehrungsdienst gehört. 
+//		Alle anderen haben eine feste klasse. -> müsste dann nicht die variable bei fahrzeug sich
+//		ändern? und bei Einsatzfuehrungsdienst individuell mit dem enum verbunden
+		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, B1, C1, C)");
 		boolean gueltigF = true;
 		String klasse = "";
 		while(gueltigF) {
 			klasse = scanner.next();
 			switch(klasse) {
-				case "C", "C1", "B":
+				case "C", "C1", "B", "B1":
 					gueltigF = false;
 					break;
 				default:
@@ -370,16 +387,16 @@ public class Anwendung //Main-Terminal
 		}
 	}
 
-	private static void fahrzeugeVergleichen() {
-		fahrzeugeAnzeigen();
-		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
-		System.out.println("Fahrzeug 1:");
-		int fahrzeugEins = scanner.nextInt();
-		System.out.println("Fahrzeug 2:");
-		int FahrzeugZwei = scanner.nextInt();
-		
-		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
-		//??
-	}
+//	private static void fahrzeugeVergleichen() {
+//		fahrzeugeAnzeigen();
+//		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
+//		System.out.println("Fahrzeug 1:");
+//		int fahrzeugEins = scanner.nextInt();
+//		System.out.println("Fahrzeug 2:");
+//		int FahrzeugZwei = scanner.nextInt();
+//		
+//		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
+//		//??
+//	}
 
 }

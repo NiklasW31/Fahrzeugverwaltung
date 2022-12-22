@@ -15,7 +15,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Fahrzeugzusatz
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, 
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
-				grundaustattung, erlaubteFahrer/** B oder B1 */);
+				grundaustattung, erlaubteFahrer/** B oder B1 oder C1 */);
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 	}
 

@@ -15,7 +15,7 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung,
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
-				grundaustattung, ErlaubteFahrer.C1);
+				grundaustattung, ErlaubteFahrer.C);
 		setBeschreibung("Der RTW soll bei Notfallpatienten die erstversorgung sicherstellen, dass\n "
 				+ "die Patienten Transportfaehig machen und sie daraufhin waerend des Transports zu ueberwachen.");
 	}

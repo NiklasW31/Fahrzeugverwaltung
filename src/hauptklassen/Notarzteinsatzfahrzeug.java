@@ -15,7 +15,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung,
 			List<String> grundaustattung,ErlaubteFahrer erlaubteFahrer) {
 		super(modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
-				grundaustattung, erlaubteFahrer);
+				grundaustattung, ErlaubteFahrer.B1);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
 	}
 	

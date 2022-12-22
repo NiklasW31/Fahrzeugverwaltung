@@ -2,5 +2,5 @@ package enums;
 
 public enum EinsatzfuehrungsdienstKategorien 
 {
-	KOMMANDOWAGEN, EINSATZLEITWAGEN, PERSONENAGEN
+	KOMMANDOWAGEN/* B1 */, EINSATZLEITWAGEN/* C1 */, PERSONENWAGEN/* B */
 }
