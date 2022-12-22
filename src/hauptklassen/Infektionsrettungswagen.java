@@ -16,8 +16,8 @@ public class Infektionsrettungswagen extends Fahrzeug implements Fahrzeugzusatz
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
 				grundaustattung, ErlaubteFahrer.C);
-		setBeschreibung("Der Infektions-Rettungswagen ist speziell f�r den Transport von Patienten mit hoch ansteckenden, "
-				+ "lebensbedrohlichen Erkrankungen ausgelegt.");
+		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von Patienten\n"
+				+ "mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
 	}
 
 	@Override

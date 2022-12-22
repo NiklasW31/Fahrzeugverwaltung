@@ -166,7 +166,13 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: (1 - 5)");
+		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
+				+ "... 1 - Rettungswagen\n"
+				+ "... 2 - Notarzteinsatzfahrzeug\n"
+				+ "... 3 - Krankentransportwagen\n"
+				+ "... 4 - Infektionsrettungswagen\n"
+				+ "... 5 - Einsatzfuehrungsdienst\n");
+		
 		boolean gueltigeKat = true;
 		int kategorie = 0;
 		while(gueltigeKat) {
@@ -196,9 +202,9 @@ public class Anwendung //Main-Terminal
 		boolean gueltigW = true;
 		String wache = "";
 		while(gueltigW) {
-			wache = scanner.next();
+			wache = scanner.next().toLowerCase();
 			switch(wache) {
-				case "Rettungswache 1", "Rettungswache 2", "Rettungswache 4":
+				case "rettungswache 1", "rettungswache 2", "rettungswache 4":
 					gueltigW = false;
 					break;
 				default:

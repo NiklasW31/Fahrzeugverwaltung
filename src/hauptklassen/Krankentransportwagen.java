@@ -16,7 +16,8 @@ public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
 				grundaustattung, ErlaubteFahrer.C1);
-		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung und Überwachung von Patienten.");
+		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
+				+ "und Überwachung von Patienten.");
 	}
 
 	@Override

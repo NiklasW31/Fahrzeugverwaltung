@@ -30,8 +30,9 @@ public abstract class Fahrzeug implements Serializable
 	private List<String> grundaustattung;
 	private ErlaubteFahrer erlaubteFahrer;
 	
-	public Fahrzeug(String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
-			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
+	public Fahrzeug(String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, 
+			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung, 
+			ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
 		this.modell = modell;
