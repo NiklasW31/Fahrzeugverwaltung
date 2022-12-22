@@ -29,13 +29,11 @@ public abstract class Fahrzeug implements Serializable
 	private int leistung;
 	private List<String> grundaustattung;
 	private ErlaubteFahrer erlaubteFahrer;
-
 	
-	public Fahrzeug(String beschreibung, String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
-		List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
+	public Fahrzeug(String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, Map<String, Double> groese, 
+			List<String> ausruestung, int leistung, List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) 
 	{
 		super();
-		this.beschreibung = beschreibung;
 		this.modell = modell;
 		this.kennzeichen = "S-RK "+ kennzeichen;
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
@@ -46,14 +44,6 @@ public abstract class Fahrzeug implements Serializable
 		this.grundaustattung = grundaustattung;
 		this.setErlaubteFahrer(erlaubteFahrer);
 	}
-
-//	@Override
-//	public String toString() {
-//		return "Beschreibung: " + beschreibung + ".\n"
-//				+ "{modell-" + modell + ", groese-" + groesse 
-//				+ ", ausruestung-" + ausruestung + ", leistung-" + leistung 
-//				+ ", grundaustattung-" + grundaustattung + ", fuehrerscheinklasse-" + erlaubteFahrer +"}";
-//	}
 
 	@Override
 	public String toString() {

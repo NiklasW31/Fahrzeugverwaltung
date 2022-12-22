@@ -11,16 +11,13 @@ public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 1L;
 	
-	public Krankentransportwagen (String beschreibung, String modell, String kennzeichen, String funkrufname,
+	public Krankentransportwagen (String modell, String kennzeichen, String funkrufname,
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, 
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super (beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
-				grundaustattung, ErlaubteFahrer.C1);	
+		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
+				grundaustattung, ErlaubteFahrer.C1);
+		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung und Überwachung von Patienten.");
 	}
-	/** 
-	 * für beschreibung einsetzen:
-	 * 		Krankentransportwagen = Für den Transport, die erweiterte Versorgung, Behandlung und Überwachung von Patienten. 
-	 */
 
 	@Override
 	public String toString() {

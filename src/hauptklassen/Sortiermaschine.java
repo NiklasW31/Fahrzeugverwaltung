@@ -12,14 +12,14 @@ public class Sortiermaschine
 		}
 	};
 	
-//	public static Comparator<Fahrzeug> GroesseComparator = new Comparator<Fahrzeug>() 
-//	{
-//		@Override
-//		public int compare(Fahrzeug o1, Fahrzeug o2) {
-//			return 0; 
-//		}
-//		
-//	};
+	public static Comparator<Fahrzeug> GroesseComparator = new Comparator<Fahrzeug>() 
+	{
+		@Override
+		public int compare(Fahrzeug o1, Fahrzeug o2) {
+			return (int) (o1.getGroese().get("Laenge") - o2.getGroese().get("Laenge")); 
+		}
+		
+	};
 	
 	public static Comparator<Fahrzeug> LeistungComparator = new Comparator<Fahrzeug>() 
 	{

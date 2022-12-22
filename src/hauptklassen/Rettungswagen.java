@@ -11,16 +11,14 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = 3121374339826972330L;
 	
-	public Rettungswagen (String beschreibung, String modell, String kennzeichen, String funkrufname,
+	public Rettungswagen (String modell, String kennzeichen, String funkrufname,
 			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung,
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
-		super (beschreibung, modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
+		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
 				grundaustattung, ErlaubteFahrer.C1);
+		setBeschreibung("Der RTW soll bei Notfallpatienten die erstversorgung sicherstellen "
+				+ ",die Patienten Transportfaehig machen und sie daraufhin waerend des Transports zu ueberwachen.");
 	}
-	/** 
-	 * für beschreibung einsetzen:
-	 * 		Rettungswagen = ?
-	 */
 
 	@Override
 	public String toString() {
