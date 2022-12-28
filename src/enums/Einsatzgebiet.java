@@ -17,7 +17,8 @@ public enum Einsatzgebiet
 	 */
 	
 	RETTUNGSWACHE1("Mitte"), RETTUNGSWACHE2("Nord_Mitte"), RETTUNGSWACHE4("Sued");
-
+// Ändern in RETTUNGSWACHE_1 usw -> bei mir funktioniert es nicht, muss man dfür die liste resetten?
+	
 	String bereich;
 	private Einsatzgebiet(String bereich) {
 		this.bereich = bereich;

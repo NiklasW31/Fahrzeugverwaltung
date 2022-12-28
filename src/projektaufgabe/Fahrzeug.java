@@ -23,45 +23,47 @@ public abstract class Fahrzeug implements Serializable
 	private String modell;
 	private String kennzeichen;
 	private String funkrufname;
-	private Einsatzgebiet einsatzgebiet;
-	private Map<String, Double> groesse;
-	private List<String> ausruestung;
 	private int leistung;
-	private List<String> grundaustattung;
+	private Map<String, Double> groesse;
 	private ErlaubteFahrer erlaubteFahrer;
+	private Einsatzgebiet einsatzgebiet;
+	private List<String> grundaustattung;
+	private List<String> ausruestung;
 	
-	public Fahrzeug(String modell, String kennzeichen, Einsatzgebiet einsatzgebiet, String funkrufname, 
-			Map<String, Double> groese, List<String> ausruestung, int leistung, List<String> grundaustattung, 
-			ErlaubteFahrer erlaubteFahrer) 
+	public Fahrzeug(String modell, String kennzeichen, String funkrufname, int leistung,
+			Map<String, Double> groese, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
+			List<String> grundaustattung, List<String> ausruestung) 
 	{
 		super();
 		this.modell = modell;
 		this.kennzeichen = "S-RK "+ kennzeichen;
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
-		this.einsatzgebiet = einsatzgebiet;
-		this.groesse = groese;
-		this.ausruestung = ausruestung;
 		this.leistung = leistung;
-		this.grundaustattung = grundaustattung;
+		this.groesse = groese;
 		this.setErlaubteFahrer(erlaubteFahrer);
+		this.einsatzgebiet = einsatzgebiet;
+		this.grundaustattung = grundaustattung;
+		this.ausruestung = ausruestung;
 	}
 
 	@Override
 	public String toString() {
-		return " Beschreibung: " + beschreibung + ".\n"
-				+ " {modell=" + modell + ", kennzeichen=" + kennzeichen
-				+ " funkrufname=" + funkrufname + ", groesse=" + groesse
-				+ " leistung=" + leistung + ", erlaubteFahrer=" + erlaubteFahrer + ".\n"
-				+ " ausruestung=" + ausruestung + ".\n"
-				+ " grundaustattung=" + grundaustattung + "]"; 
+		return " > Beschreibung - " + beschreibung + "\n"
+				+ " > modell: " + modell + ", "
+				+ "kennzeichen: " + kennzeichen + ", "
+				+ "funkrufname: " + funkrufname + ", \n   "
+				+ "groesse: " + groesse + ", "
+				+ "leistung: " + leistung + ", "
+				+ "erlaubteFahrer: " + erlaubteFahrer + "\n"
+				+ " > grundaustattung: " + grundaustattung + "\n"
+				+ " > ausruestung: " + ausruestung + "\n"; 
 	}
 	
-	/**---------- Setter und Getter ----------*/
+/**---------- Getter und Setter ----------*/
 	
 	public String getBeschreibung() {
 		return beschreibung;
 	}
-
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
@@ -73,11 +75,18 @@ public abstract class Fahrzeug implements Serializable
 		this.modell = modell;
 	}
 
-	public List<String> getAusruestung() {
-		return ausruestung;
+	public String getKennzeichen() {
+		return kennzeichen;
 	}
-	public void setAusruestung(ArrayList<String> ausruestung) {
-		this.ausruestung = ausruestung;
+	public void setKennzeichen(String kennzeichen) {
+		this.kennzeichen = kennzeichen;
+	}
+	
+	public String getFunkrufname() {
+		return funkrufname;
+	}
+	public void setFunkrufname(String funkrufname) {
+		this.funkrufname = funkrufname;
 	}
 	
 	public int getLeistung() {
@@ -86,14 +95,7 @@ public abstract class Fahrzeug implements Serializable
 	public void setLeistung(int leistung) {
 		this.leistung = leistung;
 	}
-
-	public List<String> getGrundaustattung() {
-		return grundaustattung;
-	}
-	public void setGrundaustattung(ArrayList<String> grundaustattung) {
-		this.grundaustattung = grundaustattung;
-	}
-
+	
 	public Map<String, Double> getGroese() {
 		return groesse;
 	}
@@ -107,20 +109,6 @@ public abstract class Fahrzeug implements Serializable
 	public void setErlaubteFahrer(ErlaubteFahrer erlaubteFahrer) {
 		this.erlaubteFahrer = erlaubteFahrer;
 	}
-
-	public String getKennzeichen() {
-		return kennzeichen;
-	}
-	public void setKennzeichen(String kennzeichen) {
-		this.kennzeichen = kennzeichen;
-	}
-
-	public String getFunkrufname() {
-		return funkrufname;
-	}
-	public void setFunkrufname(String funkrufname) {
-		this.funkrufname = funkrufname;
-	}
 	
 	public Einsatzgebiet getEinsatzgebiet() {
 		return einsatzgebiet;
@@ -129,4 +117,17 @@ public abstract class Fahrzeug implements Serializable
 		this.einsatzgebiet = einsatzgebiet;
 	}
 	
+	public List<String> getGrundaustattung() {
+		return grundaustattung;
+	}
+	public void setGrundaustattung(ArrayList<String> grundaustattung) {
+		this.grundaustattung = grundaustattung;
+	}
+	
+	public List<String> getAusruestung() {
+		return ausruestung;
+	}
+	public void setAusruestung(ArrayList<String> ausruestung) {
+		this.ausruestung = ausruestung;
+	}
 }
