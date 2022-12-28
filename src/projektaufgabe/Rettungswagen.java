@@ -19,9 +19,6 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung sicherstellen, \n  "
 				+ "die Patienten transportfaehig machen und sie daraufhin waerend des \n  "
 				+ "Transports ueberwachen.");
-//		  Beschreibung - Der RTW soll bei Notfallpatienten die Erstversorgung \n  "
-//		  sicherstellen, dass
-//		   die Patienten Transportfaehig machen und sie daraufhin waerend des Transports zu ueberwachen.
 	}
 
 	@Override
