@@ -1,4 +1,4 @@
-package hauptklassen;
+package projektaufgabe;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -12,7 +12,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -112,11 +111,13 @@ public class Anwendung //Main-Terminal
 		// Ende der Datei erreicht
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("Fehler beim laden der Fahrzeuge : "); 
+//			FEHLER GEFUNDEN!!!
 			e.printStackTrace();
 		}
 	}
 	
-	public static void fahrzeugeAnzeigen() {
+	public static void fahrzeugeAnzeigen() 
+	{
 		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) {
 			if (fa instanceof Rettungswagen) {

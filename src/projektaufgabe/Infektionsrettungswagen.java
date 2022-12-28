@@ -1,4 +1,4 @@
-package hauptklassen;
+package projektaufgabe;
 
 import java.util.List;
 import java.util.Map;
@@ -7,24 +7,24 @@ import enums.ErlaubteFahrer;
 import enums.Einsatzgebiet;
 import interfaces.Fahrzeugzusatz;
 
-public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
+public class Infektionsrettungswagen extends Fahrzeug implements Fahrzeugzusatz
 {
-	private static final long serialVersionUID = 3121374339826972330L;
+	private static final long serialVersionUID = 6159612121016380185L;
 	
-	public Rettungswagen (String modell, String kennzeichen, String funkrufname,
-			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung,
+	public Infektionsrettungswagen (String modell, String kennzeichen, String funkrufname,
+			Einsatzgebiet einsatzgebiet, Map<String, Double> groese, List<String> ausruestung, int leistung, 
 			List<String> grundaustattung, ErlaubteFahrer erlaubteFahrer) {
 		super (modell, kennzeichen, einsatzgebiet, funkrufname, groese, ausruestung, leistung, 
 				grundaustattung, ErlaubteFahrer.C);
-		setBeschreibung("Der RTW soll bei Notfallpatienten die erstversorgung sicherstellen, dass\n "
-				+ "die Patienten Transportfaehig machen und sie daraufhin waerend des Transports zu ueberwachen.");
+		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von Patienten\n"
+				+ "mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
 	}
 
 	@Override
 	public String toString() {
-		return "[Rettungswagen] " + super.toString();
+		return "[Infektionsrettungswagen] " + super.toString();
 	}
-	
+
 	@Override
 	public void benutzeBenzin() {
 		// TODO Auto-generated method stub
@@ -42,4 +42,5 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 }

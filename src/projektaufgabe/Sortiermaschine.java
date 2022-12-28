@@ -1,4 +1,4 @@
-package hauptklassen;
+package projektaufgabe;
 
 import java.util.Comparator;
 
