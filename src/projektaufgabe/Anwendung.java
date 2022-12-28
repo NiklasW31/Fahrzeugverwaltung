@@ -191,6 +191,10 @@ public class Anwendung //Main-Terminal
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String modell = scanner.next();
 		
+		//Baujahr einfügen
+		System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
+		int baujahr = scanner.nextInt();
+				
 		//Kennzeichen einfügen
 		System.out.println("Bitte geben Sie das Kennzeichen ein: (Bsp.: S-RK 0101)");
 		System.out.print("S-RK ");
@@ -290,19 +294,19 @@ public class Anwendung //Main-Terminal
 		switch(kategorie) 
 		{
 			case 1:
-				fahrzeuge.add(new Rettungswagen(modell, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
 				break;
 			case 2:
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
 				break;
 			case 3:
-				fahrzeuge.add(new Krankentransportwagen(modell, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
 				break;
 			case 4:
-				fahrzeuge.add(new Infektionsrettungswagen(modell, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
 				break;
 			case 5:
-				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
 				break;
 		}
 		

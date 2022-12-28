@@ -11,10 +11,10 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 {	
 	private static final long serialVersionUID = 1L;
 	
-	public Notarzteinsatzfahrzeug (String modell, String kennzeichen, String funkrufname, int leistung,
-			Map<String, Double> groese, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
+	public Notarzteinsatzfahrzeug (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
+			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
 			List<String> grundaustattung, List<String> ausruestung) {
-		super (modell, kennzeichen, funkrufname, leistung, groese, erlaubteFahrer, einsatzgebiet, 
+		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				grundaustattung, ausruestung);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
 	}

@@ -11,11 +11,11 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Fahrzeugzusatz
 {
 	private static final long serialVersionUID = -6672047570052812398L;
 	
-	public Einsatzfuehrungsdienst (String modell, String kennzeichen, String funkrufname, int leistung,
-			Map<String, Double> groese, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
+	public Einsatzfuehrungsdienst (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
+			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
 			List<String> grundaustattung, List<String> ausruestung) {
-		super (modell, kennzeichen, funkrufname, leistung, groese, erlaubteFahrer/** B oder B1 oder C1 */,
-				einsatzgebiet, grundaustattung, ausruestung);
+		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
+				grundaustattung, ausruestung);
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 	}
 

@@ -1,7 +1,6 @@
 ----------- Todo List: -----------
 
-> Methoden der Interfaces in den implementierenden Klassen füllen
-> Genannte Methoden in Anwendung integrieren
-> 
->
->
+> Methoden der Interfaces in den implementierenden Klassen füllen.
+  Genannte Methoden in Anwendung integrieren.
+> Eigene Exception schreiben fuer 'ungueltige eingabe'.
+

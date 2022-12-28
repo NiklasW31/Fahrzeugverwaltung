@@ -21,6 +21,7 @@ public abstract class Fahrzeug implements Serializable
 	 */
 	
 	private String modell;
+	private int baujahr;
 	private String kennzeichen;
 	private String funkrufname;
 	private int leistung;
@@ -30,16 +31,17 @@ public abstract class Fahrzeug implements Serializable
 	private List<String> grundaustattung;
 	private List<String> ausruestung;
 	
-	public Fahrzeug(String modell, String kennzeichen, String funkrufname, int leistung,
-			Map<String, Double> groese, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
+	public Fahrzeug(String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
+			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
 			List<String> grundaustattung, List<String> ausruestung) 
 	{
 		super();
 		this.modell = modell;
+		this.baujahr = baujahr;
 		this.kennzeichen = "S-RK "+ kennzeichen;
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
 		this.leistung = leistung;
-		this.groesse = groese;
+		this.groesse = groesse;
 		this.setErlaubteFahrer(erlaubteFahrer);
 		this.einsatzgebiet = einsatzgebiet;
 		this.grundaustattung = grundaustattung;
@@ -50,9 +52,10 @@ public abstract class Fahrzeug implements Serializable
 	public String toString() {
 		return " > Beschreibung - " + beschreibung + "\n"
 				+ " > modell: " + modell + ", "
-				+ "kennzeichen: " + kennzeichen + ", "
-				+ "funkrufname: " + funkrufname + ", \n   "
-				+ "groesse: " + groesse + ", "
+				+ "baujahr: " + baujahr + ", "
+				+ "kennzeichen: " + kennzeichen + ", \n   "
+				+ "funkrufname: " + funkrufname + ", "
+				+ "groesse: " + groesse + ", \n   "
 				+ "leistung: " + leistung + ", "
 				+ "erlaubteFahrer: " + erlaubteFahrer + "\n"
 				+ " > grundaustattung: " + grundaustattung + "\n"
@@ -73,6 +76,13 @@ public abstract class Fahrzeug implements Serializable
 	}
 	public void setModell(String modell) {
 		this.modell = modell;
+	}
+
+	public int getBaujahr() {
+		return baujahr;
+	}
+	public void setBaujahr(int baujahr) {
+		this.baujahr = baujahr;
 	}
 
 	public String getKennzeichen() {
@@ -99,8 +109,8 @@ public abstract class Fahrzeug implements Serializable
 	public Map<String, Double> getGroese() {
 		return groesse;
 	}
-	public void setGroese(Map<String, Double> groese) {
-		this.groesse = groese;
+	public void setGroese(Map<String, Double> groesse) {
+		this.groesse = groesse;
 	}
 
 	public ErlaubteFahrer getErlaubteFahrer() {
