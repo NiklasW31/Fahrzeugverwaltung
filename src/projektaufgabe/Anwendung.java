@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+import enums.EinsatzfuehrungsdienstKategorien;
 import enums.Einsatzgebiet;
 import enums.ErlaubteFahrer;
 
@@ -53,6 +54,7 @@ public class Anwendung //Main-Terminal
 				case 2:
 					//Gebe Informationen ueber ein Fahrzeug aus
 					fahrzeugInfo();
+					System.out.println();
 					break;
 				
 				case 3:
@@ -117,6 +119,7 @@ public class Anwendung //Main-Terminal
 	
 	public static void fahrzeugeAnzeigen() 
 	{
+		System.out.println("---------- Liste aller Fahrzeuge ----------");
 		int counter = 1;
 		for(Fahrzeug fa : fahrzeuge) 
 		{
@@ -133,6 +136,7 @@ public class Anwendung //Main-Terminal
 			}
 			counter++;
 		}
+		System.out.println("-------------------------------------------");
 //		schoeneren output mit 01,02,10,usw.? -> printf?
 	}
 	
@@ -144,7 +148,9 @@ public class Anwendung //Main-Terminal
 			
 			System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size() + ")");
 			int auswahl = scanner.nextInt();
-			System.out.println(fahrzeuge.get(auswahl-1));
+			System.out.println("---------- Informationen ueber das Fahrzeug ----------");
+			System.out.print(fahrzeuge.get(auswahl-1));
+			System.out.println("------------------------------------------------------");
 		} catch(Exception e) {
 			System.out.println("Ungueltige eingabe :" + e);
 		}
@@ -166,7 +172,7 @@ public class Anwendung //Main-Terminal
 				+ "... 2 - Notarzteinsatzfahrzeug\n"
 				+ "... 3 - Krankentransportwagen\n"
 				+ "... 4 - Infektionsrettungswagen\n"
-				+ "... 5 - Einsatzfuehrungsdienst\n");
+				+ "... 5 - Einsatzfuehrungsdienst");
 		
 		boolean gueltigeKat = true;
 		int kategorie = 0;
@@ -222,25 +228,25 @@ public class Anwendung //Main-Terminal
 		double hoehe = scanner.nextDouble();
 		groesse.put("Hoehe", hoehe);
 
-		//ErlaubteFahrer einfügen
-		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, B1, C, C1)");
-		boolean gueltigF = true;
-		String klasse = "";
-		while(gueltigF) 
-		{
-			klasse = scanner.next();
-			
-			switch(klasse) {
-				case "B", "B1", "C", "C1":
-					gueltigF = false;
-					break;
-					
-				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C, C1)");
-					break;
-			}
-		}
-		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
+//		//ErlaubteFahrer einfügen
+//		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, B1, C, C1)");
+//		boolean gueltigF = true;
+//		String klasse = "";
+//		while(gueltigF) 
+//		{
+//			klasse = scanner.next();
+//			
+//			switch(klasse) {
+//				case "B", "B1", "C", "C1":
+//					gueltigF = false;
+//					break;
+//					
+//				default:
+//					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C, C1)");
+//					break;
+//			}
+//		}
+//		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
 
 		//Einsatzgebiet einfügen
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
@@ -294,19 +300,77 @@ public class Anwendung //Main-Terminal
 		switch(kategorie) 
 		{
 			case 1:
-				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, grundaustattung, ausruestung));
 				break;
+				
 			case 2:
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.B1, einsatzgebiet, grundaustattung, ausruestung));
 				break;
+				
 			case 3:
-				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C1, einsatzgebiet, grundaustattung, ausruestung));
 				break;
+				
 			case 4:
-				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, grundaustattung, ausruestung));
 				break;
-			case 5:
-				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung));
+				
+			case 5:				
+				//Kategorie des Einsatzfuehrungsdienst einfügen
+				System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
+						+ "... 1 - KOMMANDOWAGEN\n"
+						+ "... 2 - EINSATZLEITWAGEN\n"
+						+ "... 3 - PERSONENWAGEN");
+				
+				boolean gueltigKEDF = true;
+				int typ = 0;
+				String wagentyp = "";
+				while(gueltigKEDF) 
+				{
+					typ = scanner.nextInt();
+					switch(typ) 
+					{
+						case 1:
+							wagentyp = "Kommandowagen";
+							gueltigKEDF = false;
+							break;
+							
+						case 2:
+							wagentyp = "Einsatzleitwagen";
+							gueltigKEDF = false;
+							break;
+							
+						case 3:
+							wagentyp = "Personenwagen";
+							gueltigKEDF = false;
+							break;
+									
+						default:
+							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1,2,3)");
+							break;
+					}
+				}
+				EinsatzfuehrungsdienstKategorien kategorieEDF = EinsatzfuehrungsdienstKategorien.valueOf(wagentyp.toUpperCase());
+				
+				//ErlaubteFahrer einfügen
+				System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse fuer das Fahrzeug ein: (B, B1, C1)");
+				boolean gueltigF = true;
+				String klasse = "";
+				while(gueltigF) 
+				{
+					klasse = scanner.next();
+					switch(klasse) {
+						case "B", "B1", "C1":
+							gueltigF = false;
+							break;
+						default:
+							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C1)");
+							break;
+						}
+				}
+				ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
+				
+				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung, kategorieEDF));
 				break;
 		}
 		

@@ -16,9 +16,9 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 			List<String> grundaustattung, List<String> ausruestung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				grundaustattung, ausruestung);
-		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung sicherstellen, \n  "
-				+ "die Patienten transportfaehig machen und sie daraufhin waerend des \n  "
-				+ "Transports ueberwachen.");
+		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
+				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
+				+ "waerend des Transports ueberwachen.");
 	}
 
 	@Override

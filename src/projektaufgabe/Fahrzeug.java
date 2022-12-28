@@ -42,7 +42,7 @@ public abstract class Fahrzeug implements Serializable
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
 		this.leistung = leistung;
 		this.groesse = groesse;
-		this.setErlaubteFahrer(erlaubteFahrer);
+		this.erlaubteFahrer = erlaubteFahrer;
 		this.einsatzgebiet = einsatzgebiet;
 		this.grundaustattung = grundaustattung;
 		this.ausruestung = ausruestung;
@@ -54,10 +54,11 @@ public abstract class Fahrzeug implements Serializable
 				+ " > modell: " + modell + ", "
 				+ "baujahr: " + baujahr + ", "
 				+ "kennzeichen: " + kennzeichen + ", \n   "
-				+ "funkrufname: " + funkrufname + ", "
+				+ "funkrufname: " + funkrufname + ", \n   "
 				+ "groesse: " + groesse + ", \n   "
 				+ "leistung: " + leistung + ", "
-				+ "erlaubteFahrer: " + erlaubteFahrer + "\n"
+				+ "erlaubteFahrer: " + erlaubteFahrer + ", "
+				+ "einsatzgebiet: " + einsatzgebiet + "\n"
 				+ " > grundaustattung: " + grundaustattung + "\n"
 				+ " > ausruestung: " + ausruestung + "\n"; 
 	}
