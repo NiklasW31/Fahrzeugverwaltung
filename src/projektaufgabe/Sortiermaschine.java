@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 public class Sortiermaschine 
 {
+//	try/catch einbauen??
 	public static Comparator<Fahrzeug> KennzeichenComparator = new Comparator<Fahrzeug>() 
 	{
 		@Override

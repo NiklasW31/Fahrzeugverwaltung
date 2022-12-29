@@ -24,7 +24,7 @@ public class Anwendung //Main-Terminal
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
 	
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{	
 		fahrzeugeLaden();
 		boolean schleife = true;
@@ -40,10 +40,8 @@ public class Anwendung //Main-Terminal
 			System.out.println("5. Fahrzeugliste sortieren");
 			System.out.println("6. Vergleiche Fahrzeuge (Nice to have)");
 			System.out.println("7. Beende das Programm");
-		
-			int eingabe = scanner.nextInt();
-		
-			switch(eingabe) 
+			
+			switch(scanner.nextInt()) 
 			{
 				case 1:
 					//Gebe eine Liste aller Fahrzeuge aus
@@ -84,17 +82,13 @@ public class Anwendung //Main-Terminal
 				case 7:
 					//Programm beenden
 					schleife = false;
-					System.out.println();
+					System.out.println("\nProgramm wurde Beendet");
 					break;
-				
+						
 				default:
-					//Exeption oder simple nachricht
-					System.out.println("Eingabe ungueltig, bitte versuchen Sie es erneut.");
-					System.out.println();
-					break;
+					System.out.println("Eingabe ungueltig! \nBitte geben sie eine gueltige Nummer ein.\n");
 			}
 		}
-		System.out.println("Programm wurde Beendet");
 	}
 
 	public static void fahrzeugeLaden() 
@@ -152,7 +146,7 @@ public class Anwendung //Main-Terminal
 			System.out.print(fahrzeuge.get(auswahl-1));
 			System.out.println("------------------------------------------------------");
 		} catch(Exception e) {
-			System.out.println("Ungueltige eingabe :" + e);
+			System.out.println("Ungueltige eingabe :" + e); 
 		}
 	}
 	
@@ -188,7 +182,8 @@ public class Anwendung //Main-Terminal
 					break;
 					
 				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1 - 5)");
+					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1 - 5)"); 
+//					TTTTTTTTTTTTTTTTT
 					break;
 			}
 		}
@@ -261,7 +256,8 @@ public class Anwendung //Main-Terminal
 					break;
 					
 				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");
+					System.out.println("ungueltige eingabe. Bitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
+//					TTTTTTTTTTTTTTTTT
 					break;
 			}
 		}
@@ -346,7 +342,8 @@ public class Anwendung //Main-Terminal
 							break;
 									
 						default:
-							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1,2,3)");
+							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1,2,3)"); 
+//							TTTTTTTTTTTTTTTTT
 							break;
 					}
 				}
@@ -364,7 +361,8 @@ public class Anwendung //Main-Terminal
 							gueltigF = false;
 							break;
 						default:
-							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C1)");
+							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C1)"); 
+//							TTTTTTTTTTTTTTTTT
 							break;
 						}
 				}
@@ -394,7 +392,8 @@ public class Anwendung //Main-Terminal
 			int fahrzeugNummer = scanner.nextInt();
 			fahrzeuge.remove(fahrzeugNummer-1);
 		} catch (Exception e) {
-				System.out.println("Fehler: ungueltige Fahrzeug Nummer");
+				System.out.println("Fehler: ungueltige Fahrzeug Nummer"); 
+//				TTTTTTTTTTTTTTTTT
 		}
 		
 		//loescht die alte "Text" Datei
@@ -451,6 +450,7 @@ public class Anwendung //Main-Terminal
 			}
 		} catch (Exception e) {
 			System.out.println("Fehler: ungueltige eingabe");
+//			TTTTTTTTTTTTTTTTT
 		}
 	}
 
