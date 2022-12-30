@@ -6,6 +6,6 @@
 > Eigene Exception schreiben fuer 'ungueltige eingabe'.
   Bei allen Scanner-Variablen eine Exception eingügen.
   
-> ErlaubtesPersonalBesatzung ausfüllen
+> ErlaubtesPersonalBesatzung ausfüllen (Besatzung ist immer festgelegt)
 
-> Standardausrüstung fuer alle fahrzeuge festlegen?
+> Standardausrüstung fuer alle fahrzeuge festlegen
