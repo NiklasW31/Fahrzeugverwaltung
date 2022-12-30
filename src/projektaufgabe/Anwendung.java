@@ -86,7 +86,7 @@ public class Anwendung //Main-Terminal
 					break;
 						
 				default:
-					System.out.println("Eingabe ungueltig! \nBitte geben sie eine gueltige Nummer ein.\n");
+					System.out.println("Ungueltige Eingabe! \nBitte geben sie eine gueltige Nummer ein.\n");
 			}
 		}
 	}
@@ -146,7 +146,7 @@ public class Anwendung //Main-Terminal
 			System.out.print(fahrzeuge.get(auswahl-1));
 			System.out.println("------------------------------------------------------");
 		} catch(Exception e) {
-			System.out.println("Ungueltige eingabe :" + e); 
+			System.out.println("Ungueltige Eingabe :" + e); 
 		}
 	}
 	
@@ -182,8 +182,7 @@ public class Anwendung //Main-Terminal
 					break;
 					
 				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1 - 5)"); 
-//					TTTTTTTTTTTTTTTTT
+					System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Kategorie ein. (1 - 5)"); 
 					break;
 			}
 		}
@@ -256,8 +255,7 @@ public class Anwendung //Main-Terminal
 					break;
 					
 				default:
-					System.out.println("ungueltige eingabe. Bitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
-//					TTTTTTTTTTTTTTTTT
+					System.out.println("Ungueltige Eingabe! \nBitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
 					break;
 			}
 		}
@@ -342,8 +340,7 @@ public class Anwendung //Main-Terminal
 							break;
 									
 						default:
-							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Kategorie ein. (1,2,3)"); 
-//							TTTTTTTTTTTTTTTTT
+							System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Kategorie ein. (1,2,3)"); 
 							break;
 					}
 				}
@@ -361,8 +358,7 @@ public class Anwendung //Main-Terminal
 							gueltigF = false;
 							break;
 						default:
-							System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C1)"); 
-//							TTTTTTTTTTTTTTTTT
+							System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Klasse ein. (B, B1, C1)"); 
 							break;
 						}
 				}
@@ -392,8 +388,7 @@ public class Anwendung //Main-Terminal
 			int fahrzeugNummer = scanner.nextInt();
 			fahrzeuge.remove(fahrzeugNummer-1);
 		} catch (Exception e) {
-				System.out.println("Fehler: ungueltige Fahrzeug Nummer"); 
-//				TTTTTTTTTTTTTTTTT
+				System.out.println("Fehler: ungueltige Fahrzeug Nummer!"); 
 		}
 		
 		//loescht die alte "Text" Datei
@@ -449,8 +444,7 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		} catch (Exception e) {
-			System.out.println("Fehler: ungueltige eingabe");
-//			TTTTTTTTTTTTTTTTT
+			System.out.println("Fehler: ungueltige Eingabe!");
 		}
 	}
 

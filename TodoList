@@ -1,7 +1,11 @@
------------ Todo List: -----------
+---------------- Todo List: ----------------
 
 > Methoden der Interfaces in den implementierenden Klassen füllen.
   Genannte Methoden in Anwendung integrieren.
+  
 > Eigene Exception schreiben fuer 'ungueltige eingabe'.
+  Bei allen Scanner-Variablen eine Exception eingügen.
+  
 > ErlaubtesPersonalBesatzung ausfüllen
+
 > Standardausrüstung fuer alle fahrzeuge festlegen?
