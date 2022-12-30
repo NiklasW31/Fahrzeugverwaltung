@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,8 +28,8 @@ public class Anwendung //Main-Terminal
 	public static void main(String[] args)
 	{	
 		fahrzeugeLaden();
-		boolean schleife = true;
 		
+		boolean schleife = true;
 		while(schleife) 
 		{
 			//Auswahl der Aktion
@@ -41,45 +42,45 @@ public class Anwendung //Main-Terminal
 			System.out.println("6. Vergleiche Fahrzeuge (Nice to have)");
 			System.out.println("7. Beende das Programm");
 			
-			switch(scanner.nextInt()) 
+			switch(scanner.next()) 
 			{
-				case 1:
+				case "1":
 					//Gebe eine Liste aller Fahrzeuge aus
 					fahrzeugeAnzeigen();
 					System.out.println();
 					break;
 				
-				case 2:
+				case "2":
 					//Gebe Informationen ueber ein Fahrzeug aus
 					fahrzeugInfo();
 					System.out.println();
 					break;
 				
-				case 3:
+				case "3":
 					//Erstelle ein Fahrzeug
 					fahrzeugErstellen();
 					System.out.println();
 					break;
 				
-				case 4:
+				case "4":
 					//Loesche ein Fahrzeug
 					fahrzeugLoeschen();
 					System.out.println();
 					break;
 				
-				case 5:
+				case "5":
 					//sortiere Fahrzeuge
 					fahrzeugeSortieren();
 					System.out.println();
 					break;
 				
-				case 6:
+				case "6":
 					//Vergleiche Fahrzeuge
 					//fahrzeugeVergleichen();
 					System.out.println("NOCH NICHT VORHANDEN");
 					break;
 				
-				case 7:
+				case "7":
 					//Programm beenden
 					schleife = false;
 					System.out.println("\nProgramm wurde Beendet");
@@ -103,11 +104,12 @@ public class Anwendung //Main-Terminal
 		} catch (EOFException e) {
 			// Ende der Datei erreicht
 		} catch (IOException | ClassNotFoundException e) {
-			System.out.println("Fehler beim laden der Fahrzeuge : ");
+			System.out.println("Fehler beim laden der Fahrzeuge : " + e);
 //			FEHLER GEFUNDEN! 
 //			-> wollte 'projektaugabe' in 'hauptklasse' umbennenen, dann hat es aber gemeint, 
 //			dass es projektaugabe.rettungswagen nicht mehr findet 
-			e.printStackTrace();
+			
+//			Man muesste die FahzeugListe resetten. In der Datei "FahrzeugListe.Liste ist auch der Pfad hinterlegt da das Objekt ansich dort gespeichert wird
 		}
 	}
 	
@@ -150,6 +152,7 @@ public class Anwendung //Main-Terminal
 		}
 	}
 	
+	//neue Fahrzeuge Erstellen
 	public static void fahrzeugErstellen() 
 	{	
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
@@ -178,13 +181,23 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		//Modell einfügen
+		//Modell
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String modell = scanner.next();
+		// mindest laenge oder andere Kriterien fuer modell?
 		
-		//Baujahr einfügen
-		System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
-		int baujahr = scanner.nextInt();
+		//Baujahr
+		int baujahr;
+		while(true) {
+			System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
+			try {
+				baujahr = scanner.nextInt();
+				break;
+			}catch(InputMismatchException e){
+				System.err.println(e);
+				scanner.next();
+			}
+		}
 				
 		//Kennzeichen einfügen
 		System.out.println("Bitte geben Sie das Kennzeichen ein: (Bsp.: S-RK 0101)");
@@ -197,21 +210,55 @@ public class Anwendung //Main-Terminal
 		String funkrufname = scanner.next();
 		
 		//Leistung einfügen
-		System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: ");
-		int leistung = scanner.nextInt();
+		int leistung;
+		while(true) {
+			System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: ");
+			try {
+				leistung = scanner.nextInt();
+				break;
+			}catch(InputMismatchException e) {
+				System.err.println(e);
+				scanner.next();
+			}
+			
+		}
 
-		//Groesse einfügen
+//		//Groesse einfügen
+//		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
+//		HashMap<String, Double> groesse = new HashMap<>();
+//		System.out.println("Geben Sie die Fahrzeug Laenge ein: (Bsp.: 6,2)");
+//		double laenge = scanner.nextDouble();
+//		groesse.put("Laenge", laenge);
+//		System.out.println("Geben Sie die Fahrzeug Breite ein: (Bsp.: 2,7)");
+//		double breite = scanner.nextDouble();
+//		groesse.put("Breite", breite);
+//		System.out.println("Geben Sie die Fahrzeug Hoehe ein: (Bsp.: 3,0)");
+//		double hoehe = scanner.nextDouble();
+//		groesse.put("Hoehe", hoehe);
+		
+		//Groesse
 		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 		HashMap<String, Double> groesse = new HashMap<>();
-		System.out.println("Geben Sie die Fahrzeug Laenge ein: (Bsp.: 6,2)");
-		double laenge = scanner.nextDouble();
-		groesse.put("Laenge", laenge);
-		System.out.println("Geben Sie die Fahrzeug Breite ein: (Bsp.: 2,7)");
-		double breite = scanner.nextDouble();
-		groesse.put("Breite", breite);
-		System.out.println("Geben Sie die Fahrzeug Hoehe ein: (Bsp.: 3,0)");
-		double hoehe = scanner.nextDouble();
-		groesse.put("Hoehe", hoehe);
+		while(true) {
+			try {
+				System.out.println("Geben Sie die Fahrzeug Laenge ein: (Bsp.: 6,2)");
+				double laenge = scanner.nextDouble();
+				groesse.put("Laenge", laenge);
+				System.out.println("Geben Sie die Fahrzeug Breite ein: (Bsp.: 2,7)");
+				double breite = scanner.nextDouble();
+				groesse.put("Breite", breite);
+				System.out.println("Geben Sie die Fahrzeug Hoehe ein: (Bsp.: 3,0)");
+				double hoehe = scanner.nextDouble();
+				groesse.put("Hoehe", hoehe);
+				
+				break;
+			}catch(InputMismatchException e) {
+				System.err.println("Ungueltige eingabe: " + e);
+				groesse.clear();
+				scanner.next();
+			}
+		}
+
 
 		//Einsatzgebiet einfügen
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
