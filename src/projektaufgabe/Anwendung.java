@@ -232,33 +232,33 @@ public class Anwendung //Main-Terminal
 		}
 		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
 
-		//Grundaustattung einfügen
-		System.out.println("Bitte geben Sie die Grundaustattung an: ");
-		List<String> grundaustattung = new ArrayList<>();
+		//Ausstattung einfügen??
+		System.out.println("Bitte geben Sie die Ausatattung an: ");
+		List<String> ausstattung = new ArrayList<>();
 		while(true) 
 		{
 			System.out.println("Geben Sie ein min. 1 Objekt ein: (zum beenden 'x' eingeben)"
-					+ "\nGrundaustattung = " + grundaustattung);
-			String grundaustattungTemp = scanner.next();
-			if (grundaustattungTemp.equals("x")|| grundaustattungTemp.equals("X")) {
+					+ "\nAusstattung = " + ausstattung);
+			String ausstattungTemp = scanner.next();
+			if (ausstattungTemp.equals("x")|| ausstattungTemp.equals("X")) {
 				break;
 			} else {
-				grundaustattung.add(grundaustattungTemp);
+				ausstattung.add(ausstattungTemp);
 			}
 		}
 		
-		//Ausruestung einfügen
-		System.out.println("Bitte geben Sie die Ausruestung des Fahrzeuges an: ");
-		List<String> ausruestung = new ArrayList<>();
+		//Ausruestung einfügen??
+		System.out.println("Bitte geben Sie die Standardausruestung des Fahrzeuges an: ");
+		List<String> standardausruestung = new ArrayList<>();
 		while(true) 
 		{
 			System.out.println("Geben Sie ein min. 1 Gegenstand ein: (zum beenden 'x' eingeben)"
-						+ "\nAusruestung = " + ausruestung);
-			String ausruestungTemp = scanner.next();
-			if (ausruestungTemp.equals("x") || ausruestungTemp.equals("X")) {
+						+ "\nStandardausruestung = " + standardausruestung);
+			String standardausruestungTemp = scanner.next();
+			if (standardausruestungTemp.equals("x") || standardausruestungTemp.equals("X")) {
 				break;
 			} else {
-				ausruestung.add(ausruestungTemp);
+				standardausruestung.add(standardausruestungTemp);
 			}
 		}
 		
@@ -266,19 +266,19 @@ public class Anwendung //Main-Terminal
 		switch(kategorie) 
 		{
 			case 1:
-				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
 			case 2:
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.B1, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.B1, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
 			case 3:
-				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C1, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C1, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
 			case 4:
-				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, grundaustattung, ausruestung));
+				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
 			case 5:				
@@ -324,7 +324,7 @@ public class Anwendung //Main-Terminal
 				EinsatzfuehrungsdienstKategorien kategorieEDF = EinsatzfuehrungsdienstKategorien.valueOf(wagentyp.toUpperCase());
 				ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
 				
-				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung, kategorieEDF));
+				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, ausstattung, standardausruestung, kategorieEDF));
 				break;
 		}
 		

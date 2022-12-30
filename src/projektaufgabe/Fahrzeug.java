@@ -12,14 +12,7 @@ import enums.Einsatzgebiet;
 public abstract class Fahrzeug implements Serializable 
 {
 	private static final long serialVersionUID = -1466146206607392728L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
-	private String beschreibung; 
-	
-	/**
-	 * sollte abstract sein. -> abstract geht grad aber nicht
-	 * Geplannt war, das jede Kategorie eine Beschreibung hat wofür genau sie benutzt 
-	 * werden und nicht individuel eigegeben.
-	 */
-	
+	private String beschreibung;
 	private String modell;
 	private int baujahr;
 	private String kennzeichen;
@@ -28,12 +21,12 @@ public abstract class Fahrzeug implements Serializable
 	private Map<String, Double> groesse;
 	private ErlaubteFahrer erlaubteFahrer;
 	private Einsatzgebiet einsatzgebiet;
-	private List<String> grundaustattung;
-	private List<String> ausruestung;
+	private List<String> ausstattung;
+	private List<String> standardausruestung;
 	
 	public Fahrzeug(String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> grundaustattung, List<String> ausruestung) 
+			List<String> ausstattung, List<String> ausruestung) 
 	{
 		super();
 		this.modell = modell;
@@ -44,8 +37,8 @@ public abstract class Fahrzeug implements Serializable
 		this.groesse = groesse;
 		this.erlaubteFahrer = erlaubteFahrer;
 		this.einsatzgebiet = einsatzgebiet;
-		this.grundaustattung = grundaustattung;
-		this.ausruestung = ausruestung;
+		this.ausstattung = ausstattung;
+		this.standardausruestung = ausruestung;
 	}
 
 	@Override
@@ -59,8 +52,8 @@ public abstract class Fahrzeug implements Serializable
 				+ "leistung: " + leistung + ", "
 				+ "erlaubteFahrer: " + erlaubteFahrer + ", "
 				+ "einsatzgebiet: " + einsatzgebiet + "\n"
-				+ " > grundaustattung: " + grundaustattung + "\n"
-				+ " > ausruestung: " + ausruestung + "\n"; 
+				+ " > grundaustattung: " + ausstattung + "\n"
+				+ " > ausruestung: " + standardausruestung + "\n"; 
 	}
 	
 /**---------- Getter und Setter ----------*/
@@ -129,16 +122,16 @@ public abstract class Fahrzeug implements Serializable
 	}
 	
 	public List<String> getGrundaustattung() {
-		return grundaustattung;
+		return ausstattung;
 	}
-	public void setGrundaustattung(ArrayList<String> grundaustattung) {
-		this.grundaustattung = grundaustattung;
+	public void setGrundaustattung(ArrayList<String> ausstattung) {
+		this.ausstattung = ausstattung;
 	}
 	
 	public List<String> getAusruestung() {
-		return ausruestung;
+		return standardausruestung;
 	}
-	public void setAusruestung(ArrayList<String> ausruestung) {
-		this.ausruestung = ausruestung;
+	public void setAusruestung(ArrayList<String> standardausruestung) {
+		this.standardausruestung = standardausruestung;
 	}
 }

@@ -13,13 +13,16 @@ public class Infektionsrettungswagen extends Fahrzeug implements Fahrzeugzusatz
 	
 	public Infektionsrettungswagen (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> grundaustattung, List<String> ausruestung) {
+			List<String> ausstattung, List<String> standardausruestung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				grundaustattung, ausruestung);
+				ausstattung, standardausruestung);
 		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n  "
 				+ "Patienten mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
 	}
-
+	
+//	Standardgrundaustattung: K.A
+//	Standardausrüstung: K.A
+	
 	@Override
 	public String toString() {
 		return "[Infektionsrettungswagen] \n" + super.toString();

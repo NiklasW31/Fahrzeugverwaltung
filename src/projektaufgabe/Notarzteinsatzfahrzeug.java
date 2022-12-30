@@ -13,11 +13,29 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 	
 	public Notarzteinsatzfahrzeug (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> grundaustattung, List<String> ausruestung) {
+			List<String> ausstattung, List<String> standardausruestung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				grundaustattung, ausruestung);
+				ausstattung, standardausruestung);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
 	}
+	
+//	Standardgrundaustattung: 
+//		Beatmungsgerät Weinmann Medumat Transport
+//		Notfallrucksack Atmung
+//		Notfallrucksack Kreislauf
+//		Notfallrucksack Baby
+//		Notfallrucksack Trauma
+//		EKG/Defi Corpuls C3
+//		Corpuls CPR Reanimationshilfe
+//		2x Spritzenpumpe Braun Perfusor Space
+//		Zusatztaschen NEF (Intox, Verbrennung, etc.)
+//		MANV Sets
+//		Absaugpumpe Weinmann Avccuvac
+//		Einsatz-Management-System: Convexis Connex
+//	-> Unterschiede: KET System
+
+//Standardausrüstung: Automatikgetriebe, Allradantrieb, Schiebetüren beidseits, Rückfahrkamera
+
 	
 	@Override
 	public String toString() {

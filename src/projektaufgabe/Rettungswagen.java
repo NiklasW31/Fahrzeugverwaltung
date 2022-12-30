@@ -13,16 +13,28 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 	
 	public Rettungswagen (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> grundaustattung, List<String> ausruestung) {
+			List<String> ausstattung, List<String> standardausruestung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				grundaustattung, ausruestung);
+				ausstattung, standardausruestung);
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
 	}
 	
-	
+//	Standardgrundaustattung:
+//		Notfallkoffer
+//		Beatmungsrucksack
+//		Notfalltasche Kind
+//		Notfalltasche Trauma
+//		Absaugpumpe Accuvac
+//		Schaufeltrage
+//		Fahrtrage Styker
+//		Corpuls C3
+//		Weimann Medumat Standard 2
+//		Spineboard
 
+//	Standardausrüstung: Luftfederung, Rückfahrkamera, LED-Innenbeleuchtung, LED-Außenbeleuchtung
+	
 	@Override
 	public String toString() {
 		return "[Rettungswagen] \n" + super.toString();
