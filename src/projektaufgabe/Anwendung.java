@@ -151,16 +151,7 @@ public class Anwendung //Main-Terminal
 	}
 	
 	public static void fahrzeugErstellen() 
-	{
-		/**
-		 * Wir brauchen für den ganzen Vorgang eine Exeption. 
-		 * Wenn mal testest alle Fahrzeuge anzeigen, siehst du ein 4 Objekt.
-		 * Allerdings fehlt da eine beschreibung, weil ich beim ersten versuch eins 
-		 * anzulegen einen Fehler bei Modell hatte. Als ich es erneut versucht habe 
-		 * wurde die Beschreibung einfach übersprungen.
-		 * -> Müssen es so machen, dass das neue Objekt gelöscht/fallen gelassen wird.
-		 **/
-		
+	{	
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
 				+ "... 1 - Rettungswagen\n"
 				+ "... 2 - Notarzteinsatzfahrzeug\n"
@@ -222,26 +213,6 @@ public class Anwendung //Main-Terminal
 		double hoehe = scanner.nextDouble();
 		groesse.put("Hoehe", hoehe);
 
-//		//ErlaubteFahrer einfügen
-//		System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse für das Fahrzeug ein: (B, B1, C, C1)");
-//		boolean gueltigF = true;
-//		String klasse = "";
-//		while(gueltigF) 
-//		{
-//			klasse = scanner.next();
-//			
-//			switch(klasse) {
-//				case "B", "B1", "C", "C1":
-//					gueltigF = false;
-//					break;
-//					
-//				default:
-//					System.out.println("ungueltige eingabe. Bitte geben Sie eine gueltige Klasse ein. (B, B1, C, C1)");
-//					break;
-//			}
-//		}
-//		ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
-
 		//Einsatzgebiet einfügen
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
 		boolean gueltigW = true;
@@ -291,6 +262,7 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
+		//Erstellung des neuen Objects
 		switch(kategorie) 
 		{
 			case 1:
@@ -311,6 +283,7 @@ public class Anwendung //Main-Terminal
 				
 			case 5:				
 				//Kategorie des Einsatzfuehrungsdienst einfügen
+				//ErlaubteFahrer einfügen
 				System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
 						+ "... 1 - KOMMANDOWAGEN\n"
 						+ "... 2 - EINSATZLEITWAGEN\n"
@@ -319,6 +292,7 @@ public class Anwendung //Main-Terminal
 				boolean gueltigKEDF = true;
 				int typ = 0;
 				String wagentyp = "";
+				String klasse = "";
 				while(gueltigKEDF) 
 				{
 					typ = scanner.nextInt();
@@ -326,16 +300,19 @@ public class Anwendung //Main-Terminal
 					{
 						case 1:
 							wagentyp = "Kommandowagen";
+							klasse = "B1";
 							gueltigKEDF = false;
 							break;
 							
 						case 2:
 							wagentyp = "Einsatzleitwagen";
+							klasse = "C1";
 							gueltigKEDF = false;
 							break;
 							
 						case 3:
 							wagentyp = "Personenwagen";
+							klasse = "B";
 							gueltigKEDF = false;
 							break;
 									
@@ -345,23 +322,6 @@ public class Anwendung //Main-Terminal
 					}
 				}
 				EinsatzfuehrungsdienstKategorien kategorieEDF = EinsatzfuehrungsdienstKategorien.valueOf(wagentyp.toUpperCase());
-				
-				//ErlaubteFahrer einfügen
-				System.out.println("Bitte geben Sie die benoetigte Fuehrerscheinklasse fuer das Fahrzeug ein: (B, B1, C1)");
-				boolean gueltigF = true;
-				String klasse = "";
-				while(gueltigF) 
-				{
-					klasse = scanner.next();
-					switch(klasse) {
-						case "B", "B1", "C1":
-							gueltigF = false;
-							break;
-						default:
-							System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Klasse ein. (B, B1, C1)"); 
-							break;
-						}
-				}
 				ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
 				
 				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, grundaustattung, ausruestung, kategorieEDF));

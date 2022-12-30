@@ -20,6 +20,8 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
 	}
+	
+	
 
 	@Override
 	public String toString() {
