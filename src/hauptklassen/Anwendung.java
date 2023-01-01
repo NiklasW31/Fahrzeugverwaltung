@@ -1,4 +1,4 @@
-package projektaufgabe;
+package hauptklassen;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -257,14 +257,48 @@ public class Anwendung //Main-Terminal
 			}
 		}
 
+//		//Einsatzgebiet einfügen
+//		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
+//		boolean gueltigW = true;
+//		String wache = "";
+//		while(gueltigW) {
+//			wache = scanner.next();
+//			switch(wache) {
+//				case "rettungswache1", "rettungswache2", "rettungswache4":
+//					gueltigW = false;
+//					break;
+//					
+//				default:
+//					System.out.println("Ungueltige Eingabe! \nBitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
+//					break;
+//			}
+//		}
+//		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
+		
 		//Einsatzgebiet einfügen
-		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
+		System.out.println("Bitte geben Sie das Einsatzgebiet ein: \n"
+				+ "... 1 - Rettungswache 1\n"
+				+ "... 2 - Rettungswache 2\n"
+				+ "... 4 - Rettungswache 4");
+		
 		boolean gueltigW = true;
+		String gebiet = "";
 		String wache = "";
 		while(gueltigW) {
-			wache = scanner.next();
-			switch(wache) {
-				case "rettungswache1", "rettungswache2", "rettungswache4":
+			gebiet = scanner.next();
+			switch(gebiet) {
+				case "1":
+					wache = "rettungswache_1";
+					gueltigW = false;
+					break;
+					
+				case "2":
+					wache = "rettungswache_2";
+					gueltigW = false;
+					break;
+					
+				case "4":
+					wache = "rettungswache_4";
 					gueltigW = false;
 					break;
 					

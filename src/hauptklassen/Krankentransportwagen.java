@@ -1,4 +1,4 @@
-package projektaufgabe;
+package hauptklassen;
 
 import java.util.List;
 import java.util.Map;
