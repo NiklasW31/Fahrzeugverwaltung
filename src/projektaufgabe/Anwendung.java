@@ -165,12 +165,10 @@ public class Anwendung //Main-Terminal
 		boolean gueltigeKat = true;
 		int kategorie = 0;
 		
-		while(gueltigeKat) 
-		{
+		while(gueltigeKat) {
 			kategorie = scanner.nextInt();
 			
-			switch(kategorie) 
-			{
+			switch(kategorie) {
 				case 1,2,3,4,5:
 					gueltigeKat = false;
 					break;
@@ -185,6 +183,7 @@ public class Anwendung //Main-Terminal
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String modell = scanner.next();
 		// mindest laenge oder andere Kriterien fuer modell?
+//		Was meinst du mit andere Kriterien?
 		
 		//Baujahr
 		int baujahr;
@@ -193,7 +192,7 @@ public class Anwendung //Main-Terminal
 			try {
 				baujahr = scanner.nextInt();
 				break;
-			}catch(InputMismatchException e){
+			} catch(InputMismatchException e){
 				System.err.println(e);
 				scanner.next();
 			}
@@ -212,15 +211,14 @@ public class Anwendung //Main-Terminal
 		//Leistung einfügen
 		int leistung;
 		while(true) {
-			System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: ");
+			System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: (Bsp.: 120)");
 			try {
 				leistung = scanner.nextInt();
 				break;
-			}catch(InputMismatchException e) {
-				System.err.println(e);
+			} catch(InputMismatchException e) {
+				System.err.println("Ungueltige eingabe: " + e);
 				scanner.next();
 			}
-			
 		}
 
 //		//Groesse einfügen
@@ -252,20 +250,18 @@ public class Anwendung //Main-Terminal
 				groesse.put("Hoehe", hoehe);
 				
 				break;
-			}catch(InputMismatchException e) {
+			} catch(InputMismatchException e) {
 				System.err.println("Ungueltige eingabe: " + e);
 				groesse.clear();
 				scanner.next();
 			}
 		}
 
-
 		//Einsatzgebiet einfügen
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
 		boolean gueltigW = true;
 		String wache = "";
-		while(gueltigW) 
-		{
+		while(gueltigW) {
 			wache = scanner.next();
 			switch(wache) {
 				case "rettungswache1", "rettungswache2", "rettungswache4":
@@ -282,8 +278,7 @@ public class Anwendung //Main-Terminal
 		//Ausstattung einfügen??
 		System.out.println("Bitte geben Sie die Ausatattung an: ");
 		List<String> ausstattung = new ArrayList<>();
-		while(true) 
-		{
+		while(true) {
 			System.out.println("Geben Sie ein min. 1 Objekt ein: (zum beenden 'x' eingeben)"
 					+ "\nAusstattung = " + ausstattung);
 			String ausstattungTemp = scanner.next();
@@ -297,8 +292,7 @@ public class Anwendung //Main-Terminal
 		//Ausruestung einfügen??
 		System.out.println("Bitte geben Sie die Standardausruestung des Fahrzeuges an: ");
 		List<String> standardausruestung = new ArrayList<>();
-		while(true) 
-		{
+		while(true) {
 			System.out.println("Geben Sie ein min. 1 Gegenstand ein: (zum beenden 'x' eingeben)"
 						+ "\nStandardausruestung = " + standardausruestung);
 			String standardausruestungTemp = scanner.next();
