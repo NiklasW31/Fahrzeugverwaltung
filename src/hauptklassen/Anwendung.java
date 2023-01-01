@@ -358,11 +358,11 @@ public class Anwendung //Main-Terminal
 						+ "... 2 - EINSATZLEITWAGEN\n"
 						+ "... 3 - PERSONENWAGEN");
 				
-				boolean gueltigKEDF = true;
+				boolean gueltigKEFD = true;
 				int typ = 0;
 				String wagentyp = "";
 				String klasse = "";
-				while(gueltigKEDF) 
+				while(gueltigKEFD) 
 				{
 					typ = scanner.nextInt();
 					switch(typ) 
@@ -370,19 +370,19 @@ public class Anwendung //Main-Terminal
 						case 1:
 							wagentyp = "Kommandowagen";
 							klasse = "B1";
-							gueltigKEDF = false;
+							gueltigKEFD = false;
 							break;
 							
 						case 2:
 							wagentyp = "Einsatzleitwagen";
 							klasse = "C1";
-							gueltigKEDF = false;
+							gueltigKEFD = false;
 							break;
 							
 						case 3:
 							wagentyp = "Personenwagen";
 							klasse = "B";
-							gueltigKEDF = false;
+							gueltigKEFD = false;
 							break;
 									
 						default:
