@@ -105,11 +105,6 @@ public class Anwendung //Main-Terminal
 			// Ende der Datei erreicht
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("Fehler beim laden der Fahrzeuge : " + e);
-//			FEHLER GEFUNDEN! 
-//			-> wollte 'projektaugabe' in 'hauptklasse' umbennenen, dann hat es aber gemeint, 
-//			dass es projektaugabe.rettungswagen nicht mehr findet 
-			
-//			Man muesste die FahzeugListe resetten. In der Datei "FahrzeugListe.Liste ist auch der Pfad hinterlegt da das Objekt ansich dort gespeichert wird
 		}
 	}
 	
@@ -152,7 +147,6 @@ public class Anwendung //Main-Terminal
 		}
 	}
 	
-	//neue Fahrzeuge Erstellen
 	public static void fahrzeugErstellen() 
 	{	
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
@@ -163,13 +157,13 @@ public class Anwendung //Main-Terminal
 				+ "... 5 - Einsatzfuehrungsdienst");
 		
 		boolean gueltigeKat = true;
-		int kategorie = 0;
+		String kategorie = "";
 		
 		while(gueltigeKat) {
-			kategorie = scanner.nextInt();
+			kategorie = scanner.next();
 			
 			switch(kategorie) {
-				case 1,2,3,4,5:
+				case "1", "2", "3", "4", "5":
 					gueltigeKat = false;
 					break;
 					
@@ -179,13 +173,13 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		//Modell
+		//Modell einfügen
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String modell = scanner.next();
 		// mindest laenge oder andere Kriterien fuer modell?
-//		Was meinst du mit andere Kriterien?
+//		Was meinst du mit andere Kriterien??
 		
-		//Baujahr
+		//Baujahr einfügen
 		int baujahr;
 		while(true) {
 			System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
@@ -193,7 +187,7 @@ public class Anwendung //Main-Terminal
 				baujahr = scanner.nextInt();
 				break;
 			} catch(InputMismatchException e){
-				System.err.println(e);
+				System.err.println("Ungueltige eingabe: " + e);
 				scanner.next();
 			}
 		}
@@ -221,6 +215,7 @@ public class Anwendung //Main-Terminal
 			}
 		}
 
+		//Brauhchst du das noch?
 //		//Groesse einfügen
 //		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
 //		HashMap<String, Double> groesse = new HashMap<>();
@@ -340,23 +335,23 @@ public class Anwendung //Main-Terminal
 		//Erstellung des neuen Objects
 		switch(kategorie) 
 		{
-			case 1:
+			case "1":
 				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
-			case 2:
+			case "2":
 				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.B1, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
-			case 3:
+			case "3":
 				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C1, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
-			case 4:
+			case "4":
 				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
 				break;
 				
-			case 5:				
+			case "5":				
 				//Kategorie des Einsatzfuehrungsdienst einfügen
 				//ErlaubteFahrer einfügen
 				System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
