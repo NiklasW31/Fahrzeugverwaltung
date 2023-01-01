@@ -76,8 +76,7 @@ public class Anwendung //Main-Terminal
 				
 				case "6":
 					//Vergleiche Fahrzeuge
-					//fahrzeugeVergleichen();
-					System.out.println("NOCH NICHT VORHANDEN");
+					fahrzeugeVergleichen();
 					break;
 				
 				case "7":
@@ -478,7 +477,8 @@ public class Anwendung //Main-Terminal
 		}
 	}
 
-//	private static void fahrzeugeVergleichen() {
+	private static void fahrzeugeVergleichen() {
+		System.out.println("NOCH NICHT VORHANDEN");
 //		fahrzeugeAnzeigen();
 //		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
 //		System.out.println("Fahrzeug 1:");
@@ -488,6 +488,6 @@ public class Anwendung //Main-Terminal
 //		
 //		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
 //		//??
-//	}
+	}
 
 }
