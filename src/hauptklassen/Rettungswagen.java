@@ -1,5 +1,7 @@
 package hauptklassen;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,11 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
+	
+		ArrayList<String> ausruestung = new ArrayList<>();
+		ausruestung.addAll(Arrays.asList("Notfallkoffer", "Beatmungsrucksack", "Notfalltasche Kind", "Notfalltasche Trauma",
+				"Absaugpumpe Accuvac", "Schaufeltrage", "Fahrtrage Styker", "Corpuls C3", "Weimann Medumat Standard 2", "Spineboard"));
+		setStandardausruestung(ausruestung);
 	}
 	
 //	Standardgrundaustattung:

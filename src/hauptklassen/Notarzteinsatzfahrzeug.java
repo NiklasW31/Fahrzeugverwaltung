@@ -1,5 +1,7 @@
 package hauptklassen;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +19,13 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Fahrzeugzusatz
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausstattung, standardausruestung);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
+		
+		ArrayList<String> ausruestung = new ArrayList<>();
+		ausruestung.addAll(Arrays.asList("Beatmungsgeraet Weinmann Medumat Transport", "Notfallrucksack Atmung", "Notfallrucksack Kreislauf", "Notfallrucksack Baby",
+				"Notfallrucksack Trauma", "EKG/Defi Corpuls C3", "Corpuls CPR Reanimationshilfe", "2x Spritzenpumpe Braun Perfusor Space", "Zusatztaschen NEF", "MANV Sets",
+				"Absaugpumpe Weinmann Avccuvac", "Einsatz-Management-System: Convexis Connex"));
+		setStandardausruestung(ausruestung);
+		
 	}
 	
 //	Standardgrundaustattung: 

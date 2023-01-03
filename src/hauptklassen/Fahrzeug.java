@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import enums.ErlaubteFahrer;
 import enums.Einsatzgebiet;
@@ -26,7 +25,7 @@ public abstract class Fahrzeug implements Serializable
 	
 	public Fahrzeug(String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausstattung, List<String> ausruestung) 
+			List<String> ausstattung, List<String> standardausruestung) 
 	{
 		super();
 		this.modell = modell;
@@ -38,7 +37,7 @@ public abstract class Fahrzeug implements Serializable
 		this.erlaubteFahrer = erlaubteFahrer;
 		this.einsatzgebiet = einsatzgebiet;
 		this.ausstattung = ausstattung;
-		this.standardausruestung = ausruestung;
+		this.standardausruestung = standardausruestung;
 	}
 
 	@Override
@@ -128,10 +127,10 @@ public abstract class Fahrzeug implements Serializable
 		this.ausstattung = ausstattung;
 	}
 	
-	public List<String> getAusruestung() {
+	public List<String> getStandartausruestung() {
 		return standardausruestung;
 	}
-	public void setAusruestung(ArrayList<String> standardausruestung) {
+	public void setStandardausruestung(ArrayList<String> standardausruestung) {
 		this.standardausruestung = standardausruestung;
 	}
 }

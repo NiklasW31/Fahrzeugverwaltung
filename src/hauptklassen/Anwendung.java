@@ -115,6 +115,7 @@ public class Anwendung //Main-Terminal
 		{
 			if (fa instanceof Rettungswagen) {
 				System.out.println(counter + ": Rettungswagen, " + fa.getModell());
+				
 			} else if (fa instanceof Notarzteinsatzfahrzeug) {
 				System.out.println(counter + ": Notarzteinsatzfahrzeug, " + fa.getModell());
 			} else if (fa instanceof Krankentransportwagen) {
@@ -172,13 +173,13 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		//Modell einfügen
+		//Modell einfuegen
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String modell = scanner.next();
-		// mindest laenge oder andere Kriterien fuer modell?
+//		mindest laenge oder andere Kriterien fuer modell?
 //		Was meinst du mit andere Kriterien??
 		
-		//Baujahr einfügen
+		//Baujahr einfuegen
 		int baujahr;
 		while(true) {
 			System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
@@ -251,7 +252,7 @@ public class Anwendung //Main-Terminal
 			}
 		}
 
-//		//Einsatzgebiet einfügen
+//		//Einsatzgebiet einfuegen
 //		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
 //		boolean gueltigW = true;
 //		String wache = "";
@@ -269,7 +270,7 @@ public class Anwendung //Main-Terminal
 //		}
 //		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
 		
-		//Einsatzgebiet einfügen
+		//Einsatzgebiet einfuegen
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: \n"
 				+ "... 1 - Rettungswache 1\n"
 				+ "... 2 - Rettungswache 2\n"
@@ -303,11 +304,11 @@ public class Anwendung //Main-Terminal
 		}
 		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
 
-		//Ausstattung einfügen??
+		//Ausstattung einfuegen??
 		System.out.println("Bitte geben Sie die Ausatattung an: ");
 		List<String> ausstattung = new ArrayList<>();
 		while(true) {
-			System.out.println("Geben Sie ein min. 1 Objekt ein: (zum beenden 'x' eingeben)"
+			System.out.println("Geben Sie die Fahrzeugaustattung ein: (zum beenden 'x' eingeben)"
 					+ "\nAusstattung = " + ausstattung);
 			String ausstattungTemp = scanner.next();
 			if (ausstattungTemp.equals("x")|| ausstattungTemp.equals("X")) {
@@ -317,11 +318,11 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		//Ausruestung einfügen??
-		System.out.println("Bitte geben Sie die Standardausruestung des Fahrzeuges an: ");
+		//Optionale Ausruestung hinzufuegen 
+		System.out.println("Bitte geben Sie die optionale Ausruestung des Fahrzeuges an: ");
 		List<String> standardausruestung = new ArrayList<>();
 		while(true) {
-			System.out.println("Geben Sie ein min. 1 Gegenstand ein: (zum beenden 'x' eingeben)"
+			System.out.println("Geben Sie ein Gegenstand ein: (zum beenden 'x' eingeben)"
 						+ "\nStandardausruestung = " + standardausruestung);
 			String standardausruestungTemp = scanner.next();
 			if (standardausruestungTemp.equals("x") || standardausruestungTemp.equals("X")) {
@@ -331,7 +332,7 @@ public class Anwendung //Main-Terminal
 			}
 		}
 		
-		//Erstellung des neuen Objects
+		//Erstellung des neuen Objects/Fahrzeugs
 		switch(kategorie) 
 		{
 			case "1":

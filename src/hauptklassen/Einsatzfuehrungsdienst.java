@@ -1,5 +1,7 @@
 package hauptklassen;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +22,14 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Fahrzeugzusatz
 				ausstattung, standardausruestung);
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
+		
+//		if(kategorieEDF.equals("KOMMANDOWAGEN")) {
+//		}else if(kategorieEDF.equals("EINSATZLEITWAGEN")) {
+//			ArrayList<String> ausruestung = new ArrayList<>();
+//			ausruestung.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte", "Notfallrucksack",
+//					"AED", "Verletztenversorgungssets (MANV)", "Einsatz-Management-System Convexis Connex"));
+//			setStandardausruestung(ausruestung);
+//		}
 	}
 	
 //  KOMMNDOWAGEN, K.A
