@@ -28,7 +28,7 @@ public class Anwendung //Main-Terminal
 		while(schleife) 
 		{
 			//Auswahl der Aktion
-			System.out.println("BackUp: Was moechten Sie tun? :");
+			System.out.println("Was moechten Sie tun? :");
 			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
 			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
 			System.out.println("3. Erstelle ein Fahrzeug");

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesBesatzung;
+import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 import enums.EinsatzfuehrungsdienstKategorien;
 import interfaces.Benzin;
@@ -21,40 +21,41 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 			List<String> ausruestung, List<String> ausstattung, EinsatzfuehrungsdienstKategorien kategorieEDF) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
+		
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
 		if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
-			setPersonalBesatzung(ErlaubtesBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
+			setBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.EINSATZLEITWAGEN)) {
-			setPersonalBesatzung(ErlaubtesBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
+			setBesatzung(ErlaubteBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.PERSONENWAGEN)) {
-			setPersonalBesatzung(ErlaubtesBesatzung.EDF_PERSONENWAGEN.getBesatzung());
+			setBesatzung(ErlaubteBesatzung.EDF_PERSONENWAGEN.getBesatzung());
 		}
 	}
 	
 	public static List<String> fuelleELWStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Stromerzeuger", "4x 4 m-Band Funkgeraete AEG Telecar 10", 
-							   "\n\t\t2 vollwertige Arbeitsplaetze mit Funk + Telefon + EDV-Technik", 
-							   "\n\t\t2 Laptops mit Drucker", "Scanner", "Kleinstbeamer",
-							   "\n\t\tEinsatzunterlagen", "Stadtplaene", "Whiteboards", "Flatscreens", 
-							   "\n\t\tBesprechungsraum mit Tisch und seitlichen Sitzbaenken", 
-							   "\n\t\tNotfallrucksack"));
+							   "\n\t\t 2 vollwertige Arbeitsplaetze mit Funk + Telefon + EDV-Technik", 
+							   "\n\t\t 2 Laptops mit Drucker", "Scanner", "Kleinstbeamer",
+							   "\n\t\t Einsatzunterlagen", "Stadtplaene", "Whiteboards", "Flatscreens", 
+							   "\n\t\t Besprechungsraum mit Tisch und seitlichen Sitzbaenken", 
+							   "\n\t\t Notfallrucksack"));
 		return s;
 	}
 	
 	public static List<String> fuelleKWStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte",
-							   "\n\t\tNotfallrucksack", "AED", "Verletztenversorgungssets (MANV)", 
-							   "\n\t\tEinsatz-Management-System Convexis Connex"));
+							   "\n\t\t Notfallrucksack", "AED", "Verletztenversorgungssets (MANV)", 
+							   "\n\t\t Einsatz-Management-System Convexis Connex"));
 		return s;
 	}
 	
 	public static List<String> fuelleKWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
-							   "\n\t\t Radstand 3430 mm"));
+							   "\n\t\tRadstand 3430 mm"));
 		return s;
 	}
 

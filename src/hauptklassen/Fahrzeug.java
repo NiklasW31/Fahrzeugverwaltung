@@ -18,7 +18,7 @@ public abstract class Fahrzeug implements Serializable
 	private int leistung;
 	private Map<String, Double> groesse;
 	private ErlaubteFahrer erlaubteFahrer;
-	private String personalBesatzung;
+	private String erlaubteBesatzung;
 	private Einsatzgebiet einsatzgebiet;
 	private List<String> ausruestung;
 	private List<String> ausstattung;
@@ -49,8 +49,8 @@ public abstract class Fahrzeug implements Serializable
 				+ "funkrufname: " + funkrufname + ", \n   "
 				+ "groesse: " + groesse + ", \n   "
 				+ "leistung: " + leistung + ", "
-				+ "erlaubteFahrer: " + erlaubteFahrer + ", "
-				+ "Besatzung: " + personalBesatzung + ", \n   "
+				+ "erlaubteFahrer: " + erlaubteFahrer + ", \n   "
+				+ "besatzung: " + erlaubteBesatzung + ", \n   "
 				+ "einsatzgebiet: " + einsatzgebiet + "\n"
 				+ " > ausruestung: " + ausruestung + "\n"
 				+ " > austattung: " + ausstattung + "\n";
@@ -114,11 +114,11 @@ public abstract class Fahrzeug implements Serializable
 		this.erlaubteFahrer = erlaubteFahrer;
 	}
 	
-	public String getPersonalBesatzung() {
-		return personalBesatzung;
+	public String getBesatzung() {
+		return erlaubteBesatzung;
 	}
-	public void setPersonalBesatzung(String personalBesatzung) {
-		this.personalBesatzung = personalBesatzung;
+	public void setBesatzung(String besatzung) {
+		this.erlaubteBesatzung = besatzung;
 	}
 	
 	public Einsatzgebiet getEinsatzgebiet() {

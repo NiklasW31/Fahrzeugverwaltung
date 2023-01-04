@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesBesatzung;
+import enums.ErlaubteBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -21,15 +21,15 @@ public class Krankentransportwagen extends Fahrzeug implements Benzin
 				ausruestung, ausstattung);
 		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
 				+ "und Ueberwachung von Patienten.");
-		setPersonalBesatzung(ErlaubtesBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
+		setBesatzung(ErlaubteBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
 	}
 	
 	public static List<String> fuelleStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Stryker Fahrtrage", "Tragestuhl", "Vakuummatratze", 
-							   "\n\t\tAbsaugpumpe Weimann Accuvac", "halbautomatischer AED", 
-							   "\n\t\tUlmer Notfallkoffer", "Sauerstoffflasche", 
-							   "\n\t\tSchutzhelme"));
+							   "\n\t\t Absaugpumpe Weimann Accuvac", "halbautomatischer AED", 
+							   "\n\t\t Ulmer Notfallkoffer", "Sauerstoffflasche", 
+							   "\n\t\t Schutzhelme"));
 	//  -> Unterschiede: Pulsoxymeter, Taschenlampe
 		return s;
 	}

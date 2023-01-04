@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesBesatzung;
+import enums.ErlaubteBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -20,18 +20,18 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
-		setPersonalBesatzung(ErlaubtesBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
+		setBesatzung(ErlaubteBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
 	}
 
 	public static List<String> fuelleStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Beatmungsgeraet Weinmann Medumat Transport", 
-							   "\n\t\tNotfallrucksack Atmung", "Notfallrucksack Kreislauf", 
-							   "\n\t\tNotfallrucksack Baby", "Notfallrucksack Trauma",
-							   "\n\t\tEKG/Defi Corpuls C3", "Corpuls CPR Reanimationshilfe", 
-							   "\n\t\t2x Spritzenpumpe Braun Perfusor Space", "Zusatztaschen NEF", 
-							   "\n\t\tMANV Sets", "Absaugpumpe Weimann Accuvac",
-							   "\n\t\tEinsatz-Management-System: Convexis Connex"));
+							   "\n\t\t Notfallrucksack Atmung", "Notfallrucksack Kreislauf", 
+							   "\n\t\t Notfallrucksack Baby", "Notfallrucksack Trauma",
+							   "\n\t\t EKG/Defi Corpuls C3", "Corpuls CPR Reanimationshilfe", 
+							   "\n\t\t 2x Spritzenpumpe Braun Perfusor Space", "Zusatztaschen NEF", 
+							   "\n\t\t MANV Sets", "Absaugpumpe Weimann Accuvac",
+							   "\n\t\t Einsatz-Management-System: Convexis Connex"));
 		// -> Unterschiede: KET System
 		return s;
 	}
@@ -39,7 +39,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
 	public static List<String> fuelleStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
-							   "\n\t\t Schiebetueren beidseits"));
+							   "\n\t\tSchiebetueren beidseits"));
 		return s;
 	}
 

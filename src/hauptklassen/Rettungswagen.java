@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesBesatzung;
+import enums.ErlaubteBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -22,23 +22,23 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
-		setPersonalBesatzung(ErlaubtesBesatzung.RETTUNGSWAGEN.getBesatzung());
+		setBesatzung(ErlaubteBesatzung.RETTUNGSWAGEN.getBesatzung());
 
 	}
 	
 	public static List<String> fuelleStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Notfallkoffer", "Beatmungsrucksack", "Notfalltasche Kind",
-							   "\n\t\tNotfalltasche Trauma", "Absaugpumpe Accuvac", "Schaufeltrage",
-							   "\n\t\tFahrtrage Styker", "Corpuls C3", "Weimann Medumat Standard 2", 
-							   "\n\t\tSpineboard"));
+							   "\n\t\t Notfalltasche Trauma", "Absaugpumpe Accuvac", "Schaufeltrage",
+							   "\n\t\t Fahrtrage Styker", "Corpuls C3", "Weimann Medumat Standard 2", 
+							   "\n\t\t Spineboard"));
 		return s;
 	}
 
 	public static List<String> fuelleStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Luftfederung", "Rueckfahrkamera", "LED-Innenbeleuchtung", 
-							   "\n\t\t LED-Aussenbeleuchtung"));
+							   "\n\t\tLED-Aussenbeleuchtung"));
 		return s;
 	}
 	
