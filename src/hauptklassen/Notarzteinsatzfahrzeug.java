@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import enums.ErlaubtesPersonalBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -19,6 +20,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
+		setPersonalBesatzung(ErlaubtesPersonalBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
 	}
 
 	public static List<String> fuelleStandardausruestung(){

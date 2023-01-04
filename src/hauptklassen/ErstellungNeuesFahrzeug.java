@@ -96,7 +96,8 @@ public class ErstellungNeuesFahrzeug
 				ausruestung = t1;
 			
 //				ausstattung.addAll();
-				ausstattung.addAll(eingabeAusstattung(ausstattung));
+				t2.addAll(eingabeAusstattung(ausstattung));
+				ausstattung = t2;
 				
 			} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
 				ausruestung.addAll(Einsatzfuehrungsdienst.fuelleKWStandardausruestung());

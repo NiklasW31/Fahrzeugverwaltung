@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import enums.ErlaubtesPersonalBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -21,6 +22,8 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
+		setPersonalBesatzung(ErlaubtesPersonalBesatzung.RETTUNGSWAGEN.getBesatzung());
+
 	}
 	
 	public static List<String> fuelleStandardausruestung(){

@@ -21,7 +21,8 @@ public abstract class Fahrzeug implements Serializable
 	private Einsatzgebiet einsatzgebiet;
 	private List<String> ausruestung;
 	private List<String> ausstattung;
-	
+	private String personalBesatzung;
+
 	public Fahrzeug(String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
 			List<String> ausruestung, List<String> ausstattung) 
@@ -35,8 +36,8 @@ public abstract class Fahrzeug implements Serializable
 		this.groesse = groesse;
 		this.erlaubteFahrer = erlaubteFahrer;
 		this.einsatzgebiet = einsatzgebiet;
-		this.ausstattung = ausruestung;
-		this.ausruestung = ausstattung;
+		this.ausruestung = ausruestung;
+		this.ausstattung = ausstattung;
 	}
 
 	@Override
@@ -49,9 +50,10 @@ public abstract class Fahrzeug implements Serializable
 				+ "groesse: " + groesse + ", \n   "
 				+ "leistung: " + leistung + ", "
 				+ "erlaubteFahrer: " + erlaubteFahrer + ", "
+				+ "Besatzung: " + personalBesatzung + ", \n   "
 				+ "einsatzgebiet: " + einsatzgebiet + "\n"
-				+ " > austattung: " + ausstattung + "\n"
-				+ " > ausruestung: " + ausruestung + "\n"; 
+				+ " > ausruestung: " + ausruestung + "\n"
+				+ " > austattung: " + ausstattung + "\n";
 	}
 	
 /**---------- Getter und Setter ----------*/
@@ -131,6 +133,13 @@ public abstract class Fahrzeug implements Serializable
 	}
 	public void setAusstattung(List<String> ausstattung) {
 		this.ausstattung = ausstattung;
+	}
+	public String getPersonalBesatzung() {
+		return personalBesatzung;
+	}
+
+	public void setPersonalBesatzung(String personalBesatzung) {
+		this.personalBesatzung = personalBesatzung;
 	}
 
 }

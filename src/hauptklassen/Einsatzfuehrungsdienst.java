@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import enums.ErlaubtesPersonalBesatzung;
 import enums.Einsatzgebiet;
 import enums.EinsatzfuehrungsdienstKategorien;
 import interfaces.Benzin;
@@ -22,6 +23,14 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 				ausruestung, ausstattung);
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
+		if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
+			setPersonalBesatzung(ErlaubtesPersonalBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
+		}else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.EINSATZLEITWAGEN)) {
+			setPersonalBesatzung(ErlaubtesPersonalBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
+		}else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.PERSONENWAGEN)) {
+			setPersonalBesatzung(ErlaubtesPersonalBesatzung.EDF_PERSONENWAGEN.getBesatzung());
+		}
+
 	}
 	
 	public static List<String> fuelleELWStandardausruestung(){

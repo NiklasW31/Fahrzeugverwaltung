@@ -15,6 +15,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import enums.ErlaubtesPersonalBesatzung;
+
 public class Anwendung //Main-Terminal
 {
 	private static Scanner scanner = new Scanner(System.in);
@@ -22,6 +24,7 @@ public class Anwendung //Main-Terminal
 	
 	public static void main(String[] args)
 	{	
+		
 		fahrzeugeLaden();
 		
 		boolean schleife = true;
