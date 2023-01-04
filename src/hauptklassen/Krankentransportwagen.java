@@ -6,42 +6,38 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import interfaces.Benzin;
 import enums.Einsatzgebiet;
-import interfaces.Fahrzeugzusatz;
 
-public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
+public class Krankentransportwagen extends Fahrzeug implements Benzin
 {
+	private static final long serialVersionUID = 1L;
 	
-	private static final long serialVersionUID = 4971368672198566795L;
-
 	public Krankentransportwagen (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausstattung, List<String> standardausruestung) {
+			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				ausstattung, standardausruestung);
-		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung und \n  "
-				+ "Überwachung von Patienten.");
-		
-		ArrayList<String> ausruestung = new ArrayList<>();
-		ausruestung.addAll(Arrays.asList("Stryker Fahrtrage", "Tragestuhl", "Vakuummatratze", "Absaugpumpe Weimann Accuvac",
-				"halbautomatischer AED", "Ulmer Notfallkoffer", "Sauerstoffflasche", "Schutzhelme"));
-		setStandardausruestung(ausruestung);
+				ausruestung, ausstattung);
+		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
+				+ "und Ueberwachung von Patienten.");
+	}
+	
+	public static List<String> fuelleStandardausruestung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Stryker Fahrtrage", "Tragestuhl", "Vakuummatratze", 
+							   "\n\t\tAbsaugpumpe Weimann Accuvac", "halbautomatischer AED", 
+							   "\n\t\tUlmer Notfallkoffer", "Sauerstoffflasche", 
+							   "\n\t\tSchutzhelme"));
+	//  -> Unterschiede: Pulsoxymeter, Taschenlampe
+		return s;
 	}
 
-//	Standardgrundaustattung: 
-//		Klimaanlage
-//  -> Unterschiede: Pulsoxymeter, Taschenlampe
-
-//	Standardausruestung:
-	
-//	Stryker Fahrtrage
-//	Tragestuhl
-//	Vakuummatratze
-//	Absaugpumpe Weimann Accuvac
-//	halbautomatischer AED
-//	Ulmer Notfallkoffer
-//	Sauerstoffflasche
-//	Schutzhelme
+	public static List<String> fuelleStandardausstattung(){
+		List<String> s = new ArrayList<>();
+		s.add("Klimaanlage");
+		//-> Unterschiede: Pulsoxymeter, Taschenlampe
+		return s;
+	}
 	
 	@Override
 	public String toString() {
@@ -52,17 +48,5 @@ public class Krankentransportwagen extends Fahrzeug implements Fahrzeugzusatz
 	public void benutzeBenzin() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void anzahlKosten() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double berechenAlleKosten() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

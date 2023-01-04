@@ -8,60 +8,47 @@ import java.util.Map;
 import enums.ErlaubteFahrer;
 import enums.Einsatzgebiet;
 import enums.EinsatzfuehrungsdienstKategorien;
-import interfaces.Fahrzeugzusatz;
+import interfaces.Benzin;
 
-public class Einsatzfuehrungsdienst extends Fahrzeug implements Fahrzeugzusatz
+public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 {
 	private static final long serialVersionUID = -6672047570052812398L;
 	private EinsatzfuehrungsdienstKategorien kategorieEDF;
-
+	
 	public Einsatzfuehrungsdienst (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausstattung, List<String> standardausruestung, EinsatzfuehrungsdienstKategorien kategorieEDF) {
+			List<String> ausruestung, List<String> ausstattung, EinsatzfuehrungsdienstKategorien kategorieEDF) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				ausstattung, standardausruestung);
+				ausruestung, ausstattung);
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
-		
-//		if(kategorieEDF.equals("KOMMANDOWAGEN")) {
-//		}else if(kategorieEDF.equals("EINSATZLEITWAGEN")) {
-//			ArrayList<String> ausruestung = new ArrayList<>();
-//			ausruestung.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte", "Notfallrucksack",
-//					"AED", "Verletztenversorgungssets (MANV)", "Einsatz-Management-System Convexis Connex"));
-//			setStandardausruestung(ausruestung);
-//		}
 	}
 	
-//  KOMMNDOWAGEN, K.A
-//	PERSONENWAGEN, hat nichts
+	public static List<String> fuelleELWStandardausruestung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Stromerzeuger", "4x 4 m-Band Funkgeraete AEG Telecar 10", 
+							   "\n\t\t2 vollwertige Arbeitsplaetze mit Funk + Telefon + EDV-Technik", 
+							   "\n\t\t2 Laptops mit Drucker", "Scanner", "Kleinstbeamer",
+							   "\n\t\tEinsatzunterlagen", "Stadtplaene", "Whiteboards", "Flatscreens", 
+							   "\n\t\tBesprechungsraum mit Tisch und seitlichen Sitzbaenken", 
+							   "\n\t\tNotfallrucksack"));
+		return s;
+	}
 	
-//	EINSATZLEITFAHRZEUG Groß
-//	Standardgrundaustattung:    
-//		Stromerzeuger
-//		2 vollwertige Arbeitsplätze mit Funk, Telefon, EDV-Technik
-//		4x 4 m-Band Funkgeräte AEG Telecar 10, fest verbaut
-//		2 Laptops mit Drucker
-//		Scanner
-//		Kleinstbeamer
-//		Einsatzunterlagen
-//		Stadtpläne, Whiteboards, Flatscreens
-//		Besprechungsraum mit Tisch und seitlichen Sitzbänken
-//		Notfallrucksack
+	public static List<String> fuelleKWStandardausruestung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte",
+							   "\n\t\tNotfallrucksack", "AED", "Verletztenversorgungssets (MANV)", 
+							   "\n\t\tEinsatz-Management-System Convexis Connex"));
+		return s;
+	}
 	
-//	Standardausrüstung: steht nichts
-	
-//	EINSATZLEITFAHRZEUG klein
-//	Standardgrundaustattung: 
-//		Einsatzunterlagen
-//		Kennzeichnungswesten
-//		2m und 4m Handfunkgeräte
-//		Notfallrucksack
-//		AED
-//		Verletztenversorgungssets (MANV)
-//		Einsatz-Management-System Convexis Connex
-	
-//	Standardausrüstung: Automatikgetriebe, Allradantrieb, Radstand 3430 mm, Rückfahrkamera
-
+	public static List<String> fuelleKWStandardausstattung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
+							   "\n\t\t Radstand 3430 mm"));
+		return s;
+	}
 
 	@Override
 	public String toString() {
@@ -76,18 +63,8 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Fahrzeugzusatz
 		
 	}
 
-	@Override
-	public void anzahlKosten() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double berechenAlleKosten() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	/**---------- Getter und Setter ----------*/
+	
 	public EinsatzfuehrungsdienstKategorien getKategorie() {
 		return kategorieEDF;
 	}

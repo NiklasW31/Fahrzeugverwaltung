@@ -10,15 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
-import enums.EinsatzfuehrungsdienstKategorien;
-import enums.Einsatzgebiet;
-import enums.ErlaubteFahrer;
 
 public class Anwendung //Main-Terminal
 {
@@ -33,7 +28,7 @@ public class Anwendung //Main-Terminal
 		while(schleife) 
 		{
 			//Auswahl der Aktion
-			System.out.println("Was moechten Sie tun? :");
+			System.out.println("BackUp: Was moechten Sie tun? :");
 			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
 			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
 			System.out.println("3. Erstelle ein Fahrzeug");
@@ -51,7 +46,7 @@ public class Anwendung //Main-Terminal
 					break;
 				
 				case "2":
-					//Gebe Informationen ueber ein Fahrzeug aus
+					//Gebe alle Informationen ueber ein Fahrzeug aus
 					fahrzeugInfo();
 					System.out.println();
 					break;
@@ -69,13 +64,13 @@ public class Anwendung //Main-Terminal
 					break;
 				
 				case "5":
-					//sortiere Fahrzeuge
+					//Sortiere die Fahrzeuge
 					fahrzeugeSortieren();
 					System.out.println();
 					break;
 				
 				case "6":
-					//Vergleiche Fahrzeuge
+					//Vergleiche zwei Fahrzeuge
 					fahrzeugeVergleichen();
 					break;
 				
@@ -94,8 +89,7 @@ public class Anwendung //Main-Terminal
 	public static void fahrzeugeLaden() 
 	{
 		// Objekte aus der Datei aufrufen
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("FahrzeugListe.Liste")))
-		{
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("FahrzeugListe.Liste"))){
 			while (true) {
 				Object obj = ois.readObject();
 				fahrzeuge.add((Fahrzeug) obj);
@@ -114,27 +108,24 @@ public class Anwendung //Main-Terminal
 		for(Fahrzeug fa : fahrzeuge) 
 		{
 			if (fa instanceof Rettungswagen) {
-				System.out.println(counter + ": Rettungswagen, " + fa.getModell());
-				
+				System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getEinsatzgebiet());
 			} else if (fa instanceof Notarzteinsatzfahrzeug) {
-				System.out.println(counter + ": Notarzteinsatzfahrzeug, " + fa.getModell());
+				System.out.printf("%2d: Notarzteinsatzfahrzeug, %s \n", counter, fa.getEinsatzgebiet());
 			} else if (fa instanceof Krankentransportwagen) {
-				System.out.println(counter + ": Krankentransportwagen, " + fa.getModell());
+				System.out.printf("%2d: Krankentransportwagen, %s \n", counter, fa.getEinsatzgebiet());
 			} else if (fa instanceof Infektionsrettungswagen) {
-				System.out.println(counter + ": Krankentransportwagen, " + fa.getModell());
+				System.out.printf("%2d: Infektionsrettungswagen, %s \n", counter, fa.getEinsatzgebiet());
 			} else if (fa instanceof Einsatzfuehrungsdienst) {
-				System.out.println(counter + ": Einsatzfuehrungsdienst, " + fa.getModell());
+				System.out.printf("%2d: Einsatzfuehrungsdienst, %s \n", counter, fa.getEinsatzgebiet());
 			}
 			counter++;
 		}
 		System.out.println("-------------------------------------------");
-//		schoeneren output mit 01,02,10,usw.? -> printf?
 	}
 	
 	public static void fahrzeugInfo() 
 	{
-		try 
-		{
+		try {
 			fahrzeugeAnzeigen();
 			
 			System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size() + ")");
@@ -149,7 +140,7 @@ public class Anwendung //Main-Terminal
 	
 	public static void fahrzeugErstellen() 
 	{	
-		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug ein: \n"
+		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug an: \n"
 				+ "... 1 - Rettungswagen\n"
 				+ "... 2 - Notarzteinsatzfahrzeug\n"
 				+ "... 3 - Krankentransportwagen\n"
@@ -158,12 +149,17 @@ public class Anwendung //Main-Terminal
 		
 		boolean gueltigeKat = true;
 		String kategorie = "";
+		Fahrzeug neuesFahrzeug;
 		
-		while(gueltigeKat) {
+		while(gueltigeKat) 
+		{
 			kategorie = scanner.next();
 			
-			switch(kategorie) {
+			switch(kategorie) 
+			{
 				case "1", "2", "3", "4", "5":
+					neuesFahrzeug = ErstellungNeuesFahrzeug.erstelleFahrzeug(kategorie);
+					fahrzeuge.add(neuesFahrzeug);
 					gueltigeKat = false;
 					break;
 					
@@ -172,232 +168,6 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		}
-		
-		//Modell einfuegen
-		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
-		String modell = scanner.next();
-//		mindest laenge oder andere Kriterien fuer modell?
-//		Was meinst du mit andere Kriterien??
-		
-		//Baujahr einfuegen
-		int baujahr;
-		while(true) {
-			System.out.println("Bitte geben Sie das Baujahr ein: (Bsp.: 2017)");
-			try {
-				baujahr = scanner.nextInt();
-				break;
-			} catch(InputMismatchException e){
-				System.err.println("Ungueltige eingabe: " + e);
-				scanner.next();
-			}
-		}
-				
-		//Kennzeichen einfügen
-		System.out.println("Bitte geben Sie das Kennzeichen ein: (Bsp.: S-RK 0101)");
-		System.out.print("S-RK ");
-		String kennzeichen = scanner.next();
-		
-		//Funkrufnamen einfügen
-		System.out.println("Bitte geben Sie den Funkrufnamen ein: (Bsp.: Rotkreuz Stuttgart 01/0101)");
-		System.out.print("Rotkreuz Stuttgart ");
-		String funkrufname = scanner.next();
-		
-		//Leistung einfügen
-		int leistung;
-		while(true) {
-			System.out.println("Bitte geben Sie die Leistung des Fahrzeuges an: (Bsp.: 120)");
-			try {
-				leistung = scanner.nextInt();
-				break;
-			} catch(InputMismatchException e) {
-				System.err.println("Ungueltige eingabe: " + e);
-				scanner.next();
-			}
-		}
-
-		//Brauhchst du das noch?
-//		//Groesse einfügen
-//		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
-//		HashMap<String, Double> groesse = new HashMap<>();
-//		System.out.println("Geben Sie die Fahrzeug Laenge ein: (Bsp.: 6,2)");
-//		double laenge = scanner.nextDouble();
-//		groesse.put("Laenge", laenge);
-//		System.out.println("Geben Sie die Fahrzeug Breite ein: (Bsp.: 2,7)");
-//		double breite = scanner.nextDouble();
-//		groesse.put("Breite", breite);
-//		System.out.println("Geben Sie die Fahrzeug Hoehe ein: (Bsp.: 3,0)");
-//		double hoehe = scanner.nextDouble();
-//		groesse.put("Hoehe", hoehe);
-		
-		//Groesse
-		System.out.println("Bitte geben Sie die Fahrzeug Groesse ein: ");
-		HashMap<String, Double> groesse = new HashMap<>();
-		while(true) {
-			try {
-				System.out.println("Geben Sie die Fahrzeug Laenge ein: (Bsp.: 6,2)");
-				double laenge = scanner.nextDouble();
-				groesse.put("Laenge", laenge);
-				System.out.println("Geben Sie die Fahrzeug Breite ein: (Bsp.: 2,7)");
-				double breite = scanner.nextDouble();
-				groesse.put("Breite", breite);
-				System.out.println("Geben Sie die Fahrzeug Hoehe ein: (Bsp.: 3,0)");
-				double hoehe = scanner.nextDouble();
-				groesse.put("Hoehe", hoehe);
-				
-				break;
-			} catch(InputMismatchException e) {
-				System.err.println("Ungueltige eingabe: " + e);
-				groesse.clear();
-				scanner.next();
-			}
-		}
-
-//		//Einsatzgebiet einfuegen
-//		System.out.println("Bitte geben Sie das Einsatzgebiet ein: (1,2,4; Bsp.: rettungswache1)");
-//		boolean gueltigW = true;
-//		String wache = "";
-//		while(gueltigW) {
-//			wache = scanner.next();
-//			switch(wache) {
-//				case "rettungswache1", "rettungswache2", "rettungswache4":
-//					gueltigW = false;
-//					break;
-//					
-//				default:
-//					System.out.println("Ungueltige Eingabe! \nBitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
-//					break;
-//			}
-//		}
-//		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
-		
-		//Einsatzgebiet einfuegen
-		System.out.println("Bitte geben Sie das Einsatzgebiet ein: \n"
-				+ "... 1 - Rettungswache 1\n"
-				+ "... 2 - Rettungswache 2\n"
-				+ "... 4 - Rettungswache 4");
-		
-		boolean gueltigW = true;
-		String gebiet = "";
-		String wache = "";
-		while(gueltigW) {
-			gebiet = scanner.next();
-			switch(gebiet) {
-				case "1":
-					wache = "rettungswache_1";
-					gueltigW = false;
-					break;
-					
-				case "2":
-					wache = "rettungswache_2";
-					gueltigW = false;
-					break;
-					
-				case "4":
-					wache = "rettungswache_4";
-					gueltigW = false;
-					break;
-					
-				default:
-					System.out.println("Ungueltige Eingabe! \nBitte geben Sie ein gueltige Einsatzgebiet ein. (1,2,4; Bsp.: rettungswache1)");  
-					break;
-			}
-		}
-		Einsatzgebiet einsatzgebiet = Einsatzgebiet.valueOf(wache.toUpperCase());
-
-		//Ausstattung einfuegen??
-		System.out.println("Bitte geben Sie die Ausatattung an: ");
-		List<String> ausstattung = new ArrayList<>();
-		while(true) {
-			System.out.println("Geben Sie die Fahrzeugaustattung ein: (zum beenden 'x' eingeben)"
-					+ "\nAusstattung = " + ausstattung);
-			String ausstattungTemp = scanner.next();
-			if (ausstattungTemp.equals("x")|| ausstattungTemp.equals("X")) {
-				break;
-			} else {
-				ausstattung.add(ausstattungTemp);
-			}
-		}
-		
-		//Optionale Ausruestung hinzufuegen 
-		System.out.println("Bitte geben Sie die optionale Ausruestung des Fahrzeuges an: ");
-		List<String> standardausruestung = new ArrayList<>();
-		while(true) {
-			System.out.println("Geben Sie ein Gegenstand ein: (zum beenden 'x' eingeben)"
-						+ "\nStandardausruestung = " + standardausruestung);
-			String standardausruestungTemp = scanner.next();
-			if (standardausruestungTemp.equals("x") || standardausruestungTemp.equals("X")) {
-				break;
-			} else {
-				standardausruestung.add(standardausruestungTemp);
-			}
-		}
-		
-		//Erstellung des neuen Objects/Fahrzeugs
-		switch(kategorie) 
-		{
-			case "1":
-				fahrzeuge.add(new Rettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
-				break;
-				
-			case "2":
-				fahrzeuge.add(new Notarzteinsatzfahrzeug(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.B1, einsatzgebiet, ausstattung, standardausruestung));
-				break;
-				
-			case "3":
-				fahrzeuge.add(new Krankentransportwagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C1, einsatzgebiet, ausstattung, standardausruestung));
-				break;
-				
-			case "4":
-				fahrzeuge.add(new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, ErlaubteFahrer.C, einsatzgebiet, ausstattung, standardausruestung));
-				break;
-				
-			case "5":				
-				//Kategorie des Einsatzfuehrungsdienst einfügen
-				//ErlaubteFahrer einfügen
-				System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
-						+ "... 1 - KOMMANDOWAGEN\n"
-						+ "... 2 - EINSATZLEITWAGEN\n"
-						+ "... 3 - PERSONENWAGEN");
-				
-				boolean gueltigKEFD = true;
-				int typ = 0;
-				String wagentyp = "";
-				String klasse = "";
-				while(gueltigKEFD) 
-				{
-					typ = scanner.nextInt();
-					switch(typ) 
-					{
-						case 1:
-							wagentyp = "Kommandowagen";
-							klasse = "B1";
-							gueltigKEFD = false;
-							break;
-							
-						case 2:
-							wagentyp = "Einsatzleitwagen";
-							klasse = "C1";
-							gueltigKEFD = false;
-							break;
-							
-						case 3:
-							wagentyp = "Personenwagen";
-							klasse = "B";
-							gueltigKEFD = false;
-							break;
-									
-						default:
-							System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Kategorie ein. (1,2,3)"); 
-							break;
-					}
-				}
-				EinsatzfuehrungsdienstKategorien kategorieEDF = EinsatzfuehrungsdienstKategorien.valueOf(wagentyp.toUpperCase());
-				ErlaubteFahrer erlaubteFahrer = ErlaubteFahrer.valueOf(klasse);
-				
-				fahrzeuge.add(new Einsatzfuehrungsdienst(modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, ausstattung, standardausruestung, kategorieEDF));
-				break;
-		}
-		
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FahrzeugListe.Liste"))) {
 			for (Fahrzeug f : fahrzeuge) {
 				oos.writeObject(f);
@@ -424,9 +194,8 @@ public class Anwendung //Main-Terminal
 		//loescht die alte "Text" Datei
 		try {
 			Files.delete(datei);
-			//System.out.println("Loeschen war erfolgreich."); //Die Loeschung war erfolgreich!
 		} catch (IOException e) {
-			System.out.println("Loeschen fehlgeschlagen."); //Die Loeschung ist fehlgeschlagen!
+			System.out.println("Loeschen der Textdatei fehlgeschlagen.");
 			e.printStackTrace();
 		}
 		
@@ -443,7 +212,7 @@ public class Anwendung //Main-Terminal
 	private static void fahrzeugeSortieren() 
 	{
 		try {
-			System.out.println("Wonach moechten sie sortieren: ");
+			System.out.println("Nach welchem Kriterium moechten sie sortieren: ");
 			System.out.println("1. Kennzeichen");
 			System.out.println("2. Groesse");
 			System.out.println("3. Leistung");

@@ -4,7 +4,8 @@ import java.util.Comparator;
 
 public class Sortiermaschine 
 {
-//	try/catch einbauen??
+	//Comparator nach Fahrzeugklasse!!
+	
 	public static Comparator<Fahrzeug> KennzeichenComparator = new Comparator<Fahrzeug>() 
 	{
 		@Override
@@ -17,7 +18,7 @@ public class Sortiermaschine
 	{
 		@Override
 		public int compare(Fahrzeug o1, Fahrzeug o2) {
-			return (int) (o1.getGroese().get("Laenge") - o2.getGroese().get("Laenge")); 
+			return (int) (o1.getGroesse().get("Laenge") - o2.getGroesse().get("Laenge")); 
 		}
 		
 	};

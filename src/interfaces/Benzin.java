@@ -1,6 +1,5 @@
 package interfaces;
 
 public interface Benzin {
-	void benutzeBenzin(); //Name, Menge, Verbrauch
-	//etwas berechnen?
+	void benutzeBenzin(); //Name, Tankmenge, (Standardkosten fuer eine Auffüllung)
 }

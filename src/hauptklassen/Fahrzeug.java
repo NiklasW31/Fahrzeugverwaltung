@@ -1,7 +1,6 @@
 package hauptklassen;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +9,7 @@ import enums.Einsatzgebiet;
 
 public abstract class Fahrzeug implements Serializable 
 {
-	private static final long serialVersionUID = -1466146206607392728L; //Vergleichsnummer (hat sich etwas geändert seitdem das Objekt erstellt wurde) ?
+	private static final long serialVersionUID = -1466146206607392728L;
 	private String beschreibung;
 	private String modell;
 	private int baujahr;
@@ -20,24 +19,24 @@ public abstract class Fahrzeug implements Serializable
 	private Map<String, Double> groesse;
 	private ErlaubteFahrer erlaubteFahrer;
 	private Einsatzgebiet einsatzgebiet;
+	private List<String> ausruestung;
 	private List<String> ausstattung;
-	private List<String> standardausruestung;
 	
 	public Fahrzeug(String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausstattung, List<String> standardausruestung) 
+			List<String> ausruestung, List<String> ausstattung) 
 	{
 		super();
 		this.modell = modell;
 		this.baujahr = baujahr;
-		this.kennzeichen = "S-RK "+ kennzeichen;
+		this.kennzeichen = "S-RK " + kennzeichen;
 		this.funkrufname = "Rotkreuz Stuttgart " + funkrufname;
 		this.leistung = leistung;
 		this.groesse = groesse;
 		this.erlaubteFahrer = erlaubteFahrer;
 		this.einsatzgebiet = einsatzgebiet;
-		this.ausstattung = ausstattung;
-		this.standardausruestung = standardausruestung;
+		this.ausstattung = ausruestung;
+		this.ausruestung = ausstattung;
 	}
 
 	@Override
@@ -51,8 +50,8 @@ public abstract class Fahrzeug implements Serializable
 				+ "leistung: " + leistung + ", "
 				+ "erlaubteFahrer: " + erlaubteFahrer + ", "
 				+ "einsatzgebiet: " + einsatzgebiet + "\n"
-				+ " > grundaustattung: " + ausstattung + "\n"
-				+ " > ausruestung: " + standardausruestung + "\n"; 
+				+ " > austattung: " + ausstattung + "\n"
+				+ " > ausruestung: " + ausruestung + "\n"; 
 	}
 	
 /**---------- Getter und Setter ----------*/
@@ -99,10 +98,10 @@ public abstract class Fahrzeug implements Serializable
 		this.leistung = leistung;
 	}
 	
-	public Map<String, Double> getGroese() {
+	public Map<String, Double> getGroesse() {
 		return groesse;
 	}
-	public void setGroese(Map<String, Double> groesse) {
+	public void setGroesse(Map<String, Double> groesse) {
 		this.groesse = groesse;
 	}
 
@@ -119,18 +118,19 @@ public abstract class Fahrzeug implements Serializable
 	public void setEinsatzgebiet(Einsatzgebiet einsatzgebiet) {
 		this.einsatzgebiet = einsatzgebiet;
 	}
-	
-	public List<String> getGrundaustattung() {
+
+	public List<String> getAusruestung() {
+		return ausruestung;
+	}
+	public void setAusruestung(List<String> ausruestung) {
+		this.ausruestung = ausruestung;
+	}
+
+	public List<String> getAusstattung() {
 		return ausstattung;
 	}
-	public void setGrundaustattung(ArrayList<String> ausstattung) {
+	public void setAusstattung(List<String> ausstattung) {
 		this.ausstattung = ausstattung;
 	}
-	
-	public List<String> getStandartausruestung() {
-		return standardausruestung;
-	}
-	public void setStandardausruestung(ArrayList<String> standardausruestung) {
-		this.standardausruestung = standardausruestung;
-	}
+
 }

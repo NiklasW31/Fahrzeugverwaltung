@@ -6,41 +6,38 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import interfaces.Benzin;
 import enums.Einsatzgebiet;
-import interfaces.Fahrzeugzusatz;
 
-public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
+public class Rettungswagen extends Fahrzeug implements Benzin
 {
 	private static final long serialVersionUID = 3121374339826972330L;
 	
 	public Rettungswagen (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausstattung, List<String> standardausruestung) {
+			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
-				ausstattung, standardausruestung);
+				ausruestung, ausstattung);
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
-	
-		ArrayList<String> ausruestung = new ArrayList<>();
-		ausruestung.addAll(Arrays.asList("Notfallkoffer", "Beatmungsrucksack", "Notfalltasche Kind", "Notfalltasche Trauma",
-				"Absaugpumpe Accuvac", "Schaufeltrage", "Fahrtrage Styker", "Corpuls C3", "Weimann Medumat Standard 2", "Spineboard"));
-		setStandardausruestung(ausruestung);
 	}
 	
-//	Standardgrundaustattung:
-//		Notfallkoffer
-//		Beatmungsrucksack
-//		Notfalltasche Kind
-//		Notfalltasche Trauma
-//		Absaugpumpe Accuvac
-//		Schaufeltrage
-//		Fahrtrage Styker
-//		Corpuls C3
-//		Weimann Medumat Standard 2
-//		Spineboard
+	public static List<String> fuelleStandardausruestung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Notfallkoffer", "Beatmungsrucksack", "Notfalltasche Kind",
+							   "\n\t\tNotfalltasche Trauma", "Absaugpumpe Accuvac", "Schaufeltrage",
+							   "\n\t\tFahrtrage Styker", "Corpuls C3", "Weimann Medumat Standard 2", 
+							   "\n\t\tSpineboard"));
+		return s;
+	}
 
-//	Standardausrüstung: Luftfederung, Rückfahrkamera, LED-Innenbeleuchtung, LED-Außenbeleuchtung
+	public static List<String> fuelleStandardausstattung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Luftfederung", "Rueckfahrkamera", "LED-Innenbeleuchtung", 
+							   "\n\t\t LED-Aussenbeleuchtung"));
+		return s;
+	}
 	
 	@Override
 	public String toString() {
@@ -51,17 +48,5 @@ public class Rettungswagen extends Fahrzeug implements Fahrzeugzusatz
 	public void benutzeBenzin() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void anzahlKosten() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double berechenAlleKosten() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
