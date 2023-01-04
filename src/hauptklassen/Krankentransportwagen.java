@@ -19,9 +19,10 @@ public class Krankentransportwagen extends Fahrzeug implements Benzin
 			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
+		
 		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
 				+ "und Ueberwachung von Patienten.");
-		setBesatzung(ErlaubteBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
+		setErlaubteBesatzung(ErlaubteBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
 	}
 	
 	public static List<String> fuelleStandardausruestung(){

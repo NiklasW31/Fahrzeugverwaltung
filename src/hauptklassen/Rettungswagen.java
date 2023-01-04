@@ -19,11 +19,11 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
+		
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");
-		setBesatzung(ErlaubteBesatzung.RETTUNGSWAGEN.getBesatzung());
-
+		setErlaubteBesatzung(ErlaubteBesatzung.RETTUNGSWAGEN.getBesatzung());
 	}
 	
 	public static List<String> fuelleStandardausruestung(){

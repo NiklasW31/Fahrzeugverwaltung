@@ -19,8 +19,9 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
 			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
+		
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
-		setBesatzung(ErlaubteBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
+		setErlaubteBesatzung(ErlaubteBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
 	}
 
 	public static List<String> fuelleStandardausruestung(){

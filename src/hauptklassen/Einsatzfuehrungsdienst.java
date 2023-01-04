@@ -24,12 +24,13 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 		
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
+		
 		if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
-			setBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
+			setErlaubteBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.EINSATZLEITWAGEN)) {
-			setBesatzung(ErlaubteBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
+			setErlaubteBesatzung(ErlaubteBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.PERSONENWAGEN)) {
-			setBesatzung(ErlaubteBesatzung.EDF_PERSONENWAGEN.getBesatzung());
+			setErlaubteBesatzung(ErlaubteBesatzung.EDF_PERSONENWAGEN.getBesatzung());
 		}
 	}
 	

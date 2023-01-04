@@ -20,6 +20,7 @@ public abstract class Fahrzeug implements Serializable
 	private ErlaubteFahrer erlaubteFahrer;
 	private String erlaubteBesatzung;
 	private Einsatzgebiet einsatzgebiet;
+	private String gebiet;
 	private List<String> ausruestung;
 	private List<String> ausstattung;
 
@@ -38,6 +39,14 @@ public abstract class Fahrzeug implements Serializable
 		this.einsatzgebiet = einsatzgebiet;
 		this.ausruestung = ausruestung;
 		this.ausstattung = ausstattung;
+		
+		if (einsatzgebiet.equals(Einsatzgebiet.RETTUNGSWACHE_1)) {
+			setGebiet(Einsatzgebiet.RETTUNGSWACHE_1.getBereich());
+		} else if(einsatzgebiet.equals(Einsatzgebiet.RETTUNGSWACHE_2)) {
+			setGebiet(Einsatzgebiet.RETTUNGSWACHE_2.getBereich());
+		} else if(einsatzgebiet.equals(Einsatzgebiet.RETTUNGSWACHE_4)) {
+			setGebiet(Einsatzgebiet.RETTUNGSWACHE_4.getBereich());
+		}
 	}
 
 	@Override
@@ -51,7 +60,7 @@ public abstract class Fahrzeug implements Serializable
 				+ "leistung: " + leistung + ", "
 				+ "erlaubteFahrer: " + erlaubteFahrer + ", \n   "
 				+ "besatzung: " + erlaubteBesatzung + ", \n   "
-				+ "einsatzgebiet: " + einsatzgebiet + "\n"
+				+ "einsatzgebiet: " + einsatzgebiet + " - " + gebiet + "\n"
 				+ " > ausruestung: " + ausruestung + "\n"
 				+ " > austattung: " + ausstattung + "\n";
 	}
@@ -107,18 +116,18 @@ public abstract class Fahrzeug implements Serializable
 		this.groesse = groesse;
 	}
 
+	public String getErlaubteBesatzung() {
+		return erlaubteBesatzung;
+	}
+	public void setErlaubteBesatzung(String erlaubteBesatzung) {
+		this.erlaubteBesatzung = erlaubteBesatzung;
+	}
+
 	public ErlaubteFahrer getErlaubteFahrer() {
 		return erlaubteFahrer;
 	}
 	public void setErlaubteFahrer(ErlaubteFahrer erlaubteFahrer) {
 		this.erlaubteFahrer = erlaubteFahrer;
-	}
-	
-	public String getBesatzung() {
-		return erlaubteBesatzung;
-	}
-	public void setBesatzung(String besatzung) {
-		this.erlaubteBesatzung = besatzung;
 	}
 	
 	public Einsatzgebiet getEinsatzgebiet() {
@@ -127,7 +136,14 @@ public abstract class Fahrzeug implements Serializable
 	public void setEinsatzgebiet(Einsatzgebiet einsatzgebiet) {
 		this.einsatzgebiet = einsatzgebiet;
 	}
-
+	
+	public String getGebiet() {
+		return gebiet;
+	}
+	public void setGebiet(String gebiet) {
+		this.gebiet = gebiet;
+	}
+	
 	public List<String> getAusruestung() {
 		return ausruestung;
 	}

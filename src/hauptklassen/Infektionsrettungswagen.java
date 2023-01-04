@@ -17,9 +17,10 @@ public class Infektionsrettungswagen extends Fahrzeug implements Benzin
 			List<String> ausruestung, List<String> ausstattung) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
+		
 		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n  "
 				+ "Patienten mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
-		setBesatzung(ErlaubteBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());
+		setErlaubteBesatzung(ErlaubteBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());
 	}
 	
 	@Override
