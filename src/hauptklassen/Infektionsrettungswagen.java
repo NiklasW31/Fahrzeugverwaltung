@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesPersonalBesatzung;
+import enums.ErlaubtesBesatzung;
 import enums.Einsatzgebiet;
 import interfaces.Benzin;
 
@@ -19,7 +19,7 @@ public class Infektionsrettungswagen extends Fahrzeug implements Benzin
 				ausruestung, ausstattung);
 		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n  "
 				+ "Patienten mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
-		setPersonalBesatzung(ErlaubtesPersonalBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());
+		setPersonalBesatzung(ErlaubtesBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());
 	}
 	
 	@Override

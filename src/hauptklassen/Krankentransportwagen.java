@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.ErlaubtesPersonalBesatzung;
+import enums.ErlaubtesBesatzung;
 import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
@@ -21,7 +21,7 @@ public class Krankentransportwagen extends Fahrzeug implements Benzin
 				ausruestung, ausstattung);
 		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
 				+ "und Ueberwachung von Patienten.");
-		setPersonalBesatzung(ErlaubtesPersonalBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
+		setPersonalBesatzung(ErlaubtesBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
 	}
 	
 	public static List<String> fuelleStandardausruestung(){
