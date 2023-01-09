@@ -31,10 +31,10 @@ public class Anwendung //Main-Terminal
 			System.out.println("Was moechten Sie tun? :");
 			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
 			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
-			System.out.println("3. Erstelle ein Fahrzeug");
-			System.out.println("4. Loesche ein Fahrzeug");
-			System.out.println("5. Fahrzeugliste sortieren");
-			System.out.println("6. Vergleiche Fahrzeuge (Nice to have)");
+			System.out.println("3. Erstelle ein Fahrzeug.");
+			System.out.println("4. Loesche ein Fahrzeug.");
+			System.out.println("5. Fahrzeugliste sortieren.");
+			System.out.println("6. Vergleiche Fahrzeuge. (Nice to have)");
 			System.out.println("7. Beende das Programm");
 			
 			switch(scanner.next()) 
@@ -101,6 +101,7 @@ public class Anwendung //Main-Terminal
 		}
 	}
 	
+	//EXCEPTION FEHLT
 	public static void fahrzeugeAnzeigen() 
 	{
 		System.out.println("---------- Liste aller Fahrzeuge ----------");
