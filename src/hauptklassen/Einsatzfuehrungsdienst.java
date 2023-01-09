@@ -8,28 +8,28 @@ import java.util.Map;
 import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
-import enums.EinsatzfuehrungsdienstKategorien;
+import enums.EFDKategorien;
 import interfaces.Benzin;
 
 public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 {
 	private static final long serialVersionUID = -6672047570052812398L;
-	private EinsatzfuehrungsdienstKategorien kategorieEDF;
+	private EFDKategorien kategorieEDF;
 	
 	public Einsatzfuehrungsdienst (String modell, int baujahr, String kennzeichen, String funkrufname, int leistung,
 			Map<String, Double> groesse, ErlaubteFahrer erlaubteFahrer, Einsatzgebiet einsatzgebiet,
-			List<String> ausruestung, List<String> ausstattung, EinsatzfuehrungsdienstKategorien kategorieEDF) {
+			List<String> ausruestung, List<String> ausstattung, EFDKategorien kategorieEDF) {
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
 		
-		if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
+		if(kategorieEDF.equals(EFDKategorien.KOMMANDOWAGEN)) {
 			setErlaubteBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
-		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.EINSATZLEITWAGEN)) {
+		} else if(kategorieEDF.equals(EFDKategorien.EINSATZLEITWAGEN)) {
 			setErlaubteBesatzung(ErlaubteBesatzung.EDF_EINSATZLEITWAGEN.getBesatzung());
-		} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.PERSONENWAGEN)) {
+		} else if(kategorieEDF.equals(EFDKategorien.PERSONENWAGEN)) {
 			setErlaubteBesatzung(ErlaubteBesatzung.EDF_PERSONENWAGEN.getBesatzung());
 		}
 	}
@@ -75,10 +75,10 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 
 	/**---------- Getter und Setter ----------*/
 	
-	public EinsatzfuehrungsdienstKategorien getKategorie() {
+	public EFDKategorien getKategorie() {
 		return kategorieEDF;
 	}
-	public void setKategorie(EinsatzfuehrungsdienstKategorien kategorieEDF) {
+	public void setKategorie(EFDKategorien kategorieEDF) {
 		this.kategorieEDF = kategorieEDF;
 	}
 

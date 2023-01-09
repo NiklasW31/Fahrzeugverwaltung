@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import enums.EinsatzfuehrungsdienstKategorien;
+import enums.EFDKategorien;
 import enums.Einsatzgebiet;
 import enums.ErlaubteFahrer;
 
@@ -87,10 +87,10 @@ public class ErstellungNeuesFahrzeug
 		} 
 		else if (k.equals("5")){
 			
-			EinsatzfuehrungsdienstKategorien kategorieEDF = einfuegenKategorieEFD();
+			EFDKategorien kategorieEDF = einfuegenKategorieEFD();
 			ErlaubteFahrer erlaubteFahrer = einfuegenFahrerEFD(kategorieEDF);
 		
-			if (kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.EINSATZLEITWAGEN)) {
+			if (kategorieEDF.equals(EFDKategorien.EINSATZLEITWAGEN)) {
 				ausruestung.addAll(Einsatzfuehrungsdienst.fuelleELWStandardausruestung());
 				t1.addAll(eingabeAusruestung(ausruestung));
 				ausruestung = t1;
@@ -99,7 +99,7 @@ public class ErstellungNeuesFahrzeug
 				t2.addAll(eingabeAusstattung(ausstattung));
 				ausstattung = t2;
 				
-			} else if(kategorieEDF.equals(EinsatzfuehrungsdienstKategorien.KOMMANDOWAGEN)) {
+			} else if(kategorieEDF.equals(EFDKategorien.KOMMANDOWAGEN)) {
 				ausruestung.addAll(Einsatzfuehrungsdienst.fuelleKWStandardausruestung());
 				t1.addAll(eingabeAusruestung(ausruestung));
 				ausruestung = t1;
@@ -258,7 +258,7 @@ public class ErstellungNeuesFahrzeug
 		return l;
 	}
 
-	private static EinsatzfuehrungsdienstKategorien einfuegenKategorieEFD() {
+	private static EFDKategorien einfuegenKategorieEFD() {
 		System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
 				+ "... 1 - Kommandowagen\n" 
 				+ "... 2 - Einsatzleitwagen\n"
@@ -292,11 +292,11 @@ public class ErstellungNeuesFahrzeug
 				break;
 			}
 		}
-		EinsatzfuehrungsdienstKategorien e = EinsatzfuehrungsdienstKategorien.valueOf(wagentyp.toUpperCase());
+		EFDKategorien e = EFDKategorien.valueOf(wagentyp.toUpperCase());
 		return e;
 	}
 	
-	private static ErlaubteFahrer einfuegenFahrerEFD(EinsatzfuehrungsdienstKategorien kedf) {
+	private static ErlaubteFahrer einfuegenFahrerEFD(EFDKategorien kedf) {
 		boolean gueltigEF= true;
 		String klasse = "";
 		

@@ -1,5 +1,5 @@
 package enums;
 
-public enum EinsatzfuehrungsdienstKategorien {
+public enum EFDKategorien {
 	KOMMANDOWAGEN, EINSATZLEITWAGEN, PERSONENWAGEN
 }
