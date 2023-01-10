@@ -19,9 +19,8 @@ public class Anwendung //Main-Terminal
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws AusagabeException
 	{	
-		
 		fahrzeugeLaden();
 		
 		boolean schleife = true;
@@ -85,7 +84,7 @@ public class Anwendung //Main-Terminal
 			}
 		}
 	}
-
+	
 	public static void fahrzeugeLaden() 
 	{
 		// Objekte aus der Datei aufrufen
@@ -101,34 +100,42 @@ public class Anwendung //Main-Terminal
 		}
 	}
 	
-	//EXCEPTION FEHLT
-	public static void fahrzeugeAnzeigen() 
+	public static void fahrzeugeAnzeigen() throws AusagabeException 
 	{
-		System.out.println("---------- Liste aller Fahrzeuge ----------");
-		int counter = 1;
-		for(Fahrzeug fa : fahrzeuge) 
-		{
-			if (fa instanceof Rettungswagen) {
-				System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getEinsatzgebiet());
-			} else if (fa instanceof Notarzteinsatzfahrzeug) {
-				System.out.printf("%2d: Notarzteinsatzfahrzeug, %s \n", counter, fa.getEinsatzgebiet());
-			} else if (fa instanceof Krankentransportwagen) {
-				System.out.printf("%2d: Krankentransportwagen, %s \n", counter, fa.getEinsatzgebiet());
-			} else if (fa instanceof Infektionsrettungswagen) {
-				System.out.printf("%2d: Infektionsrettungswagen, %s \n", counter, fa.getEinsatzgebiet());
-			} else if (fa instanceof Einsatzfuehrungsdienst) {
-				System.out.printf("%2d: Einsatzfuehrungsdienst, %s \n", counter, fa.getEinsatzgebiet());
+		if(fahrzeuge.size() >= 0) {
+			System.out.println("---------- Liste aller Fahrzeuge ----------");
+			int counter = 1;
+			for(Fahrzeug fa : fahrzeuge) 
+			{
+				if (fa instanceof Rettungswagen) {
+					System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getEinsatzgebiet());
+				} else if (fa instanceof Notarzteinsatzfahrzeug) {
+					System.out.printf("%2d: Notarzteinsatzfahrzeug, %s \n", counter, fa.getEinsatzgebiet());
+				} else if (fa instanceof Krankentransportwagen) {
+					System.out.printf("%2d: Krankentransportwagen, %s \n", counter, fa.getEinsatzgebiet());
+				} else if (fa instanceof Infektionsrettungswagen) {
+					System.out.printf("%2d: Infektionsrettungswagen, %s \n", counter, fa.getEinsatzgebiet());
+				} else if (fa instanceof Einsatzfuehrungsdienst) {
+					System.out.printf("%2d: Einsatzfuehrungsdienst, %s \n", counter, fa.getEinsatzgebiet());
+				}
+				counter++;
 			}
-			counter++;
+			System.out.println("-------------------------------------------");
 		}
-		System.out.println("-------------------------------------------");
+		else {
+			throw new AusagabeException();
+		}
 	}
 	
 	public static void fahrzeugInfo() 
 	{
 		try {
-			fahrzeugeAnzeigen();
-			
+			fahrzeugeAnzeigen();	
+		} catch(AusagabeException e) {
+			e.printStackTrace();
+		}
+		
+		try {	
 			System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size() + ")");
 			int auswahl = scanner.nextInt();
 			System.out.println("---------- Informationen ueber das Fahrzeug ----------");
@@ -180,7 +187,11 @@ public class Anwendung //Main-Terminal
 	
 	private static void fahrzeugLoeschen()
 	{
-		fahrzeugeAnzeigen();
+		try {
+			fahrzeugeAnzeigen();
+		} catch (AusagabeException e) {
+		}
+		
 		Path datei = Paths.get("FahrzeugListe.Liste");
 		
 		//loescht das Fahrzeug aus der Schleife

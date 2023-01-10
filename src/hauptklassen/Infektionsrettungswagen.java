@@ -30,7 +30,6 @@ public class Infektionsrettungswagen extends Fahrzeug implements Benzin
 
 	@Override
 	public void benutzeBenzin() {
-		// TODO Auto-generated method stub
 		
 	}
 	
