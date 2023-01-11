@@ -3,9 +3,7 @@ package hauptklassen;
 import java.util.Comparator;
 
 public class Sortiermaschine 
-{
-	//Comparator nach Fahrzeugklasse!!
-	
+{	
 	public static Comparator<Fahrzeug> KennzeichenComparator = new Comparator<Fahrzeug>() 
 	{
 		@Override

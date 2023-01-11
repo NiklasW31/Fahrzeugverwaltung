@@ -59,7 +59,7 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 		float standardpreis = 1.80f;
 		String tmpP = "";
 		
-		System.out.println("Was moechten Sie ueber das Benzin aller(?) Rettungswagens wissen? :");
+		System.out.println("Was moechten Sie ueber das Benzin aller Rettungswagens wissen? :");
 		System.out.println("1. Die aktuell gespeicherten Informationen.");
 		System.out.println("2. Das Benzin wechseln.");
 		System.out.println("3. Den Standardpreis aendern.");	

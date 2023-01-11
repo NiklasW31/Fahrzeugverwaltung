@@ -28,12 +28,12 @@ public class Anwendung //Main-Terminal
 		{
 			//Auswahl der Aktion
 			System.out.println("Was moechten Sie tun? :");
-			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus.");
-			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus.");
-			System.out.println("3. Erstelle ein Fahrzeug.");
-			System.out.println("4. Loesche ein Fahrzeug.");
-			System.out.println("5. Fahrzeugliste sortieren.");
-			System.out.println("6. Vergleiche Fahrzeuge. (Nice to have)");
+			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus");
+			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus");
+			System.out.println("3. Erstelle ein Fahrzeug");
+			System.out.println("4. Loesche ein Fahrzeug");
+			System.out.println("5. Fahrzeugliste sortieren");
+			System.out.println("6. Benzin verwalten");
 			System.out.println("7. Beende das Programm");
 			
 			switch(scanner.next()) 
@@ -70,7 +70,7 @@ public class Anwendung //Main-Terminal
 				
 				case "6":
 					//Vergleiche zwei Fahrzeuge
-					fahrzeugeVergleichen();
+					verwalteBenzin();
 					break;
 				
 				case "7":
@@ -259,17 +259,8 @@ public class Anwendung //Main-Terminal
 		}
 	}
 
-	private static void fahrzeugeVergleichen() {
-		System.out.println("NOCH NICHT VORHANDEN");
-//		fahrzeugeAnzeigen();
-//		System.out.println("Welche Fahrzeuge wollen sie vergleichen ?");
-//		System.out.println("Fahrzeug 1:");
-//		int fahrzeugEins = scanner.nextInt();
-//		System.out.println("Fahrzeug 2:");
-//		int FahrzeugZwei = scanner.nextInt();
-//		
-//		System.out.println("Welche Attribute moechten Sie verlgeichen ?");
-//		//??
+	private static void verwalteBenzin() {
+	
 	}
 
 }
