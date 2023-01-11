@@ -16,9 +16,10 @@ public class ErstellungNeuesFahrzeug
 
 	public static Fahrzeug erstelleFahrzeug(String k) 
 	{	
+		//Roh-Objekt, wird am Ende gefuellt und zurueckgegeben
 		Fahrzeug f = null;
 	
-		// universelle Variablen, die allle besitzen
+		// universelle Variablen, die alle besitzen
 		String modell = eingabeModell();
 		int baujahr = eingabeBaujahr();
 		String kennzeichen = eingabeKennzeichen();
@@ -31,6 +32,7 @@ public class ErstellungNeuesFahrzeug
 		List<String> ausstattung = new ArrayList<>();
 		List<String> t2 = new ArrayList<>();
 
+		//Rettungswagen erstellen
 		if (k.equals("1")) {
 			ausruestung.addAll(Rettungswagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
@@ -45,6 +47,7 @@ public class ErstellungNeuesFahrzeug
 			f = tmp;
 			
 		} 
+		//Notarzteinsatzfahrzeug erstellen
 		else if (k.equals("2")) {
 			ausruestung.addAll(Notarzteinsatzfahrzeug.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
@@ -59,6 +62,7 @@ public class ErstellungNeuesFahrzeug
 			f = tmp;
 			
 		} 
+		//Krankentransportwagen erstellen
 		else if (k.equals("3")) {
 			ausruestung.addAll(Krankentransportwagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
@@ -73,6 +77,7 @@ public class ErstellungNeuesFahrzeug
 			f = tmp;
 			
 		} 
+		//Infektionsrettungswagen erstellen
 		else if (k.equals("4")) {
 //			ausruestung.addAll(); /*K.A.*/
 			ausruestung.addAll(eingabeAusruestung(ausruestung));
@@ -85,6 +90,7 @@ public class ErstellungNeuesFahrzeug
 			f = tmp;
 			
 		} 
+		//Einsatzfuehrungsdienst erstellen
 		else if (k.equals("5")){
 			
 			EFDKategorien kategorieEDF = einfuegenKategorieEFD();
