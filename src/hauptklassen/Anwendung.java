@@ -176,6 +176,7 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		}
+		//Speichert das Fahrezug in der Datei
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fahrzeug.Liste"))) {
 			for (Fahrzeug f : fahrzeuge) {
 				oos.writeObject(f);

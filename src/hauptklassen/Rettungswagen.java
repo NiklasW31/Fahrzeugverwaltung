@@ -55,14 +55,13 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 	{
 		String benzin = "Super";
 		String tmpB = "";
-		int tank = 20;
+		int tank = 50;
 		float standardpreis = 1.80f;
 		String tmpP = "";
 		
 		System.out.println("Was moechten Sie ueber das Benzin aller Rettungswagens wissen? :");
 		System.out.println("1. Die aktuell gespeicherten Informationen.");
-		System.out.println("2. Das Benzin wechseln.");
-		System.out.println("3. Den Standardpreis aendern.");	
+		System.out.println("2. Den Standardpreis aendern.");	
 		
 		String eingabe = scanner.next();
 		
@@ -78,8 +77,7 @@ public class Rettungswagen extends Fahrzeug implements Benzin
 			case "2":
 				System.out.println("Zu welchem Benzin moechten Sie wechseln:"
 						+ "1 - Diesel"
-						+ "2 - Super"
-						+ "3 - Super +");
+						+ "2 - Super");
 				
 				try {
 					if(scanner.next().equals("1")) {
