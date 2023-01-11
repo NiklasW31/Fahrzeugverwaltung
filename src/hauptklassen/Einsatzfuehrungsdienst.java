@@ -45,6 +45,13 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 		return s;
 	}
 	
+	public static List<String> fuelleELWStandardausstattung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Rueckfahrkamera", "LED-Innenbeleuchtung", "LED-Aussenbeleuchtung",
+							   "\n\t\t"));
+		return s;
+	}
+	
 	public static List<String> fuelleKWStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte",
@@ -56,7 +63,13 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 	public static List<String> fuelleKWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
-							   "\n\t\tRadstand 3430 mm"));
+							   "\n\t\t"));
+		return s;
+	}
+	
+	public static List<String> fuellePWStandardausstattung(){
+		List<String> s = new ArrayList<>();
+		s.addAll(Arrays.asList("Rueckfahrkamera", "Allradantrieb"));
 		return s;
 	}
 
