@@ -9,9 +9,8 @@ import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 import enums.EFDKategorien;
-import interfaces.Benzin;
 
-public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
+public class Einsatzfuehrungsdienst extends Fahrzeug
 {
 	private static final long serialVersionUID = -6672047570052812398L;
 	private EFDKategorien kategorieEDF;
@@ -22,9 +21,11 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
+		//feste Beschreibung des Zwecks eines jeden Fahrzeugs des Einsatzfuehrungsdienstes
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
 		
+		//zuweissung der moeglichen Besatzung, je nach Kategorie des EFD-Fahrzeugtyps
 		if(kategorieEDF.equals(EFDKategorien.KOMMANDOWAGEN)) {
 			setErlaubteBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EFDKategorien.EINSATZLEITWAGEN)) {

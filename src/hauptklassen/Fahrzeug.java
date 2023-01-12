@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.GroesseTank;
 import enums.Einsatzgebiet;
 
+/** */
 public abstract class Fahrzeug implements Serializable 
 {
 	private static final long serialVersionUID = -1466146206607392728L;

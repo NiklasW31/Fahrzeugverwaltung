@@ -11,11 +11,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Anwendung //Main-Terminal
+/**
+ * Dies ist unser Haupt-Terminal, welches unser Grundgeruest bildet, und uns je nach
+ * Aktion an die passende Stelle weiterleitet.
+ */
+public class Anwendung
 {
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
@@ -40,7 +43,7 @@ public class Anwendung //Main-Terminal
 			switch(scanner.next()) 
 			{
 				case "1":
-					//Gebe eine Liste aller Fahrzeuge aus
+					//Gebe eine kurze Liste aller Fahrzeuge aus
 					fahrzeugeAnzeigen();
 					System.out.println();
 					break;
@@ -52,30 +55,30 @@ public class Anwendung //Main-Terminal
 					break;
 				
 				case "3":
-					//Erstelle ein Fahrzeug
+					//Erstelle ein neues Fahrzeug
 					fahrzeugErstellen();
 					System.out.println();
 					break;
 				
 				case "4":
-					//Loesche ein Fahrzeug
+					//Loesche ein vorhandenes Fahrzeug
 					fahrzeugLoeschen();
 					System.out.println();
 					break;
 				
 				case "5":
-					//Sortiere die Fahrzeuge
+					// Sortiere alle Fahrzeuge
 					fahrzeugeSortieren();
 					System.out.println();
 					break;
 				
 				case "6":
-					//
+					// Kurzverwaltung des Benzins
 					VerwaltungDesBenzins.benzinVerwaltung();;
 					break;
 				
 				case "7":
-					//Programm beenden
+					// Programm beenden
 					schleife = false;
 					System.out.println("\nProgramm wurde Beendet");
 					break;
@@ -88,7 +91,7 @@ public class Anwendung //Main-Terminal
 	
 	public static void fahrzeugeLaden() 
 	{
-		// Objekte aus der Datei aufrufen
+		// vorhandene Objekte aus der Datei aufrufen
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Fahrzeug.Liste"))){
 			while (true) {
 				Object obj = ois.readObject();
@@ -103,9 +106,12 @@ public class Anwendung //Main-Terminal
 	
 	public static void fahrzeugeAnzeigen() throws AusagabeException 
 	{
-		if(fahrzeuge.size() >= 0) {
+		// pruefe ob Fahrzeuge vorhanden sind
+		if(fahrzeuge.size() >= 0) 
+		{
+			int counter = 1; // Damit Auflistung der Fahrzeuge nicht bei null starten
 			System.out.println("---------- Liste aller Fahrzeuge ----------");
-			int counter = 1;
+			
 			for(Fahrzeug fa : fahrzeuge) 
 			{
 				if (fa instanceof Rettungswagen) {
@@ -160,6 +166,7 @@ public class Anwendung //Main-Terminal
 		String kategorie = "";
 		Fahrzeug neuesFahrzeug;
 		
+		// Leite Erstellung & Zahl des Fahrzeugtyps weiter
 		while(gueltigeKat) 
 		{
 			kategorie = scanner.next();
@@ -177,7 +184,8 @@ public class Anwendung //Main-Terminal
 					break;
 			}
 		}
-		//Speichert das Fahrezug in der Datei
+		
+		// Speichert das erstellte Fahrezug in die Textdatei
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fahrzeug.Liste"))) {
 			for (Fahrzeug f : fahrzeuge) {
 				oos.writeObject(f);
@@ -196,7 +204,7 @@ public class Anwendung //Main-Terminal
 		
 		Path datei = Paths.get("Fahrzeug.Liste");
 		
-		//loescht das Fahrzeug aus der Schleife
+		//loescht das gewuenschte Fahrzeug aus der Schleife
 		try {
 			System.out.println("Bitte geben Sie die Nummer des Fahrzeuges an, welches sie loeschen moechten: ");
 			int fahrzeugNummer = scanner.nextInt();
@@ -205,7 +213,7 @@ public class Anwendung //Main-Terminal
 				System.out.println("Fehler: ungueltige Fahrzeug Nummer!"); 
 		}
 		
-		//loescht die alte "Text" Datei
+		//loescht die alte Textdatei
 		try {
 			Files.delete(datei);
 		} catch (IOException e) {
@@ -213,9 +221,9 @@ public class Anwendung //Main-Terminal
 			e.printStackTrace();
 		}
 		
+		//Die uebrig gebliebenen Fahrzeuge werden in eine "neue" Textdatei eingefuegt
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fahrzeug.Liste"))) {
 			for (Fahrzeug fa : fahrzeuge) {
-			//Die uebrig gebliebenen Fahrzeuge werden wieder eingefuegt
 			oos.writeObject(fa);
 			}
 		} catch (IOException e) {
@@ -234,6 +242,7 @@ public class Anwendung //Main-Terminal
 			
 			int sortieren = scanner.nextInt();
 			
+			//benutzt den passenden Comperator mit dem sortiert werden soll
 			switch (sortieren) 
 			{
 				case 1:

@@ -10,13 +10,18 @@ import enums.EFDKategorien;
 import enums.Einsatzgebiet;
 import enums.ErlaubteFahrer;
 
+/**
+ * Die Klasse uebernimmt vollstaendig die Erstellung eines neuen Fahrzeuges, welches 
+ * nach beliebigen Angaben(im gewissen Rahmen) erstellt werden kann.
+ * Uebergibt anschließend das fertige Fahrzeug ans Haupt-Terminal zurueck.
+ */
 public class ErstellungNeuesFahrzeug 
 {
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static Fahrzeug erstelleFahrzeug(String k) 
 	{	
-		//Roh-Objekt, wird am Ende gefuellt und zurueckgegeben
+		//Roh-Objekt, wird am Ende gefuellt und ans Haupt-Terminal zurueckgegeben
 		Fahrzeug f = null;
 	
 		// universelle Variablen, die alle besitzen
@@ -34,6 +39,7 @@ public class ErstellungNeuesFahrzeug
 
 		//Rettungswagen erstellen
 		if (k.equals("1")) {
+			//individuelle fuellung der Ausruestung/Ausstattung je nach Fahrzeugtyp
 			ausruestung.addAll(Rettungswagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -92,12 +98,14 @@ public class ErstellungNeuesFahrzeug
 			f = tmp;
 			
 		} 
-		//Einsatzfuehrungsdienst erstellen
+		//Einsatzfuehrungsdienst(EFD) erstellen
 		else if (k.equals("5")){
 			
+			//explizite Variablen des EFD's
 			EFDKategorien kategorieEDF = einfuegenKategorieEFD();
 			ErlaubteFahrer erlaubteFahrer = einfuegenFahrerEFD(kategorieEDF);
 		
+			//fuelle Ausrustung/Ausstattung je nach gewuenschte Kategorie des EFD's
 			if (kategorieEDF.equals(EFDKategorien.EINSATZLEITWAGEN)) {
 				ausruestung.addAll(Einsatzfuehrungsdienst.fuelleELWStandardausruestung());
 				t1.addAll(eingabeAusruestung(ausruestung));
@@ -133,6 +141,13 @@ public class ErstellungNeuesFahrzeug
 		return f;
 	}
 
+	/** 
+	 * Die folgenden Methoden sind alle zum Abfragen/Einfuegen der Variablen,
+	 * welche das neue Fahrzeug benoetigt.
+	 * @return modell, baujahr, kennzeichen, funkrufnahme, leistung, groesse, einsaztgebiet,
+	 * 		   optionale ausruestung, optionale ausstattung, kategorieEFD, erlaubteFahrerEFD 
+	 */
+	
 	private static String eingabeModell() {
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
 		String s = scanner.next();
