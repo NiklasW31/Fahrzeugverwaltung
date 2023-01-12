@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Anwendung //Main-Terminal
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
 	
-	public static void main(String[] args) throws AusagabeException
+	public static void main(String[] args) throws AusagabeException 
 	{	
 		fahrzeugeLaden();
 		
@@ -69,8 +70,8 @@ public class Anwendung //Main-Terminal
 					break;
 				
 				case "6":
-					//Vergleiche zwei Fahrzeuge
-					verwalteBenzin();
+					//
+					VerwaltungDesBenzins.benzinVerwaltung();;
 					break;
 				
 				case "7":
@@ -258,10 +259,6 @@ public class Anwendung //Main-Terminal
 		} catch (Exception e) {
 			System.out.println("Fehler: ungueltige Eingabe!");
 		}
-	}
-
-	private static void verwalteBenzin() {
-	
 	}
 
 }

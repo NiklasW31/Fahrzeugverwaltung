@@ -79,11 +79,13 @@ public class ErstellungNeuesFahrzeug
 		} 
 		//Infektionsrettungswagen erstellen
 		else if (k.equals("4")) {
-//			ausruestung.addAll(); /*K.A.*/
-			ausruestung.addAll(eingabeAusruestung(ausruestung));
+			ausruestung.addAll(Infektionsrettungswagen.fuelleStandardausruestung()); 
+			t1.addAll(eingabeAusruestung(ausruestung));
+			ausruestung = t1;
 			
-//			ausstattung.addAll(); /*K.A.*/
-			ausstattung.addAll(eingabeAusstattung(ausstattung));
+			ausstattung.addAll(Infektionsrettungswagen.fuelleStandardausstattung());
+			t2.addAll(eingabeAusstattung(ausstattung));
+			ausstattung = t2;
 			
 			Fahrzeug tmp = new Infektionsrettungswagen(modell, baujahr, kennzeichen, funkrufname, leistung, 
 					groesse, ErlaubteFahrer.C, einsatzgebiet, ausruestung, ausstattung);
@@ -100,8 +102,8 @@ public class ErstellungNeuesFahrzeug
 				ausruestung.addAll(Einsatzfuehrungsdienst.fuelleELWStandardausruestung());
 				t1.addAll(eingabeAusruestung(ausruestung));
 				ausruestung = t1;
-			
-//				ausstattung.addAll();
+		
+				ausstattung.addAll(Einsatzfuehrungsdienst.fuelleELWStandardausstattung());
 				t2.addAll(eingabeAusstattung(ausstattung));
 				ausstattung = t2;
 				
@@ -111,6 +113,14 @@ public class ErstellungNeuesFahrzeug
 				ausruestung = t1;
 			
 				ausstattung.addAll(Einsatzfuehrungsdienst.fuelleKWStandardausstattung());
+				t2.addAll(eingabeAusstattung(ausstattung));
+				ausstattung = t2;
+				
+			} else if(kategorieEDF.equals(EFDKategorien.PERSONENWAGEN)) {
+				t1.addAll(eingabeAusruestung(ausruestung));
+				ausruestung = t1;
+				
+				ausstattung.addAll(Einsatzfuehrungsdienst.fuellePWStandardausstattung());
 				t2.addAll(eingabeAusstattung(ausstattung));
 				ausstattung = t2;
 			}

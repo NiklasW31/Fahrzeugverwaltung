@@ -47,9 +47,5 @@ public class Krankentransportwagen extends Fahrzeug implements Benzin
 		return "[Krankentransportwagen] \n" + super.toString();
 	}
 	
-	@Override
-	public void benutzeBenzin() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

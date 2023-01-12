@@ -80,11 +80,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug implements Benzin
 				+ super.toString();
 	}
 
-	@Override
-	public void benutzeBenzin() {
-		
-	}
-
+	
 	/**---------- Getter und Setter ----------*/
 	
 	public EFDKategorien getKategorie() {

@@ -46,9 +46,5 @@ public class Infektionsrettungswagen extends Fahrzeug implements Benzin
 		return "[Infektionsrettungswagen] \n" + super.toString();
 	}
 
-	@Override
-	public void benutzeBenzin() {
-		
-	}
 	
 }

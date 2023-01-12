@@ -49,9 +49,4 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
 		return "[Notartzeinsatzfahrzeug] \n" + super.toString();
 	}
 	
-	@Override
-	public void benutzeBenzin() {
-		// TODO Auto-generated method stub
-		
-	}
 }

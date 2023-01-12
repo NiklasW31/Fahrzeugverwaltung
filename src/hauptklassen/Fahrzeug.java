@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
+import enums.GroesseTank;
 import enums.Einsatzgebiet;
 
 public abstract class Fahrzeug implements Serializable 
