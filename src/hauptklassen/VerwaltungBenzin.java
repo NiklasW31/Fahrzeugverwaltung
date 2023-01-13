@@ -14,7 +14,8 @@ public class VerwaltungBenzin
 	public static void benzinVerwaltung() 
 	{	
 		boolean schleife = true;
-		while(schleife) {
+		while(schleife) 
+		{
 			System.out.println("Welche Aktionen moechten sie mit Benzin ausfuehren:");
 			System.out.println("1. Die Benzin-Informationen anzeigen.");
 			System.out.println("2. Den Standardpreis aendern.");
