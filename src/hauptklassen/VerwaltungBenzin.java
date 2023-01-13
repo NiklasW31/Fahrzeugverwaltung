@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 import enums.GroesseTank;
 
-public class VerwaltungDesBenzins
+public class VerwaltungBenzin
 {
 	private static Scanner scanner = new Scanner(System.in);
 	private static final String benzin = "Diesel"; 
-	private static String preis = "1.80";
+	private static float preis = 1.80f;
 	
 	public static void benzinVerwaltung() 
 	{	
@@ -45,7 +45,7 @@ public class VerwaltungDesBenzins
 				case "2":
 					System.out.println("Bitte geben Sie einen neuen Standardpreis ein: (Bsp: 2,0)");
 					try {
-						preis = scanner.next(); 
+						preis = scanner.nextFloat(); 
 					} catch(InputMismatchException e) {
 						System.err.println("Ungueltige eingabe: " + e);
 						scanner.next();

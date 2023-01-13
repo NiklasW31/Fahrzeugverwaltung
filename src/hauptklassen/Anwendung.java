@@ -74,7 +74,7 @@ public class Anwendung
 				
 				case "6":
 					// Kurzverwaltung des Benzins
-					VerwaltungDesBenzins.benzinVerwaltung();;
+					VerwaltungBenzin.benzinVerwaltung();;
 					break;
 				
 				case "7":
