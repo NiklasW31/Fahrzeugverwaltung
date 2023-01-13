@@ -15,7 +15,6 @@ Rettungsfahrzeuge verwalten für das DRK.
 
   - **Hauptklassen**
     - Anwendung
-    - AusgabeException
     - ErstellungNeuesFahrzeug
     - Fahrzeug (abstract)
       - Einsatzfuehrungsdienst
@@ -25,6 +24,7 @@ Rettungsfahrzeuge verwalten für das DRK.
       - Rettungswagen
     - Sortiermaschine
     - Verwaltung Benzin
+    - AusgabeException
       
   - **Enums**
     - EFDKategorien
