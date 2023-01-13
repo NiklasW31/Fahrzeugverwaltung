@@ -9,6 +9,9 @@ import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 
+/**
+ * Eine Klasse mit einer von 5 Hauptfahrzeugtypen.
+ */
 public class Krankentransportwagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +22,7 @@ public class Krankentransportwagen extends Fahrzeug
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
+		//Festsetzung eineheitlicher Information der Krankentransportwagen 
 		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
 				+ "und Ueberwachung von Patienten.");
 		setErlaubteBesatzung(ErlaubteBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
@@ -30,14 +34,13 @@ public class Krankentransportwagen extends Fahrzeug
 							   "\n\t\t Absaugpumpe Weimann Accuvac", "halbautomatischer AED", 
 							   "\n\t\t Ulmer Notfallkoffer", "Sauerstoffflasche", 
 							   "\n\t\t Schutzhelme"));
-	//  -> Unterschiede: Pulsoxymeter, Taschenlampe
+		//  -> Bsp. Unterschiede: Pulsoxymeter, Taschenlampe
 		return s;
 	}
 
 	public static List<String> fuelleStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.add("Klimaanlage");
-		//-> Unterschiede: Pulsoxymeter, Taschenlampe
 		return s;
 	}
 	

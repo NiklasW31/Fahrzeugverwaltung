@@ -9,6 +9,9 @@ import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 
+/**
+ * Eine Klasse mit einer von 5 Hauptfahrzeugtypen.
+ */
 public class Notarzteinsatzfahrzeug extends Fahrzeug
 {	
 	private static final long serialVersionUID = 1L;
@@ -19,6 +22,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
+		//Festsetzung eineheitlicher Information der Notarzteinsatzfahrzeuge 
 		setBeschreibung("Fuer den Transport, die Erstversorgung und Ueberwachung von Patienten.");
 		setErlaubteBesatzung(ErlaubteBesatzung.NOTARZTEINSATZFAHRZEUG.getBesatzung());
 	}
@@ -32,7 +36,7 @@ public class Notarzteinsatzfahrzeug extends Fahrzeug
 							   "\n\t\t 2x Spritzenpumpe Braun Perfusor Space", "Zusatztaschen NEF", 
 							   "\n\t\t MANV Sets", "Absaugpumpe Weimann Accuvac",
 							   "\n\t\t Einsatz-Management-System: Convexis Connex"));
-		// -> Unterschiede: KET System
+		// -> Bsp. Unterschiede: KET System
 		return s;
 	}
 

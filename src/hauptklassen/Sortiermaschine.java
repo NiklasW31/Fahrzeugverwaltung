@@ -2,6 +2,10 @@ package hauptklassen;
 
 import java.util.Comparator;
 
+/**
+ * Diese Klasse beinhaltet die Comparator, mit welchen die Fahrzeuge 
+ * sortiert werden koennen.
+ */
 public class Sortiermaschine 
 {	
 	public static Comparator<Fahrzeug> KennzeichenComparator = new Comparator<Fahrzeug>() 

@@ -15,14 +15,15 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Dies ist unser Haupt-Terminal, welches unser Grundgeruest bildet, und uns je nach
- * Aktion an die passende Stelle weiterleitet.
+ * Dies ist unser Haupt-Terminal, welches unser Grundgeruest bildet, und uns 
+ * je nach Aktion an die passende Stelle weiterleitet.
  */
 public class Anwendung
 {
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
 	
+	//Auswahl der Aktion
 	public static void main(String[] args) throws AusagabeException 
 	{	
 		fahrzeugeLaden();
@@ -30,55 +31,47 @@ public class Anwendung
 		boolean schleife = true;
 		while(schleife) 
 		{
-			//Auswahl der Aktion
-			System.out.println("Was moechten Sie tun? :");
-			System.out.println("1. Gebe eine Liste aller Fahrzeuge aus");
-			System.out.println("2. Gebe Informationen ueber ein Fahrzeug aus");
-			System.out.println("3. Erstelle ein Fahrzeug");
-			System.out.println("4. Loesche ein Fahrzeug");
-			System.out.println("5. Fahrzeugliste sortieren");
-			System.out.println("6. Benzin verwalten");
-			System.out.println("7. Beende das Programm");
+			System.out.println("Was moechten Sie tun? : \n"
+					+ "1. Gebe eine Liste aller Fahrzeuge aus. \n"
+					+ "2. Gebe Informationen ueber ein Fahrzeug aus. \n"
+					+ "3. Erstelle ein Fahrzeug. \n"
+					+ "4. Loesche ein Fahrzeug. \n"
+					+ "5. Sortiere die Fahrzeugliste. \n"
+					+ "6. Verwalte das Benzin. \n"
+					+ "7. Beende das Programm");
 			
 			switch(scanner.next()) 
 			{
 				case "1":
-					//Gebe eine kurze Liste aller Fahrzeuge aus
 					fahrzeugeAnzeigen();
 					System.out.println();
 					break;
 				
 				case "2":
-					//Gebe alle Informationen ueber ein Fahrzeug aus
 					fahrzeugInfo();
 					System.out.println();
 					break;
 				
 				case "3":
-					//Erstelle ein neues Fahrzeug
 					fahrzeugErstellen();
 					System.out.println();
 					break;
 				
 				case "4":
-					//Loesche ein vorhandenes Fahrzeug
 					fahrzeugLoeschen();
 					System.out.println();
 					break;
 				
 				case "5":
-					// Sortiere alle Fahrzeuge
 					fahrzeugeSortieren();
 					System.out.println();
 					break;
 				
 				case "6":
-					// Kurzverwaltung des Benzins
 					VerwaltungBenzin.benzinVerwaltung();;
 					break;
 				
 				case "7":
-					// Programm beenden
 					schleife = false;
 					System.out.println("\nProgramm wurde Beendet");
 					break;
@@ -89,9 +82,9 @@ public class Anwendung
 		}
 	}
 	
+	// Vorhandene Objekte aus der Datei aufrufen
 	public static void fahrzeugeLaden() 
 	{
-		// vorhandene Objekte aus der Datei aufrufen
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Fahrzeug.Liste"))){
 			while (true) {
 				Object obj = ois.readObject();
@@ -104,16 +97,15 @@ public class Anwendung
 		}
 	}
 	
+	//Gebe eine kurze Liste aller Fahrzeuge aus
 	public static void fahrzeugeAnzeigen() throws AusagabeException 
 	{
-		// pruefe ob Fahrzeuge vorhanden sind
 		if(fahrzeuge.size() >= 0) 
 		{
-			int counter = 1; // Damit Auflistung der Fahrzeuge nicht bei null starten
+			int counter = 1;
 			System.out.println("---------- Liste aller Fahrzeuge ----------");
 			
-			for(Fahrzeug fa : fahrzeuge) 
-			{
+			for(Fahrzeug fa : fahrzeuge) {
 				if (fa instanceof Rettungswagen) {
 					System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getEinsatzgebiet());
 				} else if (fa instanceof Notarzteinsatzfahrzeug) {
@@ -134,6 +126,7 @@ public class Anwendung
 		}
 	}
 	
+	//Gebe alle Informationen ueber ein Fahrzeug aus
 	public static void fahrzeugInfo() 
 	{
 		try {
@@ -153,13 +146,14 @@ public class Anwendung
 		}
 	}
 	
+	//Erstelle ein neues Fahrzeug
 	public static void fahrzeugErstellen() 
 	{	
 		System.out.println("Bitte geben Sie die Fahrzeugkategorie fuer das Fahrzeug an: \n"
-				+ "... 1 - Rettungswagen\n"
-				+ "... 2 - Notarzteinsatzfahrzeug\n"
-				+ "... 3 - Krankentransportwagen\n"
-				+ "... 4 - Infektionsrettungswagen\n"
+				+ "... 1 - Rettungswagen \n"
+				+ "... 2 - Notarzteinsatzfahrzeug \n"
+				+ "... 3 - Krankentransportwagen \n"
+				+ "... 4 - Infektionsrettungswagen \n"
 				+ "... 5 - Einsatzfuehrungsdienst");
 		
 		boolean gueltigeKat = true;
@@ -195,6 +189,7 @@ public class Anwendung
 		}
 	}
 	
+	//Loesche ein Fahrzeug aus der Liste
 	private static void fahrzeugLoeschen()
 	{
 		try {
@@ -204,7 +199,6 @@ public class Anwendung
 		
 		Path datei = Paths.get("Fahrzeug.Liste");
 		
-		//loescht das gewuenschte Fahrzeug aus der Schleife
 		try {
 			System.out.println("Bitte geben Sie die Nummer des Fahrzeuges an, welches sie loeschen moechten: ");
 			int fahrzeugNummer = scanner.nextInt();
@@ -213,7 +207,7 @@ public class Anwendung
 				System.out.println("Fehler: ungueltige Fahrzeug Nummer!"); 
 		}
 		
-		//loescht die alte Textdatei
+		//Loescht die alte Textdatei
 		try {
 			Files.delete(datei);
 		} catch (IOException e) {
@@ -221,7 +215,7 @@ public class Anwendung
 			e.printStackTrace();
 		}
 		
-		//Die uebrig gebliebenen Fahrzeuge werden in eine "neue" Textdatei eingefuegt
+		//Speichere uebrige Fahrzeuge in eine "neue" Textdatei
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fahrzeug.Liste"))) {
 			for (Fahrzeug fa : fahrzeuge) {
 			oos.writeObject(fa);
@@ -231,42 +225,40 @@ public class Anwendung
 		}
 	}
 	
+	//Sortiere alle Fahrzeuge
 	private static void fahrzeugeSortieren() 
 	{
-		try {
-			System.out.println("Nach welchem Kriterium moechten sie sortieren: ");
-			System.out.println("1. Kennzeichen");
-			System.out.println("2. Groesse");
-			System.out.println("3. Leistung");
-			System.out.println("4. Einsatzgebiet");
-			
-			int sortieren = scanner.nextInt();
-			
-			//benutzt den passenden Comperator mit dem sortiert werden soll
-			switch (sortieren) 
-			{
-				case 1:
-					Collections.sort(fahrzeuge, Sortiermaschine.KennzeichenComparator);
-					System.out.println("Die Liste wurde nach Kennzeichen sortiert.");
-					break;
+		System.out.println("Nach welchem Kriterium moechten sie sortieren: \n"
+				+ "... 1 - Kennzeichen \n"
+				+ "... 2 - Groesse \n"
+				+ "... 2 - Leistung \n"
+				+ "... 2 - Einsatzgebiet");
+		
+		switch (scanner.next()) 
+		{
+			case "1":
+				Collections.sort(fahrzeuge, Sortiermaschine.KennzeichenComparator);
+				System.out.println("Die Liste wurde nach Kennzeichen sortiert.");
+				break;
+				
+			case "2":
+				Collections.sort(fahrzeuge, Sortiermaschine.GroesseComparator);
+				System.out.println("Die Liste wurde nach Groesse sortiert.");
+				break;
+				
+			case "3":
+				Collections.sort(fahrzeuge, Sortiermaschine.LeistungComparator);
+				System.out.println("Die Liste wurde nach Leistung sortiert.");
+				break;
+				
+			case "4":
+				Collections.sort(fahrzeuge, Sortiermaschine.EinsatzgebietComparator);
+				System.out.println("Die Liste wurde nach Einsatzgebieten sortiert.");
+				break;
 					
-				case 2:
-					Collections.sort(fahrzeuge, Sortiermaschine.GroesseComparator);
-					System.out.println("Die Liste wurde nach Groesse sortiert.");
-					break;
-					
-				case 3:
-					Collections.sort(fahrzeuge, Sortiermaschine.LeistungComparator);
-					System.out.println("Die Liste wurde nach Leistung sortiert.");
-					break;
-					
-				case 4:
-					Collections.sort(fahrzeuge, Sortiermaschine.EinsatzgebietComparator);
-					System.out.println("Die Liste wurde nach Einsatzgebieten sortiert.");
-					break;
-			}
-		} catch (Exception e) {
-			System.out.println("Fehler: ungueltige Eingabe!");
+			default:
+				System.out.println("Ungueltige Eingabe! \nBitte geben Sie ein gueltiges Kriterium ein.\n"); 
+				break;
 		}
 	}
 

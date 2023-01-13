@@ -9,6 +9,9 @@ import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 
+/**
+ * Eine Klasse mit einer von 5 Hauptfahrzeugtypen.
+ */
 public class Infektionsrettungswagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 6159612121016380185L;
@@ -19,6 +22,7 @@ public class Infektionsrettungswagen extends Fahrzeug
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
+		//Festsetzung eineheitlicher Information der Infektionsrettungswagen 
 		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n  "
 				+ "Patienten mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
 		setErlaubteBesatzung(ErlaubteBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());

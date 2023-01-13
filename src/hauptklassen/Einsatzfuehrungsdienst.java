@@ -10,6 +10,9 @@ import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 import enums.EFDKategorien;
 
+/**
+ * Eine Klasse mit einer von 5 Hauptfahrzeugtypen.
+ */
 public class Einsatzfuehrungsdienst extends Fahrzeug
 {
 	private static final long serialVersionUID = -6672047570052812398L;
@@ -21,11 +24,11 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
-		//feste Beschreibung des Zwecks eines jeden Fahrzeugs des Einsatzfuehrungsdienstes
+		//Festsetzung eineheitlicher Information des Einsatzfuehrungsdienstes
 		setBeschreibung("Sind besetzt mit Fuehrungseinheiten mit entsprechender Entscheidungskompetenz.");
 		this.kategorieEDF = kategorieEDF;
 		
-		//zuweissung der moeglichen Besatzung, je nach Kategorie des EFD-Fahrzeugtyps
+		//Zuweissung der moeglichen Besatzung, je nach Kategorie des EFD-Fahrzeugtyps
 		if(kategorieEDF.equals(EFDKategorien.KOMMANDOWAGEN)) {
 			setErlaubteBesatzung(ErlaubteBesatzung.EDF_KOMMANDOWAGEN.getBesatzung());
 		} else if(kategorieEDF.equals(EFDKategorien.EINSATZLEITWAGEN)) {
@@ -35,6 +38,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		}
 	}
 	
+	//fuer EFDKategorie Einsatzleitwagen
 	public static List<String> fuelleELWStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Stromerzeuger", "4x 4 m-Band Funkgeraete AEG Telecar 10", 
@@ -46,6 +50,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		return s;
 	}
 	
+	//fuer EFDKategorie Einsatzleitwagen
 	public static List<String> fuelleELWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Rueckfahrkamera", "LED-Innenbeleuchtung", "LED-Aussenbeleuchtung",
@@ -53,6 +58,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		return s;
 	}
 	
+	//fuer EFDKategorie Kommandowagen
 	public static List<String> fuelleKWStandardausruestung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte",
@@ -61,6 +67,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		return s;
 	}
 	
+	//fuer EFDKategorie Kommandowagen
 	public static List<String> fuelleKWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
@@ -68,6 +75,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		return s;
 	}
 	
+	//fuer EFDKategorie Personenwagen
 	public static List<String> fuellePWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Rueckfahrkamera", "Allradantrieb"));

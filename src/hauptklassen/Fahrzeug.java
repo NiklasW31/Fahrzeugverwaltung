@@ -7,7 +7,10 @@ import java.util.Map;
 import enums.ErlaubteFahrer;
 import enums.Einsatzgebiet;
 
-/** */
+/** 
+ * Diese Klasse ist der Grundstein fuer alle Fahrzeuge, welche beinahe 
+ * alle Variablen and ihre Unterklassen weitergibt.
+ */
 public abstract class Fahrzeug implements Serializable 
 {
 	private static final long serialVersionUID = -1466146206607392728L;
@@ -41,6 +44,7 @@ public abstract class Fahrzeug implements Serializable
 		this.ausruestung = ausruestung;
 		this.ausstattung = ausstattung;
 		
+		//Uebergabe des Wertes innehalb eines Einsatzgebietes
 		if (einsatzgebiet.equals(Einsatzgebiet.RETTUNGSWACHE_1)) {
 			setGebiet(Einsatzgebiet.RETTUNGSWACHE_1.getBereich());
 		} else if(einsatzgebiet.equals(Einsatzgebiet.RETTUNGSWACHE_2)) {

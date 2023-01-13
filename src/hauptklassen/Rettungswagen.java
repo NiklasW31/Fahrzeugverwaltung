@@ -9,6 +9,9 @@ import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
 
+/**
+ * Eine Klasse mit einer von 5 Hauptfahrzeugtypen.
+ */
 public class Rettungswagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 3121374339826972330L;
@@ -19,6 +22,7 @@ public class Rettungswagen extends Fahrzeug
 		super (modell, baujahr, kennzeichen, funkrufname, leistung, groesse, erlaubteFahrer, einsatzgebiet, 
 				ausruestung, ausstattung);
 		
+		//Festsetzung eineheitlicher Information der Rettungswagen 
 		setBeschreibung("Der RTW soll bei Notfallpatienten die Erstversorgung \n   "
 				+ "sicherstellen, die Patienten transportfaehig machen und sie daraufhin \n   "
 				+ "waerend des Transports ueberwachen.");

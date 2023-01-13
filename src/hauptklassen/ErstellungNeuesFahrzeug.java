@@ -11,8 +11,7 @@ import enums.Einsatzgebiet;
 import enums.ErlaubteFahrer;
 
 /**
- * Die Klasse uebernimmt vollstaendig die Erstellung eines neuen Fahrzeuges, welches 
- * nach beliebigen Angaben(im gewissen Rahmen) erstellt werden kann.
+ * Die Klasse uebernimmt vollstaendig die Erstellung eines neuen Fahrzeuges.
  * Uebergibt anschließend das fertige Fahrzeug ans Haupt-Terminal zurueck.
  */
 public class ErstellungNeuesFahrzeug 
@@ -39,7 +38,6 @@ public class ErstellungNeuesFahrzeug
 
 		//Rettungswagen erstellen
 		if (k.equals("1")) {
-			//individuelle fuellung der Ausruestung/Ausstattung je nach Fahrzeugtyp
 			ausruestung.addAll(Rettungswagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -141,12 +139,10 @@ public class ErstellungNeuesFahrzeug
 		return f;
 	}
 
-	/** 
-	 * Die folgenden Methoden sind alle zum Abfragen/Einfuegen der Variablen,
-	 * welche das neue Fahrzeug benoetigt.
-	 * @return modell, baujahr, kennzeichen, funkrufnahme, leistung, groesse, einsaztgebiet,
-	 * 		   optionale ausruestung, optionale ausstattung, kategorieEFD, erlaubteFahrerEFD 
-	 */
+/** 
+ * Die folgenden Methoden sind alle zum Abfragen/Einfuegen der Variablen,
+ * welche das neue Fahrzeug benoetigt.
+ */
 	
 	private static String eingabeModell() {
 		System.out.println("Bitte geben Sie das Modell ein: (Bsp.: Sprinter_316_CDI)");
@@ -225,13 +221,14 @@ public class ErstellungNeuesFahrzeug
 
 	private static Einsatzgebiet eingabeEinsatzgebiet() {
 		System.out.println("Bitte geben Sie das Einsatzgebiet ein: \n" 
-				+ "... 1 - Rettungswache 1\n"
-				+ "... 2 - Rettungswache 2\n" 
+				+ "... 1 - Rettungswache 1 \n"
+				+ "... 2 - Rettungswache 2 \n" 
 				+ "... 4 - Rettungswache 4");
 
 		boolean gueltigW = true;
 		String gebiet = "";
 		String wache = "";
+		
 		while (gueltigW) {
 			gebiet = scanner.next();
 			switch (gebiet) {
@@ -261,6 +258,7 @@ public class ErstellungNeuesFahrzeug
 
 	private static List<String> eingabeAusruestung(List<String> l) {
 		System.out.println("Bitte geben Sie die optionale Ausruestung des Fahrzeuges an: ");
+		
 		while (true) {
 			System.out.println("Geben Sie ein 1 Gegenstand ein: (zum beenden 'x' eingeben)" 
 					+ "\nGesamtausruestung = " + l);
@@ -276,6 +274,7 @@ public class ErstellungNeuesFahrzeug
 	
 	private static List<String> eingabeAusstattung(List<String> l) {
 		System.out.println("Bitte geben Sie eine optionale Ausstattung an: ");
+		
 		while (true) {
 			System.out.println("Geben Sie ein 1 Objekt ein: (zum beenden 'x' eingeben)" 
 					+ "\nGesamtausstattung = " + l);
@@ -291,8 +290,8 @@ public class ErstellungNeuesFahrzeug
 
 	private static EFDKategorien einfuegenKategorieEFD() {
 		System.out.println("Bitte geben Sie die Kategorie des Einsatzfuehrungsdienstes ein: \n"
-				+ "... 1 - Kommandowagen\n" 
-				+ "... 2 - Einsatzleitwagen\n"
+				+ "... 1 - Kommandowagen \n" 
+				+ "... 2 - Einsatzleitwagen \n"
 				+ "... 3 - Personenwagen");
 
 		boolean gueltigKEDF = true;
@@ -303,24 +302,24 @@ public class ErstellungNeuesFahrzeug
 		{
 			typ = scanner.next();
 			switch (typ) {
-			case "1":
-				wagentyp = "Kommandowagen";
-				gueltigKEDF = false;
-				break;
+				case "1":
+					wagentyp = "Kommandowagen";
+					gueltigKEDF = false;
+					break;
 
-			case "2":
-				wagentyp = "Einsatzleitwagen";
-				gueltigKEDF = false;
-				break;
+				case "2":
+					wagentyp = "Einsatzleitwagen";
+					gueltigKEDF = false;
+					break;
 
-			case "3":
-				wagentyp = "Personenwagen";
-				gueltigKEDF = false;
-				break;
+				case "3":
+					wagentyp = "Personenwagen";
+					gueltigKEDF = false;
+					break;
 
-			default:
-				System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Kategorie ein. (1,2,3)");
-				break;
+				default:
+					System.out.println("Ungueltige Eingabe! \nBitte geben Sie eine gueltige Kategorie ein. (1,2,3)");
+					break;
 			}
 		}
 		EFDKategorien e = EFDKategorien.valueOf(wagentyp.toUpperCase());
@@ -334,24 +333,24 @@ public class ErstellungNeuesFahrzeug
 		while (gueltigEF) 
 		{
 			switch (kedf) {
-			case KOMMANDOWAGEN:
-				klasse = "B1";
-				gueltigEF = false;
-				break;
+				case KOMMANDOWAGEN:
+					klasse = "B1";
+					gueltigEF = false;
+					break;
 
-			case EINSATZLEITWAGEN:
-				klasse = "C1";
-				gueltigEF = false;
-				break;
+				case EINSATZLEITWAGEN:
+					klasse = "C1";
+					gueltigEF = false;
+					break;
 
-			case PERSONENWAGEN:
-				klasse = "B";
-				gueltigEF = false;
-				break;
+				case PERSONENWAGEN:
+					klasse = "B";
+					gueltigEF = false;
+					break;
 
-			default:
-				System.out.println("Fehler bei einfuegen ErlaubteFahrer aufgetreten!");
-				break;
+				default:
+					System.out.println("Fehler bei einfuegen ErlaubteFahrer aufgetreten!");
+					break;
 			}
 		}
 		ErlaubteFahrer e = ErlaubteFahrer.valueOf(klasse);

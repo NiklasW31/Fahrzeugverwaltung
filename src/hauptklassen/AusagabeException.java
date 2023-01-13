@@ -1,8 +1,8 @@
 package hauptklassen;
 
 /** 
- * Dies ist eine eigenerstellte Exception fuer den Fall, dass die Fahrezeugliste
- * also die Textdatei nicht gelesen/Ausgegeben werden kann.
+ * Dies ist eine eigenerstellte Exception fuer den Fall, dass die 
+ * Fahrezeugliste, also die Textdatei, nicht gelesen/Ausgegeben werden kann.
  */
 public class AusagabeException extends Exception
 {
