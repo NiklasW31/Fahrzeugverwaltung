@@ -23,7 +23,7 @@ public class Anwendung
 	private static Scanner scanner = new Scanner(System.in);
 	private static List<Fahrzeug> fahrzeuge = new ArrayList<>();
 	
-	//Auswahl der Hauptaktionen
+	//Auswahl der Hauptaktionen 
 	public static void main(String[] args) throws AusagabeException 
 	{	
 		fahrzeugeLaden();
