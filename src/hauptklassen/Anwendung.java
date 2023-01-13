@@ -31,14 +31,15 @@ public class Anwendung
 		boolean schleife = true;
 		while(schleife) 
 		{
-			System.out.println("Was moechten Sie tun? : \n"
-					+ "1. Gebe eine Liste aller Fahrzeuge aus. \n"
-					+ "2. Gebe Informationen ueber ein Fahrzeug aus. \n"
-					+ "3. Erstelle ein Fahrzeug. \n"
-					+ "4. Loesche ein Fahrzeug. \n"
-					+ "5. Sortiere die Fahrzeugliste. \n"
-					+ "6. Verwalte das Benzin. \n"
-					+ "7. Beende das Programm");
+			System.out.println("|--------- Willkommen im Hautpterminal ---------\n"
+					+ "| Was moechten Sie tun? : \n"
+					+ "| 1. Gebe eine Liste aller Fahrzeuge aus. \n"
+					+ "| 2. Gebe Informationen ueber ein Fahrzeug aus. \n"
+					+ "| 3. Erstelle ein Fahrzeug. \n"
+					+ "| 4. Loesche ein Fahrzeug. \n"
+					+ "| 5. Sortiere die Fahrzeugliste. \n"
+					+ "| 6. Verwalte das Benzin. \n"
+					+ "| 7. Beende das Programm");
 			
 			switch(scanner.next()) 
 			{
@@ -103,7 +104,7 @@ public class Anwendung
 		if(fahrzeuge.size() >= 0) 
 		{
 			int counter = 1;
-			System.out.println("---------- Liste aller Fahrzeuge ----------");
+			System.out.println("~~~~~~~~~~ Liste aller Fahrzeuge ~~~~~~~~~~");
 			
 			for(Fahrzeug fa : fahrzeuge) {
 				if (fa instanceof Rettungswagen) {
@@ -119,7 +120,7 @@ public class Anwendung
 				}
 				counter++;
 			}
-			System.out.println("-------------------------------------------");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		}
 		else {
 			throw new AusagabeException();
@@ -138,9 +139,11 @@ public class Anwendung
 		try {	
 			System.out.println("Ueber welches Auto wollen Sie weitere Informationen einsehen ? (1-" + fahrzeuge.size() + ")");
 			int auswahl = scanner.nextInt();
-			System.out.println("---------- Informationen ueber das Fahrzeug ----------");
+			
+			System.out.println("~~~~~~~~~~ Informationen ueber das Fahrzeug ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.print(fahrzeuge.get(auswahl-1));
-			System.out.println("------------------------------------------------------");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		
 		} catch(Exception e) {
 			System.out.println("Ungueltige Eingabe :" + e); 
 		}
@@ -231,8 +234,8 @@ public class Anwendung
 		System.out.println("Nach welchem Kriterium moechten sie sortieren: \n"
 				+ "... 1 - Kennzeichen \n"
 				+ "... 2 - Groesse \n"
-				+ "... 2 - Leistung \n"
-				+ "... 2 - Einsatzgebiet");
+				+ "... 3 - Leistung \n"
+				+ "... 4 - Einsatzgebiet");
 		
 		switch (scanner.next()) 
 		{

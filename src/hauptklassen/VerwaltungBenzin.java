@@ -191,10 +191,12 @@ public class VerwaltungBenzin
 				break;
 		}
 
-		System.out.println("~~~ Benzin Informatioenen aller " + f + " ~~~ \n"
+		System.out.println("~~~~~~~~~~~~~ Benzin Informatioenen ~~~~~~~~~~~~~~ \n"
+				+ "> Fahrzeugtyp: Alle " + f + ". \n"
 				+ "> Das zu benutzende Benzin ist " + benzinArt + ". \n"
 				+ "> Der Tank hat eine Kapazitaet von " + einfuegenTank(str) + " Liter. \n"
-				+ "> Der Standardpreis fuer " + benzinArt + " liegt bei " + preis + " Euro.\n");
+				+ "> Der Standardpreis fuer " + benzinArt + " liegt bei " + preis + " Euro. \n"
+				+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
 	}
 
 	//Zuweisung der Tankgroesse
