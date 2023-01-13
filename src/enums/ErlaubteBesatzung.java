@@ -1,7 +1,6 @@
 package enums;
 
-public enum ErlaubteBesatzung 
-{	
+public enum ErlaubteBesatzung {	
 	RETTUNGSWAGEN("ein/e Rettungsassistent:in und ein/e Sanitaeter:in"), 
 	NOTARZTEINSATZFAHRZEUG("Ein/e Notarzt:in"), 
 	KRANKENTRANSPORTWAGEN("Min. ein/e Rettungssanitaeter:in & ein/e Rettungshelfer:in"),
@@ -15,6 +14,7 @@ public enum ErlaubteBesatzung
 	ErlaubteBesatzung(String besatzung) {
 		this.besatzung = besatzung;
 	}
+	
 	public String getBesatzung() {
 		return besatzung;
 	}

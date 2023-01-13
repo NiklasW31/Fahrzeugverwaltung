@@ -10,6 +10,7 @@ public enum Einsatzgebiet {
 	Einsatzgebiet(String bereich) {
 		this.bereich = bereich;
 	}
+	
 	public String getBereich() {
 		return bereich;
 	}
