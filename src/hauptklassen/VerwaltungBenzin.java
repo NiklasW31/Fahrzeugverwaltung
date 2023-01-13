@@ -188,19 +188,19 @@ public class VerwaltungBenzin {
 
 		try {
 			if (str.equals("1")) {
-				t = GroesseTank.FUENFZEHN.getWert();
+				t = GroesseTank.SPRINTER.getWert();
 			} else if (str.equals("2")) {
-				t = GroesseTank.ZEHN.getWert();
+				t = GroesseTank.VITO.getWert();
 			} else if (str.equals("3")) {
-				t = GroesseTank.FUENFZEHN.getWert();
+				t = GroesseTank.SPRINTER.getWert();
 			} else if (str.equals("4")) {
-				t = GroesseTank.ZWANZIG.getWert();
+				t = GroesseTank.SPRINTER.getWert();
 			} else if (str.equals("5")) {
-				t = GroesseTank.ZEHN.getWert();
+				t = GroesseTank.PKW.getWert();
 			} else if (str.equals("6")) {
-				t = GroesseTank.FUENFZEHN.getWert();
+				t = GroesseTank.SPRINTER.getWert();
 			} else if (str.equals("7")) {
-				t = GroesseTank.DREI.getWert();
+				t = GroesseTank.PKW.getWert();
 			}
 		} catch (Exception e) {
 			System.out.println("Tankgroesse konnte nicht ermittelt werden!");
