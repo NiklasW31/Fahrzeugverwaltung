@@ -14,12 +14,17 @@ Rettungsfahrzeuge verwalten für das DRK.
 ## Wie sieht die grobe Architektur aus?
 
   - **Hauptklassen**
+    - Anwendung
+    - AusgabeException
+    - ErstellungNeuesFahrzeug
     - Fahrzeug (abstract)
       - Einsatzfuehrungsdienst
       - Infektionsrettungswagen 
       - Krankentransportwagen 
       - Notarzteinsatzfahrzeug 
       - Rettungswagen
+    - Sortiermaschine
+    - Verwaltung Benzin
       
   - **Enums**
     - EFDKategorien
