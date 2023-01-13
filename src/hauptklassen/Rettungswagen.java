@@ -6,12 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ErlaubteFahrer;
-import enums.GroesseTank;
 import enums.ErlaubteBesatzung;
-import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
-public class Rettungswagen extends Fahrzeug implements Benzin
+public class Rettungswagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 3121374339826972330L;
 

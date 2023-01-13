@@ -7,10 +7,9 @@ import java.util.Map;
 
 import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
-import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
-public class Krankentransportwagen extends Fahrzeug implements Benzin
+public class Krankentransportwagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 1L;
 	

@@ -7,10 +7,9 @@ import java.util.Map;
 
 import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
-import interfaces.Benzin;
 import enums.Einsatzgebiet;
 
-public class Notarzteinsatzfahrzeug extends Fahrzeug implements Benzin
+public class Notarzteinsatzfahrzeug extends Fahrzeug
 {	
 	private static final long serialVersionUID = 1L;
 	

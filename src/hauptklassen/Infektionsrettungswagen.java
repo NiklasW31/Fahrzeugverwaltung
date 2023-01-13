@@ -8,9 +8,8 @@ import java.util.Map;
 import enums.ErlaubteFahrer;
 import enums.ErlaubteBesatzung;
 import enums.Einsatzgebiet;
-import interfaces.Benzin;
 
-public class Infektionsrettungswagen extends Fahrzeug implements Benzin
+public class Infektionsrettungswagen extends Fahrzeug
 {
 	private static final long serialVersionUID = 6159612121016380185L;
 	
