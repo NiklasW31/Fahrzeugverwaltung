@@ -18,7 +18,7 @@ public class ErstellungNeuesFahrzeug
 {
 	private static Scanner scanner = new Scanner(System.in);
 
-	public static Fahrzeug erstelleFahrzeug(String k) 
+	public static Fahrzeug erstelleFahrzeug(String str) 
 	{	
 		//Roh-Objekt, wird am Ende gefuellt und ans Haupt-Terminal zurueckgegeben
 		Fahrzeug f = null;
@@ -37,7 +37,7 @@ public class ErstellungNeuesFahrzeug
 		List<String> t2 = new ArrayList<>();
 
 		//Rettungswagen erstellen
-		if (k.equals("1")) {
+		if (str.equals("1")) {
 			ausruestung.addAll(Rettungswagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -52,7 +52,7 @@ public class ErstellungNeuesFahrzeug
 			
 		} 
 		//Notarzteinsatzfahrzeug erstellen
-		else if (k.equals("2")) {
+		else if (str.equals("2")) {
 			ausruestung.addAll(Notarzteinsatzfahrzeug.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -67,7 +67,7 @@ public class ErstellungNeuesFahrzeug
 			
 		} 
 		//Krankentransportwagen erstellen
-		else if (k.equals("3")) {
+		else if (str.equals("3")) {
 			ausruestung.addAll(Krankentransportwagen.fuelleStandardausruestung());
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -82,7 +82,7 @@ public class ErstellungNeuesFahrzeug
 			
 		} 
 		//Infektionsrettungswagen erstellen
-		else if (k.equals("4")) {
+		else if (str.equals("4")) {
 			ausruestung.addAll(Infektionsrettungswagen.fuelleStandardausruestung()); 
 			t1.addAll(eingabeAusruestung(ausruestung));
 			ausruestung = t1;
@@ -97,7 +97,7 @@ public class ErstellungNeuesFahrzeug
 			
 		} 
 		//Einsatzfuehrungsdienst(EFD) erstellen
-		else if (k.equals("5")){
+		else if (str.equals("5")){
 			
 			//explizite Variablen des EFD's
 			EFDKategorien kategorieEDF = einfuegenKategorieEFD();
