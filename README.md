@@ -37,11 +37,12 @@ Rettungsfahrzeuge verwalten für das DRK.
   - ~~07.12.22 – 14.12.22: Aufgabenbeschreibung~~
   - ~~14.12.22 – 21.12.22: Programmierstart – Grundgerüst (Grundklassen, Methoden …)~~
   - ~~21.12.22 – 11.01.22: Verknüpfungen untereinander, Interaktions-Terminal (Main Class)~~
-  - 11.01.22 – 15.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen
+  - ~~11.01.22 – 15.01.22: Verfeinerung, Prüfen ob noch Exceptions fehlen~~
   - 16.01.22: Abgabe des Projekts
 
 ## Authors
 
-- [@NiklasW31](https://www.github.com/NiklasW31)
-- [@Monstershadow](https://www.github.com/Monstershadow)
+- [@NiklasW31/Niklas Wollmer](https://www.github.com/NiklasW31)
+- [@Monstershadow/Lisa Keil](https://www.github.com/Monstershadow)
 
+https://github.com/NiklasW31/Fahrzeugverwaltung
