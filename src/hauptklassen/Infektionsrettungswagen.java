@@ -23,7 +23,7 @@ public class Infektionsrettungswagen extends Fahrzeug
 				ausruestung, ausstattung);
 		
 		//Festsetzung eineheitlicher Information der Infektionsrettungswagen 
-		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n  "
+		setBeschreibung("Der Infektions-Rettungswagen ist speziell fuer den Transport von \n   "
 				+ "Patienten mit hoch ansteckenden, lebensbedrohlichen Erkrankungen ausgelegt.");
 		setErlaubteBesatzung(ErlaubteBesatzung.INFEKTIONSRETTUNGSWAGEN.getBesatzung());
 	}

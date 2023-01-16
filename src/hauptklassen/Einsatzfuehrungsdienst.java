@@ -44,8 +44,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 		s.addAll(Arrays.asList("Stromerzeuger", "4x 4 m-Band Funkgeraete AEG Telecar 10", 
 							   "\n\t\t 2 vollwertige Arbeitsplaetze mit Funk + Telefon + EDV-Technik", 
 							   "\n\t\t 2 Laptops mit Drucker", "Scanner", "Kleinstbeamer",
-							   "\n\t\t Einsatzunterlagen", "Stadtplaene", "Whiteboards", "Flatscreens", 
-							   "\n\t\t Besprechungsraum mit Tisch und seitlichen Sitzbaenken", 
+							   "\n\t\t Einsatzunterlagen", "Stadtplaene", "Flatscreens",
 							   "\n\t\t Notfallrucksack"));
 		return s;
 	}
@@ -54,14 +53,14 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 	public static List<String> fuelleELWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Rueckfahrkamera", "LED-Innenbeleuchtung", "LED-Aussenbeleuchtung",
-							   "\n\t\t"));
+							   "\n\t\tAussenlautsprecher"));
 		return s;
 	}
 	
 	//fuer EFDKategorie Kommandowagen
 	public static List<String> fuelleKWStandardausruestung(){
 		List<String> s = new ArrayList<>();
-		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeräte",
+		s.addAll(Arrays.asList("Einsatzunterlagen", "Kennzeichnungswesten", "2m und 4m Handfunkgeraete",
 							   "\n\t\t Notfallrucksack", "AED", "Verletztenversorgungssets (MANV)", 
 							   "\n\t\t Einsatz-Management-System Convexis Connex"));
 		return s;
@@ -71,7 +70,7 @@ public class Einsatzfuehrungsdienst extends Fahrzeug
 	public static List<String> fuelleKWStandardausstattung(){
 		List<String> s = new ArrayList<>();
 		s.addAll(Arrays.asList("Automatikgetriebe", "Allradantrieb", "Rueckfahrkamera", 
-							   "\n\t\t"));
+							   "\n\t\tScheinwerfer"));
 		return s;
 	}
 	

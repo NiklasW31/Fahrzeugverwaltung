@@ -108,15 +108,15 @@ public class Anwendung
 			
 			for(Fahrzeug fa : fahrzeuge) {
 				if (fa instanceof Rettungswagen) {
-					System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getEinsatzgebiet());
+					System.out.printf("%2d: Rettungswagen, %s \n", counter, fa.getKennzeichen());
 				} else if (fa instanceof Notarzteinsatzfahrzeug) {
-					System.out.printf("%2d: Notarzteinsatzfahrzeug, %s \n", counter, fa.getEinsatzgebiet());
+					System.out.printf("%2d: Notarzteinsatzfahrzeug, %s \n", counter, fa.getKennzeichen());
 				} else if (fa instanceof Krankentransportwagen) {
-					System.out.printf("%2d: Krankentransportwagen, %s \n", counter, fa.getEinsatzgebiet());
+					System.out.printf("%2d: Krankentransportwagen, %s \n", counter, fa.getKennzeichen());
 				} else if (fa instanceof Infektionsrettungswagen) {
-					System.out.printf("%2d: Infektionsrettungswagen, %s \n", counter, fa.getEinsatzgebiet());
+					System.out.printf("%2d: Infektionsrettungswagen, %s \n", counter, fa.getKennzeichen());
 				} else if (fa instanceof Einsatzfuehrungsdienst) {
-					System.out.printf("%2d: Einsatzfuehrungsdienst, %s \n", counter, fa.getEinsatzgebiet());
+					System.out.printf("%2d: Einsatzfuehrungsdienst, %s \n", counter, fa.getKennzeichen());
 				}
 				counter++;
 			}

@@ -23,7 +23,7 @@ public class Krankentransportwagen extends Fahrzeug
 				ausruestung, ausstattung);
 		
 		//Festsetzung eineheitlicher Information der Krankentransportwagen 
-		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n"
+		setBeschreibung("Fuer den Transport, die erweiterte Versorgung, Behandlung \n   "
 				+ "und Ueberwachung von Patienten.");
 		setErlaubteBesatzung(ErlaubteBesatzung.KRANKENTRANSPORTWAGEN.getBesatzung());
 	}
